@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payments & Receipts Ledger - Student Hub Portal</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/portal.css">
+</head>
+
+<body class="portal-body">
+    <div class="sidebar-overlay" onclick="closeSidebar()"></div>
+
+    <div class="portal-layout">
+        <aside class="portal-sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo-icon">🎓</div>
+                <div class="sidebar-brand-text">
+                    <span class="sidebar-brand-title">Student Hub</span>
+                    <span class="sidebar-brand-sub">University Portal</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section-title">Overview</div>
+                <a href="dashboard.html" class="nav-link">
+                    <span class="nav-icon">📊</span> Dashboard
+                </a>
+                <a href="profile.html" class="nav-link">
+                    <span class="nav-icon">👤</span> My Profile
+                </a>
+
+                <div class="nav-section-title">Academics</div>
+                <a href="courses.html" class="nav-link">
+                    <span class="nav-icon">📚</span> Courses & Subjects
+                </a>
+                <a href="timetable.html" class="nav-link">
+                    <span class="nav-icon">🗓️</span> Timetable
+                </a>
+                <a href="attendance.html" class="nav-link">
+                    <span class="nav-icon">📋</span> Attendance
+                </a>
+                <a href="assignments.html" class="nav-link">
+                    <span class="nav-icon">📝</span> Assignments
+                </a>
+                <a href="materials.html" class="nav-link">
+                    <span class="nav-icon">📁</span> Study Material
+                </a>
+                <a href="exams-results.html" class="nav-link">
+                    <span class="nav-icon">🏆</span> Exams & Results
+                </a>
+
+                <div class="nav-section-title">Finance & Residence</div>
+                <a href="college-fees.html" class="nav-link">
+                    <span class="nav-icon">💳</span> College Fees
+                </a>
+                <a href="hostel.html" class="nav-link">
+                    <span class="nav-icon">🏢</span> Hostel & Mess
+                </a>
+                <a href="payments.html" class="nav-link active">
+                    <span class="nav-icon">🧾</span> Payments & Receipts
+                </a>
+
+                <div class="nav-section-title">Services & Campus</div>
+                <a href="parents.html" class="nav-link">
+                    <span class="nav-icon">👨‍👩‍👦</span> Parents / Guardian
+                </a>
+                <a href="documents.html" class="nav-link">
+                    <span class="nav-icon">📄</span> Documents
+                </a>
+                <a href="applications.html" class="nav-link">
+                    <span class="nav-icon">📬</span> Applications
+                </a>
+                <a href="verification.html" class="nav-link">
+                    <span class="nav-icon">🔍</span> Academic Verification
+                </a>
+                <a href="campus.html" class="nav-link">
+                    <span class="nav-icon">🏛️</span> Campus Life
+                </a>
+                <a href="settings.html" class="nav-link">
+                    <span class="nav-icon">⚙️</span> Settings & Help
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="profile.html" class="sidebar-user">
+                    <div class="sidebar-avatar">KR</div>
+                    <div class="sidebar-user-info">
+                        <span class="sidebar-user-name">Kakadiya Rudri</span>
+                        <span class="sidebar-user-id">25CS027</span>
+                    </div>
+                </a>
+                <button class="btn-sidebar-logout" onclick="logoutUser()" title="Logout">🚪</button>
+            </div>
+        </aside>
+
+        <!-- Main Workspace -->
+        <main class="portal-main">
+            <header class="portal-header">
+                <div class="header-left">
+                    <button class="mobile-menu-btn" onclick="toggleSidebar()">☰</button>
+                    <div class="header-title-box">
+                        <h1>Central Payments & Receipts</h1>
+                        <div class="header-breadcrumb">Finance / Transaction History</div>
+                    </div>
+                </div>
+
+                <div class="header-right">
+                    <button class="search-trigger-btn" onclick="openGlobalSearch()">
+                        <span>🔍 Search portal...</span>
+                        <span class="search-shortcut">Ctrl K</span>
+                    </button>
+                    <button class="header-btn" id="themeToggleBtn" onclick="toggleTheme()">🌙</button>
+                    <div style="position: relative;">
+                        <button class="header-btn" id="notifBtn" onclick="toggleNotifications()">🔔<span class="notification-badge-count">2</span></button>
+                    </div>
+                    <div style="position: relative;">
+                        <button class="header-btn" id="profileDropdownBtn" onclick="toggleProfileMenu()">👤</button>
+                    </div>
+                </div>
+            </header>
+
+            <div class="portal-content">
+                <div class="page-top-bar">
+                    <div class="page-title-group">
+                        <h2>Consolidated Financial Transactions</h2>
+                        <p>Complete record of college tuition fees, Tej Smruti hostel rent, dining charges, and exam fee receipts.</p>
+                    </div>
+                    <div class="page-actions">
+                        <a href="college-fees.html" class="btn btn-outline">💳 College Fee Portal</a>
+                        <a href="hostel.html" class="btn btn-outline">🏢 Hostel Fees</a>
+                    </div>
+                </div>
+
+                <!-- Tabs & Search Toolbar -->
+                <div class="filter-toolbar">
+                    <div class="filter-left">
+                        <div class="tabs-nav" id="paymentCategoryTabs" style="margin-bottom: 0; border-bottom: none;">
+                            <button class="tab-btn active" onclick="filterTransactions('all')">All Transactions</button>
+                            <button class="tab-btn" onclick="filterTransactions('College Fees')">College Fees</button>
+                            <button class="tab-btn" onclick="filterTransactions('Hostel & Mess')">Hostel & Mess</button>
+                            <button class="tab-btn" onclick="filterTransactions('Exam Fee')">Exam Fee</button>
+                        </div>
+                    </div>
+                    <div class="filter-right">
+                        <div class="search-input-group">
+                            <span class="search-input-icon">🔍</span>
+                            <input type="text" id="txnSearchInput" placeholder="Search by Transaction ID or Description...">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Central Payments Table Card -->
+                <div class="card">
+                    <div class="card-body" style="padding: 0;">
+                        <div class="table-container">
+                            <table class="portal-table">
+                                <thead>
+                                    <tr>
+                                        <th>Transaction ID</th>
+                                        <th>Payment Date</th>
+                                        <th>Category</th>
+                                        <th>Description</th>
+                                        <th>Amount</th>
+                                        <th>Mode / Gateway</th>
+                                        <th>Status</th>
+                                        <th>Official Receipt</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="ledgerTableBody">
+                                    <!-- Rendered dynamically -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Receipt Preview Modal -->
+    <div class="modal-overlay" id="receiptModal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-header">
+                <h3 class="modal-title">Official CHARUSAT Financial Receipt</h3>
+                <button class="modal-close-btn" onclick="closeModal('receiptModal')">&times;</button>
+            </div>
+            <div class="modal-body" id="receiptModalBody"></div>
+            <div class="modal-footer no-print">
+                <button class="btn btn-secondary" onclick="closeModal('receiptModal')">Close</button>
+                <button class="btn btn-primary" onclick="printReceipt()">🖨️ Print Receipt</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Global Search Modal -->
+    <div class="global-search-modal" id="globalSearchModal">
+        <div class="global-search-box">
+            <div class="global-search-header">
+                <span>🔍</span>
+                <input type="text" id="globalSearchInput" placeholder="Search transactions...">
+                <button class="modal-close-btn" onclick="closeGlobalSearch()">&times;</button>
+            </div>
+            <div class="global-search-results" id="globalSearchResults"></div>
+        </div>
+    </div>
+
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="../js/portal-data.js"></script>
+    <script src="../js/portal.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let activeCategory = "all";
+            const tableBody = document.getElementById("ledgerTableBody");
+            const searchInput = document.getElementById("txnSearchInput");
+
+            window.filterTransactions = function(cat) {
+                activeCategory = cat;
+                document.querySelectorAll("#paymentCategoryTabs .tab-btn").forEach(btn => {
+                    if ((cat === "all" && btn.textContent.includes("All")) || btn.textContent === cat) {
+                        btn.classList.add("active");
+                    } else {
+                        btn.classList.remove("active");
+                    }
+                });
+                renderLedger();
+            };
+
+            function renderLedger() {
+                const data = getPortalData();
+                const query = searchInput.value.toLowerCase().trim();
+                const list = data.paymentsLedger || [];
+
+                const filtered = list.filter(txn => {
+                    const matchesCat = activeCategory === "all" || (txn.category && txn.category.toLowerCase().includes(activeCategory.toLowerCase()));
+                    const matchesQuery = (txn.txnId && txn.txnId.toLowerCase().includes(query)) ||
+                                         (txn.desc && txn.desc.toLowerCase().includes(query)) ||
+                                         (txn.method && txn.method.toLowerCase().includes(query));
+                    return matchesCat && matchesQuery;
+                });
+
+                if (filtered.length === 0) {
+                    tableBody.innerHTML = `
+                        <tr>
+                            <td colspan="8" style="text-align: center; padding: 30px; color: var(--text-muted);">
+                                No transactions found matching your criteria.
+                            </td>
+                        </tr>
+                    `;
+                    return;
+                }
+
+                tableBody.innerHTML = filtered.map(txn => `
+                    <tr>
+                        <td><strong>${txn.txnId}</strong></td>
+                        <td>${txn.date}</td>
+                        <td><span class="badge badge-primary">${txn.category}</span></td>
+                        <td>${txn.desc}</td>
+                        <td><strong style="color: var(--accent-color); font-size: 14px;">₹ ${Number(txn.amount).toLocaleString('en-IN')}</strong></td>
+                        <td><span style="font-size: 12px; color: var(--text-muted);">${txn.method}</span></td>
+                        <td><span class="badge badge-success">✓ ${txn.status}</span></td>
+                        <td>
+                            <button class="btn btn-sm btn-outline" onclick="viewReceipt('${txn.txnId}')">
+                                👁️ View Receipt
+                            </button>
+                        </td>
+                    </tr>
+                `).join("");
+            }
+
+            searchInput.addEventListener("input", renderLedger);
+            renderLedger();
+        });
+    </script>
+</body>
+</html>

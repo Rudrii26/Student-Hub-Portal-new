@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Life & Faculty Directory - Student Hub Portal</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/portal.css">
+</head>
+
+<body class="portal-body">
+    <div class="sidebar-overlay" onclick="closeSidebar()"></div>
+
+    <div class="portal-layout">
+        <aside class="portal-sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo-icon">🎓</div>
+                <div class="sidebar-brand-text">
+                    <span class="sidebar-brand-title">Student Hub</span>
+                    <span class="sidebar-brand-sub">University Portal</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section-title">Overview</div>
+                <a href="dashboard.html" class="nav-link">
+                    <span class="nav-icon">📊</span> Dashboard
+                </a>
+                <a href="profile.html" class="nav-link">
+                    <span class="nav-icon">👤</span> My Profile
+                </a>
+
+                <div class="nav-section-title">Academics</div>
+                <a href="courses.html" class="nav-link">
+                    <span class="nav-icon">📚</span> Courses & Subjects
+                </a>
+                <a href="timetable.html" class="nav-link">
+                    <span class="nav-icon">🗓️</span> Timetable
+                </a>
+                <a href="attendance.html" class="nav-link">
+                    <span class="nav-icon">📋</span> Attendance
+                </a>
+                <a href="assignments.html" class="nav-link">
+                    <span class="nav-icon">📝</span> Assignments
+                </a>
+                <a href="materials.html" class="nav-link">
+                    <span class="nav-icon">📁</span> Study Material
+                </a>
+                <a href="exams-results.html" class="nav-link">
+                    <span class="nav-icon">🏆</span> Exams & Results
+                </a>
+
+                <div class="nav-section-title">Finance & Residence</div>
+                <a href="college-fees.html" class="nav-link">
+                    <span class="nav-icon">💳</span> College Fees
+                </a>
+                <a href="hostel.html" class="nav-link">
+                    <span class="nav-icon">🏢</span> Hostel & Mess
+                </a>
+                <a href="payments.html" class="nav-link">
+                    <span class="nav-icon">🧾</span> Payments & Receipts
+                </a>
+
+                <div class="nav-section-title">Services & Campus</div>
+                <a href="parents.html" class="nav-link">
+                    <span class="nav-icon">👨‍👩‍👦</span> Parents / Guardian
+                </a>
+                <a href="documents.html" class="nav-link">
+                    <span class="nav-icon">📄</span> Documents
+                </a>
+                <a href="applications.html" class="nav-link">
+                    <span class="nav-icon">📬</span> Applications
+                </a>
+                <a href="verification.html" class="nav-link">
+                    <span class="nav-icon">🔍</span> Academic Verification
+                </a>
+                <a href="campus.html" class="nav-link active">
+                    <span class="nav-icon">🏛️</span> Campus Life
+                </a>
+                <a href="settings.html" class="nav-link">
+                    <span class="nav-icon">⚙️</span> Settings & Help
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="profile.html" class="sidebar-user">
+                    <div class="sidebar-avatar">KR</div>
+                    <div class="sidebar-user-info">
+                        <span class="sidebar-user-name">Kakadiya Rudri</span>
+                        <span class="sidebar-user-id">25CS027</span>
+                    </div>
+                </a>
+                <button class="btn-sidebar-logout" onclick="logoutUser()" title="Logout">🚪</button>
+            </div>
+        </aside>
+
+        <!-- Main Workspace -->
+        <main class="portal-main">
+            <header class="portal-header">
+                <div class="header-left">
+                    <button class="mobile-menu-btn" onclick="toggleSidebar()">☰</button>
+                    <div class="header-title-box">
+                        <h1>Campus Life & Faculty Directory</h1>
+                        <div class="header-breadcrumb">Campus / Events & People</div>
+                    </div>
+                </div>
+
+                <div class="header-right">
+                    <button class="search-trigger-btn" onclick="openGlobalSearch()">
+                        <span>🔍 Search portal...</span>
+                        <span class="search-shortcut">Ctrl K</span>
+                    </button>
+                    <button class="header-btn" id="themeToggleBtn" onclick="toggleTheme()">🌙</button>
+                    <div style="position: relative;">
+                        <button class="header-btn" id="notifBtn" onclick="toggleNotifications()">🔔<span class="notification-badge-count">2</span></button>
+                    </div>
+                    <div style="position: relative;">
+                        <button class="header-btn" id="profileDropdownBtn" onclick="toggleProfileMenu()">👤</button>
+                    </div>
+                </div>
+            </header>
+
+            <div class="portal-content">
+                <div class="page-top-bar">
+                    <div class="page-title-group">
+                        <h2>Campus Events, Circulars & Faculty Directory</h2>
+                        <p>Explore upcoming university tech fests, register for hackathons, and contact CSPIT Computer Engineering professors.</p>
+                    </div>
+                </div>
+
+                <!-- 1. Data-Driven Upcoming Campus Events & Competitions -->
+                <div class="card" id="eventsSectionWrapper" style="margin-bottom: 28px;">
+                    <div class="card-header" style="flex-wrap: wrap; gap: 10px;">
+                        <div class="card-title">
+                            <span>🎪</span> Campus Events, Hackathons & Technical Fests
+                        </div>
+                        <span class="badge badge-primary">Dynamic University Calendar</span>
+                    </div>
+
+                    <div class="card-body">
+                        <!-- Events Interactive Controls Card -->
+                        <div class="data-controls-card" style="margin-bottom: 20px;">
+                            <div class="data-controls-row">
+                                <!-- Search Input Box -->
+                                <div class="data-search-box">
+                                    <span class="data-search-icon">🔍</span>
+                                    <input type="text" id="eventSearchInput" placeholder="Search events by title, location, category (e.g. hackathon, workshop)..." aria-label="Search campus events">
+                                    <button type="button" class="data-search-clear" id="eventClearSearchBtn" aria-label="Clear event search">&times;</button>
+                                </div>
+
+                                <!-- Filter & Sort Controls Group -->
+                                <div class="data-filter-group">
+                                    <!-- Category Filter -->
+                                    <div class="data-select-wrap">
+                                        <select id="eventCategorySelect" aria-label="Filter by Event Category">
+                                            <option value="all">All Categories</option>
+                                            <option value="Technical">Technical & Coding</option>
+                                            <option value="Cultural">Cultural & Arts</option>
+                                            <option value="Workshop">Hands-on Workshops</option>
+                                            <option value="Seminar">Seminars & Talks</option>
+                                            <option value="Sports">Sports Leagues</option>
+                                            <option value="Placement">Placement Conclave</option>
+                                            <option value="Academic">Academic & Research</option>
+                                            <option value="Campus">Campus & Social</option>
+                                            <option value="Club">Student Clubs</option>
+                                        </select>
+                                        <span class="data-select-arrow">&#9662;</span>
+                                    </div>
+
+                                    <!-- Status Filter -->
+                                    <div class="data-select-wrap">
+                                        <select id="eventStatusSelect" aria-label="Filter by Event Status">
+                                            <option value="all">All Statuses</option>
+                                            <option value="Open for Registration">Open for Registration</option>
+                                            <option value="Upcoming">Upcoming</option>
+                                            <option value="Ongoing">Live / Ongoing</option>
+                                            <option value="Completed">Completed</option>
+                                        </select>
+                                        <span class="data-select-arrow">&#9662;</span>
+                                    </div>
+
+                                    <!-- Sort By -->
+                                    <div class="data-select-wrap">
+                                        <select id="eventSortSelect" aria-label="Sort Events">
+                                            <option value="date-asc">Date: Soonest First</option>
+                                            <option value="date-desc">Date: Latest First</option>
+                                            <option value="title-asc">Title: A &rarr; Z</option>
+                                            <option value="title-desc">Title: Z &rarr; A</option>
+                                        </select>
+                                        <span class="data-select-arrow">&#9662;</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Live Results Status Counter Bar -->
+                            <div class="data-status-bar">
+                                <div id="eventsStatusCount" class="data-count-text">Loading campus events...</div>
+                                <div style="font-size: 11.5px; color: var(--text-light);">Fetch API Ingestion &bull; Live Updates</div>
+                            </div>
+                        </div>
+
+                        <!-- Dynamic Event Cards Grid -->
+                        <div class="grid-3" id="campusEventsGrid">
+                            <!-- Populated dynamically by js/events.js via Fetch API -->
+                        </div>
+
+                        <!-- Accessible Pagination Controls -->
+                        <div id="eventsPaginationContainer" class="pagination-container">
+                            <!-- Populated dynamically by js/events.js -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Faculty Directory Section with Search -->
+                <div class="card">
+                    <div class="card-header" style="flex-wrap: wrap; gap: 10px;">
+                        <div class="card-title">
+                            <span>👨‍🏫</span> Department Faculty Directory (CSPIT CE)
+                        </div>
+                        <div class="search-input-group" style="min-width: 260px;">
+                            <span class="search-input-icon">🔍</span>
+                            <input type="text" id="facultySearchInput" placeholder="Search professor by name, subject or cabin...">
+                        </div>
+                    </div>
+                    <div class="card-body" style="padding: 0;">
+                        <div class="table-container">
+                            <table class="portal-table">
+                                <thead>
+                                    <tr>
+                                        <th>Faculty Member</th>
+                                        <th>Designation & Dept</th>
+                                        <th>Subjects Taught</th>
+                                        <th>Office / Cabin</th>
+                                        <th>Email Address</th>
+                                        <th>Contact Phone</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="facultyTableBody">
+                                    <!-- Populated by JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Event Registration Modal -->
+    <div class="modal-overlay" id="eventRegModal">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3 class="modal-title" id="eventModalTitle">Register for Campus Event</h3>
+                <button class="modal-close-btn" onclick="closeModal('eventRegModal')">&times;</button>
+            </div>
+            <form id="eventRegistrationForm">
+                <div class="modal-body">
+                    <input type="hidden" id="eventRegId">
+                    <div style="background: var(--primary-light); padding: 12px; border-radius: 6px; border: 1px solid rgba(37,99,235,0.2); margin-bottom: 14px; font-size: 13px;">
+                        <div id="eventModalVenue" style="color: var(--primary-color); font-weight: 700;">CSPIT Auditorium</div>
+                        <div id="eventModalDate" style="font-size: 12px; color: var(--text-muted); margin-top: 2px;">October 25 - 27, 2026</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Student Participant</label>
+                        <input type="text" id="eventStudentParticipant" value="Kakadiya Rudri Alpeshbhai (25CS027 • 3rd Sem CE)" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="eventTeamName">Team Name (If participating in group)</label>
+                        <input type="text" id="eventTeamName" placeholder="e.g. CodeForge CSPIT">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="eventExperience">Programming Skills / Track</label>
+                        <select id="eventExperience">
+                            <option value="AI / Machine Learning">AI & Data Science Track</option>
+                            <option value="Competitive Programming">Data Structures & Competitive Coding</option>
+                            <option value="Full-Stack Web">Full-Stack Web & Cloud</option>
+                            <option value="General Open Track">General Open Innovation</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('eventRegModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary" id="btnConfirmEventReg">Confirm Registration</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Global Search Modal -->
+    <div class="global-search-modal" id="globalSearchModal">
+        <div class="global-search-box">
+            <div class="global-search-header">
+                <span>🔍</span>
+                <input type="text" id="globalSearchInput" placeholder="Search events, faculty...">
+                <button class="modal-close-btn" onclick="closeGlobalSearch()">&times;</button>
+            </div>
+            <div class="global-search-results" id="globalSearchResults"></div>
+        </div>
+    </div>
+
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="../js/portal-data.js"></script>
+    <script src="../js/portal.js"></script>
+    <script src="../js/events.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const data = getPortalData();
+            const facultyBody = document.getElementById("facultyTableBody");
+            const facultySearch = document.getElementById("facultySearchInput");
+
+            function renderFaculty() {
+                if (!facultyBody || !facultySearch) return;
+                const query = facultySearch.value.toLowerCase().trim();
+                const list = data.facultyDirectory || [];
+                const filtered = list.filter(f => 
+                    f.name.toLowerCase().includes(query) ||
+                    f.subjects.toLowerCase().includes(query) ||
+                    f.room.toLowerCase().includes(query)
+                );
+
+                if (filtered.length === 0) {
+                    facultyBody.innerHTML = `
+                        <tr>
+                            <td colspan="6" style="text-align: center; padding: 25px; color: var(--text-muted);">
+                                No faculty members found matching your search.
+                            </td>
+                        </tr>
+                    `;
+                    return;
+                }
+
+                facultyBody.innerHTML = filtered.map(f => `
+                    <tr>
+                        <td><strong>${f.name}</strong></td>
+                        <td>${f.designation}<br><span style="font-size: 11px; color: var(--text-muted);">${f.department}</span></td>
+                        <td><span class="badge badge-primary">${f.subjects}</span></td>
+                        <td>${f.room}</td>
+                        <td><a href="mailto:${f.email}" style="color: var(--accent-color); text-decoration: none;">${f.email}</a></td>
+                        <td>${f.phone}</td>
+                    </tr>
+                `).join("");
+            }
+
+            if (facultySearch) {
+                facultySearch.addEventListener("input", renderFaculty);
+            }
+            renderFaculty();
+        });
+    </script>
+</body>
+</html>

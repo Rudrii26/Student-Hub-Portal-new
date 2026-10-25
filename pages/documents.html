@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documents & Certificates - Student Hub Portal</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/portal.css">
+</head>
+
+<body class="portal-body">
+    <div class="sidebar-overlay" onclick="closeSidebar()"></div>
+
+    <div class="portal-layout">
+        <aside class="portal-sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo-icon">🎓</div>
+                <div class="sidebar-brand-text">
+                    <span class="sidebar-brand-title">Student Hub</span>
+                    <span class="sidebar-brand-sub">University Portal</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section-title">Overview</div>
+                <a href="dashboard.html" class="nav-link">
+                    <span class="nav-icon">📊</span> Dashboard
+                </a>
+                <a href="profile.html" class="nav-link">
+                    <span class="nav-icon">👤</span> My Profile
+                </a>
+
+                <div class="nav-section-title">Academics</div>
+                <a href="courses.html" class="nav-link">
+                    <span class="nav-icon">📚</span> Courses & Subjects
+                </a>
+                <a href="timetable.html" class="nav-link">
+                    <span class="nav-icon">🗓️</span> Timetable
+                </a>
+                <a href="attendance.html" class="nav-link">
+                    <span class="nav-icon">📋</span> Attendance
+                </a>
+                <a href="assignments.html" class="nav-link">
+                    <span class="nav-icon">📝</span> Assignments
+                </a>
+                <a href="materials.html" class="nav-link">
+                    <span class="nav-icon">📁</span> Study Material
+                </a>
+                <a href="exams-results.html" class="nav-link">
+                    <span class="nav-icon">🏆</span> Exams & Results
+                </a>
+
+                <div class="nav-section-title">Finance & Residence</div>
+                <a href="college-fees.html" class="nav-link">
+                    <span class="nav-icon">💳</span> College Fees
+                </a>
+                <a href="hostel.html" class="nav-link">
+                    <span class="nav-icon">🏢</span> Hostel & Mess
+                </a>
+                <a href="payments.html" class="nav-link">
+                    <span class="nav-icon">🧾</span> Payments & Receipts
+                </a>
+
+                <div class="nav-section-title">Services & Campus</div>
+                <a href="parents.html" class="nav-link">
+                    <span class="nav-icon">👨‍👩‍👦</span> Parents / Guardian
+                </a>
+                <a href="documents.html" class="nav-link active">
+                    <span class="nav-icon">📄</span> Documents
+                </a>
+                <a href="applications.html" class="nav-link">
+                    <span class="nav-icon">📬</span> Applications
+                </a>
+                <a href="verification.html" class="nav-link">
+                    <span class="nav-icon">🔍</span> Academic Verification
+                </a>
+                <a href="campus.html" class="nav-link">
+                    <span class="nav-icon">🏛️</span> Campus Life
+                </a>
+                <a href="settings.html" class="nav-link">
+                    <span class="nav-icon">⚙️</span> Settings & Help
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="profile.html" class="sidebar-user">
+                    <div class="sidebar-avatar">KR</div>
+                    <div class="sidebar-user-info">
+                        <span class="sidebar-user-name">Kakadiya Rudri</span>
+                        <span class="sidebar-user-id">25CS027</span>
+                    </div>
+                </a>
+                <button class="btn-sidebar-logout" onclick="logoutUser()" title="Logout">🚪</button>
+            </div>
+        </aside>
+
+        <!-- Main Workspace -->
+        <main class="portal-main">
+            <header class="portal-header">
+                <div class="header-left">
+                    <button class="mobile-menu-btn" onclick="toggleSidebar()">☰</button>
+                    <div class="header-title-box">
+                        <h1>Documents & Certificates</h1>
+                        <div class="header-breadcrumb">Services / Official Records</div>
+                    </div>
+                </div>
+
+                <div class="header-right">
+                    <button class="search-trigger-btn" onclick="openGlobalSearch()">
+                        <span>🔍 Search portal...</span>
+                        <span class="search-shortcut">Ctrl K</span>
+                    </button>
+                    <button class="header-btn" id="themeToggleBtn" onclick="toggleTheme()">🌙</button>
+                    <div style="position: relative;">
+                        <button class="header-btn" id="notifBtn" onclick="toggleNotifications()">🔔<span class="notification-badge-count">2</span></button>
+                    </div>
+                    <div style="position: relative;">
+                        <button class="header-btn" id="profileDropdownBtn" onclick="toggleProfileMenu()">👤</button>
+                    </div>
+                </div>
+            </header>
+
+            <div class="portal-content">
+                <div class="page-top-bar">
+                    <div class="page-title-group">
+                        <h2>University Digital Document Locker</h2>
+                        <p>Verified digital certificates, official semester grade cards, transcripts, and credentials for 25CS027.</p>
+                    </div>
+                    <div class="page-actions">
+                        <button class="btn btn-primary" onclick="openModal('docRequestModal')">
+                            ➕ Request New Certificate
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Documents List Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <span>📄</span> Issued Official Documents
+                        </div>
+                        <span class="badge badge-success">Digital Signatures: Verified</span>
+                    </div>
+                    <div class="card-body" style="padding: 0;">
+                        <div class="table-container">
+                            <table class="portal-table">
+                                <thead>
+                                    <tr>
+                                        <th>Document Title</th>
+                                        <th>Category</th>
+                                        <th>Issue / Verification Date</th>
+                                        <th>Certificate No / ID</th>
+                                        <th>Digital Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="documentsTableBody">
+                                    <!-- Populated by JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Request Document Modal -->
+    <div class="modal-overlay" id="docRequestModal">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3 class="modal-title">Request Official Certificate</h3>
+                <button class="modal-close-btn" onclick="closeModal('docRequestModal')">&times;</button>
+            </div>
+            <form id="docRequestForm">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="reqDocType">Select Document Type</label>
+                        <select id="reqDocType" required>
+                            <option value="Bonafide Certificate">Bonafide Student Certificate</option>
+                            <option value="Official Transcript">Consolidated Academic Transcript</option>
+                            <option value="Duplicate Grade Card">Duplicate Semester Grade Card</option>
+                            <option value="Character Certificate">Conduct & Character Certificate</option>
+                            <option value="No Objection Certificate (NOC)">No Objection Certificate (NOC for Internship)</option>
+                            <option value="Migration Certificate">University Migration Certificate</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reqPurpose">Purpose of Request</label>
+                        <textarea id="reqPurpose" rows="3" placeholder="e.g. Required for Summer Internship application / Passport renewal..." required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reqDeliveryMode">Delivery Format</label>
+                        <select id="reqDeliveryMode">
+                            <option value="Digital Download (PDF)">Digital Signed PDF (Within 24 Hours)</option>
+                            <option value="Hard Copy (Controller of Exams Office)">Hard Copy with Embossed University Seal (3-5 Days)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('docRequestModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Submit Document Request</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Global Search Modal -->
+    <div class="global-search-modal" id="globalSearchModal">
+        <div class="global-search-box">
+            <div class="global-search-header">
+                <span>🔍</span>
+                <input type="text" id="globalSearchInput" placeholder="Search documents...">
+                <button class="modal-close-btn" onclick="closeGlobalSearch()">&times;</button>
+            </div>
+            <div class="global-search-results" id="globalSearchResults"></div>
+        </div>
+    </div>
+
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="../js/portal-data.js"></script>
+    <script src="../js/portal.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const data = getPortalData();
+            const tableBody = document.getElementById("documentsTableBody");
+
+            function renderDocs() {
+                const list = data.documents || [];
+                tableBody.innerHTML = list.map(doc => `
+                    <tr>
+                        <td>
+                            <strong>${doc.title || doc.name}</strong><br>
+                            <span style="font-size: 11px; color: var(--text-muted);">${doc.id}</span>
+                        </td>
+                        <td><span class="badge badge-primary">${doc.type}</span></td>
+                        <td>${doc.issued || doc.issueDate || '2026-08-10'}</td>
+                        <td><code>${doc.certNo || doc.id}</code></td>
+                        <td><span class="badge badge-success">✓ ${doc.status || 'Verified'}</span></td>
+                        <td>
+                            <button class="btn btn-sm btn-outline" onclick="showToast('Downloading verified copy of ${doc.title || doc.name}...', 'success')">
+                                📥 Download PDF
+                            </button>
+                        </td>
+                    </tr>
+                `).join("");
+            }
+
+            const reqForm = document.getElementById("docRequestForm");
+            reqForm.addEventListener("submit", function(e) {
+                e.preventDefault();
+                const docType = document.getElementById("reqDocType").value;
+                const purpose = document.getElementById("reqPurpose").value.trim();
+                const newAppId = `APP-2026-${Math.floor(110 + Math.random() * 800)}`;
+                const todayStr = new Date().toISOString().split('T')[0];
+
+                data.applications = data.applications || [];
+                data.applications.unshift({
+                    id: newAppId,
+                    type: docType,
+                    subject: `${docType}: ${purpose.substring(0, 45)}...`,
+                    submittedDate: todayStr,
+                    status: "Under Review",
+                    remarks: "Request submitted to Registrar Office for electronic verification."
+                });
+
+                data.recentActivity = data.recentActivity || [];
+                data.recentActivity.unshift({
+                    title: `Requested ${docType}`,
+                    time: "Just now",
+                    icon: "📄"
+                });
+
+                savePortalData(data);
+                closeModal("docRequestModal");
+                reqForm.reset();
+                showToast(`Request #${newAppId} submitted to Registrar Office! Track under Applications tab.`, "success");
+            });
+
+            renderDocs();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Record - Student Hub Portal</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/portal.css">
+</head>
+
+<body class="portal-body">
+    <div class="sidebar-overlay" onclick="closeSidebar()"></div>
+
+    <div class="portal-layout">
+        <aside class="portal-sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo-icon">🎓</div>
+                <div class="sidebar-brand-text">
+                    <span class="sidebar-brand-title">Student Hub</span>
+                    <span class="sidebar-brand-sub">University Portal</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section-title">Overview</div>
+                <a href="dashboard.html" class="nav-link">
+                    <span class="nav-icon">📊</span> Dashboard
+                </a>
+                <a href="profile.html" class="nav-link">
+                    <span class="nav-icon">👤</span> My Profile
+                </a>
+
+                <div class="nav-section-title">Academics</div>
+                <a href="courses.html" class="nav-link">
+                    <span class="nav-icon">📚</span> Courses & Subjects
+                </a>
+                <a href="timetable.html" class="nav-link">
+                    <span class="nav-icon">🗓️</span> Timetable
+                </a>
+                <a href="attendance.html" class="nav-link active">
+                    <span class="nav-icon">📋</span> Attendance
+                </a>
+                <a href="assignments.html" class="nav-link">
+                    <span class="nav-icon">📝</span> Assignments
+                </a>
+                <a href="materials.html" class="nav-link">
+                    <span class="nav-icon">📁</span> Study Material
+                </a>
+                <a href="exams-results.html" class="nav-link">
+                    <span class="nav-icon">🏆</span> Exams & Results
+                </a>
+
+                <div class="nav-section-title">Finance & Residence</div>
+                <a href="college-fees.html" class="nav-link">
+                    <span class="nav-icon">💳</span> College Fees
+                </a>
+                <a href="hostel.html" class="nav-link">
+                    <span class="nav-icon">🏢</span> Hostel & Mess
+                </a>
+                <a href="payments.html" class="nav-link">
+                    <span class="nav-icon">🧾</span> Payments & Receipts
+                </a>
+
+                <div class="nav-section-title">Services & Campus</div>
+                <a href="parents.html" class="nav-link">
+                    <span class="nav-icon">👨‍👩‍👦</span> Parents / Guardian
+                </a>
+                <a href="documents.html" class="nav-link">
+                    <span class="nav-icon">📄</span> Documents
+                </a>
+                <a href="applications.html" class="nav-link">
+                    <span class="nav-icon">📬</span> Applications
+                </a>
+                <a href="verification.html" class="nav-link">
+                    <span class="nav-icon">🔍</span> Academic Verification
+                </a>
+                <a href="campus.html" class="nav-link">
+                    <span class="nav-icon">🏛️</span> Campus Life
+                </a>
+                <a href="settings.html" class="nav-link">
+                    <span class="nav-icon">⚙️</span> Settings & Help
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="profile.html" class="sidebar-user">
+                    <div class="sidebar-avatar">KR</div>
+                    <div class="sidebar-user-info">
+                        <span class="sidebar-user-name">Kakadiya Rudri</span>
+                        <span class="sidebar-user-id">25CS027</span>
+                    </div>
+                </a>
+                <button class="btn-sidebar-logout" onclick="logoutUser()" title="Logout">🚪</button>
+            </div>
+        </aside>
+
+        <!-- Main Workspace -->
+        <main class="portal-main">
+            <header class="portal-header">
+                <div class="header-left">
+                    <button class="mobile-menu-btn" onclick="toggleSidebar()">☰</button>
+                    <div class="header-title-box">
+                        <h1>Attendance Record</h1>
+                        <div class="header-breadcrumb">Academics / Attendance Report (Section CS-1)</div>
+                    </div>
+                </div>
+
+                <div class="header-right">
+                    <button class="search-trigger-btn" onclick="openGlobalSearch()">
+                        <span>🔍 Search portal...</span>
+                        <span class="search-shortcut">Ctrl K</span>
+                    </button>
+                    <button class="header-btn" id="themeToggleBtn" onclick="toggleTheme()">🌙</button>
+                    <div style="position: relative;">
+                        <button class="header-btn" id="notifBtn" onclick="toggleNotifications()">🔔<span class="notification-badge-count">2</span></button>
+                    </div>
+                    <div style="position: relative;">
+                        <button class="header-btn" id="profileDropdownBtn" onclick="toggleProfileMenu()">👤</button>
+                    </div>
+                </div>
+            </header>
+
+            <div class="portal-content">
+                <div class="page-top-bar">
+                    <div class="page-title-group">
+                        <h2>Semester 3 Attendance Telemetry &bull; CSPIT</h2>
+                        <p>Minimum 75% attendance is required as per University Academic Regulations.</p>
+                    </div>
+                    <div class="page-actions">
+                        <button class="btn btn-secondary" onclick="window.print()">🖨️ Export Report</button>
+                    </div>
+                </div>
+
+                <!-- Top Overall Attendance Metrics -->
+                <div class="stat-grid">
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <span class="stat-label">Overall Attendance</span>
+                            <span class="stat-value" style="color: var(--success);">89.0%</span>
+                            <span class="stat-sub">Overall Academic Standing: Safe</span>
+                        </div>
+                        <div class="stat-icon green">📋</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <span class="stat-label">Classes Attended</span>
+                            <span class="stat-value">187 Classes</span>
+                            <span class="stat-sub">Present across all subjects</span>
+                        </div>
+                        <div class="stat-icon cyan">✅</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <span class="stat-label">Total Conducted</span>
+                            <span class="stat-value">210 Classes</span>
+                            <span class="stat-sub">Recorded to date in Sem 3</span>
+                        </div>
+                        <div class="stat-icon">📚</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <span class="stat-label">Safe Margin</span>
+                            <span class="stat-value" style="color: var(--success);">+28 Classes</span>
+                            <span class="stat-sub">Can miss without falling < 75%</span>
+                        </div>
+                        <div class="stat-icon green">🛡️</div>
+                    </div>
+                </div>
+
+                <!-- Criteria Guide Banner -->
+                <div class="card" style="background-color: var(--bg-alt); margin-bottom: 24px;">
+                    <div class="card-body" style="padding: 14px 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-size: 13px;">
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <strong>Criteria Legend:</strong>
+                            <span class="badge badge-success">Safe (&ge; 75%)</span>
+                            <span class="badge badge-warning">Warning (65% - 74.9%)</span>
+                            <span class="badge badge-danger">Critical (&lt; 65%)</span>
+                        </div>
+                        <div style="color: var(--text-muted);">
+                            ℹ️ Mentor: Prof. Vaibhavi Patel &bull; CSPIT Computer Engineering
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Subject-Wise Attendance Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <span>📊</span> Subject-Wise Attendance Breakdown
+                        </div>
+                        <div style="display: flex; gap: 10px;">
+                            <select id="attendanceFilter" style="width: auto; padding: 4px 10px; font-size: 13px;">
+                                <option value="all">All Subjects</option>
+                                <option value="safe">Safe (&ge; 75%)</option>
+                                <option value="warning">Warning / Critical</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="card-body" style="padding: 0;">
+                        <div class="table-container">
+                            <table class="portal-table">
+                                <thead>
+                                    <tr>
+                                        <th>Subject Code</th>
+                                        <th>Course Title</th>
+                                        <th>Classes Held</th>
+                                        <th>Attended</th>
+                                        <th style="width: 25%;">Attendance Progress</th>
+                                        <th>Percentage</th>
+                                        <th>Standing Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="attendanceTableBody">
+                                    <!-- Rendered dynamically -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Monthly Attendance & Shortage Calculator Grids -->
+                <div class="grid-2">
+                    <!-- Monthly Attendance Trend -->
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">
+                                <span>🗓️</span> Month-Wise Attendance Summary
+                            </div>
+                        </div>
+                        <div class="card-body" style="padding: 0;">
+                            <div class="table-container">
+                                <table class="portal-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Academic Month</th>
+                                            <th>Classes Held</th>
+                                            <th>Attended</th>
+                                            <th>Percentage</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="monthlyAttendanceBody">
+                                        <!-- Rendered dynamically -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Attendance Target & Shortage Calculator -->
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">
+                                <span>🧮</span> Attendance Target Calculator
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 14px;">
+                                Select a subject to calculate how many consecutive upcoming classes you can safely miss or must attend.
+                            </p>
+                            <div class="form-group">
+                                <label for="calcSubjectSelect">Select Subject</label>
+                                <select id="calcSubjectSelect">
+                                    <!-- Populated by JS -->
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="calcTargetRate">Target Percentage</label>
+                                <select id="calcTargetRate">
+                                    <option value="75">75% (Minimum Exam Eligibility)</option>
+                                    <option value="80">80% (Safe Standing)</option>
+                                    <option value="85">85% (Distinction Honor)</option>
+                                    <option value="90">90% (Outstanding)</option>
+                                </select>
+                            </div>
+                            <div id="calcResultBox" style="background-color: var(--primary-light); padding: 12px; border-radius: var(--radius-sm); border: 1px solid rgba(37,99,235,0.2); font-size: 13px;">
+                                <!-- Result calculation text -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Global Search Modal -->
+    <div class="global-search-modal" id="globalSearchModal">
+        <div class="global-search-box">
+            <div class="global-search-header">
+                <span>🔍</span>
+                <input type="text" id="globalSearchInput" placeholder="Search portal...">
+                <button class="modal-close-btn" onclick="closeGlobalSearch()">&times;</button>
+            </div>
+            <div class="global-search-results" id="globalSearchResults"></div>
+        </div>
+    </div>
+
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="../js/portal-data.js"></script>
+    <script src="../js/portal.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const data = getPortalData();
+            const tableBody = document.getElementById("attendanceTableBody");
+            const filterSelect = document.getElementById("attendanceFilter");
+            const monthlyBody = document.getElementById("monthlyAttendanceBody");
+            const calcSubjectSelect = document.getElementById("calcSubjectSelect");
+            const calcTargetRate = document.getElementById("calcTargetRate");
+            const calcResultBox = document.getElementById("calcResultBox");
+
+            function renderAttendanceTable() {
+                const filter = filterSelect.value;
+                const subjects = (data.attendanceData && data.attendanceData.subjects) || [];
+                const filtered = subjects.filter(s => {
+                    if (filter === "all") return true;
+                    if (filter === "safe") return s.percentage >= 75;
+                    if (filter === "warning") return s.percentage < 75;
+                    return true;
+                });
+
+                tableBody.innerHTML = filtered.map(s => {
+                    let badgeClass = "badge-success";
+                    let fillClass = "green";
+                    let statusText = "Safe (&ge;75%)";
+
+                    if (s.percentage < 65) {
+                        badgeClass = "badge-danger";
+                        fillClass = "red";
+                        statusText = "Critical (<65%)";
+                    } else if (s.percentage < 75) {
+                        badgeClass = "badge-warning";
+                        fillClass = "amber";
+                        statusText = "Warning (Shortage)";
+                    }
+
+                    return `
+                        <tr>
+                            <td><span class="badge badge-primary">${s.code}</span></td>
+                            <td><strong>${s.name}</strong></td>
+                            <td>${s.total}</td>
+                            <td>${s.present}</td>
+                            <td>
+                                <div class="progress-bar-container">
+                                    <div class="progress-bar-fill ${fillClass}" style="width: ${s.percentage}%;"></div>
+                                </div>
+                            </td>
+                            <td><strong style="font-size: 14px;">${s.percentage}%</strong></td>
+                            <td><span class="badge ${badgeClass}">${statusText}</span></td>
+                        </tr>
+                    `;
+                }).join("");
+            }
+
+            // Monthly Breakdown
+            const monthlyList = (data.attendanceData && data.attendanceData.monthly) || [
+                { month: "July 2026", classes: 52, attended: 48, rate: "92.3%" },
+                { month: "August 2026", classes: 68, attended: 61, rate: "89.7%" },
+                { month: "September 2026", classes: 64, attended: 57, rate: "89.0%" },
+                { month: "October 2026 (Ongoing)", classes: 26, attended: 21, rate: "80.8%" }
+            ];
+
+            if (monthlyBody) {
+                monthlyBody.innerHTML = monthlyList.map(m => `
+                    <tr>
+                        <td><strong>${m.month}</strong></td>
+                        <td>${m.classes}</td>
+                        <td>${m.attended}</td>
+                        <td><span class="badge badge-primary">${m.rate}</span></td>
+                    </tr>
+                `).join("");
+            }
+
+            // Populate Calculator Subject Select
+            if (calcSubjectSelect && data.attendanceData && data.attendanceData.subjects) {
+                calcSubjectSelect.innerHTML = data.attendanceData.subjects.map(s => `
+                    <option value="${s.code}">${s.code} - ${s.name} (Current: ${s.percentage}%)</option>
+                `).join("");
+            }
+
+            function updateCalculator() {
+                if (!calcSubjectSelect || !calcTargetRate || !calcResultBox) return;
+                const selectedCode = calcSubjectSelect.value;
+                const target = parseFloat(calcTargetRate.value);
+                const sub = data.attendanceData.subjects.find(s => s.code === selectedCode);
+                if (!sub) return;
+
+                const P = sub.present;
+                const T = sub.total;
+                const targetFraction = target / 100;
+
+                if (sub.percentage >= target) {
+                    const canMiss = Math.floor((P - (targetFraction * T)) / targetFraction);
+                    calcResultBox.innerHTML = `
+                        <div style="color: var(--success); font-weight: 700; margin-bottom: 4px;">✓ Target Met!</div>
+                        <div>Your current attendance for <strong>${sub.name}</strong> is <strong>${sub.percentage}%</strong>. You can safely miss up to <strong>${Math.max(0, canMiss)} upcoming classes</strong> while remaining at or above <strong>${target}%</strong>.</div>
+                    `;
+                } else {
+                    const needed = Math.ceil(((targetFraction * T) - P) / (1 - targetFraction));
+                    calcResultBox.innerHTML = `
+                        <div style="color: var(--warning); font-weight: 700; margin-bottom: 4px;">⚠️ Action Required:</div>
+                        <div>You must attend the next <strong>${needed} consecutive classes</strong> of <strong>${sub.name}</strong> without missing any to raise your attendance to <strong>${target}%</strong>.</div>
+                    `;
+                }
+            }
+
+            filterSelect.addEventListener("change", renderAttendanceTable);
+            calcSubjectSelect.addEventListener("change", updateCalculator);
+            calcTargetRate.addEventListener("change", updateCalculator);
+
+            renderAttendanceTable();
+            updateCalculator();
+        });
+    </script>
+</body>
+</html>

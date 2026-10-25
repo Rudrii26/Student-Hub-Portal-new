@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parents & Guardian Information - Student Hub Portal</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/portal.css">
+</head>
+
+<body class="portal-body">
+    <div class="sidebar-overlay" onclick="closeSidebar()"></div>
+
+    <div class="portal-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="portal-sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo-icon">🎓</div>
+                <div class="sidebar-brand-text">
+                    <span class="sidebar-brand-title">CHARUSAT</span>
+                    <span class="sidebar-brand-sub">e-Governance Portal</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section-title">Overview</div>
+                <a href="dashboard.html" class="nav-link">
+                    <span class="nav-icon">📊</span> Dashboard
+                </a>
+                <a href="profile.html" class="nav-link">
+                    <span class="nav-icon">👤</span> My Profile
+                </a>
+
+                <div class="nav-section-title">Academics</div>
+                <a href="courses.html" class="nav-link">
+                    <span class="nav-icon">📚</span> Courses & Subjects
+                </a>
+                <a href="timetable.html" class="nav-link">
+                    <span class="nav-icon">🗓️</span> Timetable
+                </a>
+                <a href="attendance.html" class="nav-link">
+                    <span class="nav-icon">📋</span> Attendance
+                </a>
+                <a href="assignments.html" class="nav-link">
+                    <span class="nav-icon">📝</span> Assignments
+                </a>
+                <a href="materials.html" class="nav-link">
+                    <span class="nav-icon">📁</span> Study Material
+                </a>
+                <a href="exams-results.html" class="nav-link">
+                    <span class="nav-icon">🏆</span> Exams & Results
+                </a>
+
+                <div class="nav-section-title">Finance & Residence</div>
+                <a href="college-fees.html" class="nav-link">
+                    <span class="nav-icon">💳</span> College Fees
+                </a>
+                <a href="hostel.html" class="nav-link">
+                    <span class="nav-icon">🏢</span> Hostel & Mess
+                </a>
+                <a href="payments.html" class="nav-link">
+                    <span class="nav-icon">🧾</span> Payments & Receipts
+                </a>
+
+                <div class="nav-section-title">Services & Campus</div>
+                <a href="parents.html" class="nav-link active">
+                    <span class="nav-icon">👨‍👩‍👦</span> Parents / Guardian
+                </a>
+                <a href="documents.html" class="nav-link">
+                    <span class="nav-icon">📄</span> Documents
+                </a>
+                <a href="applications.html" class="nav-link">
+                    <span class="nav-icon">📬</span> Applications
+                </a>
+                <a href="verification.html" class="nav-link">
+                    <span class="nav-icon">🔍</span> Academic Verification
+                </a>
+                <a href="campus.html" class="nav-link">
+                    <span class="nav-icon">🏛️</span> Campus Life
+                </a>
+                <a href="settings.html" class="nav-link">
+                    <span class="nav-icon">⚙️</span> Settings & Help
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="profile.html" class="sidebar-user">
+                    <div class="sidebar-avatar">KR</div>
+                    <div class="sidebar-user-info">
+                        <span class="sidebar-user-name">Kakadiya Rudri Alpeshbhai</span>
+                        <span class="sidebar-user-id">25CS027</span>
+                    </div>
+                </a>
+                <button class="btn-sidebar-logout" onclick="logoutUser()" title="Logout">🚪</button>
+            </div>
+        </aside>
+
+        <!-- Main Workspace -->
+        <main class="portal-main">
+            <header class="portal-header">
+                <div class="header-left">
+                    <button class="mobile-menu-btn" onclick="toggleSidebar()">☰</button>
+                    <div class="header-title-box">
+                        <h1>Parents & Guardian Information</h1>
+                        <div class="header-breadcrumb">Services / Family & Contacts</div>
+                    </div>
+                </div>
+
+                <div class="header-right">
+                    <button class="search-trigger-btn" onclick="openGlobalSearch()">
+                        <span>🔍 Search portal...</span>
+                        <span class="search-shortcut">Ctrl K</span>
+                    </button>
+                    <button class="header-btn" id="themeToggleBtn" onclick="toggleTheme()">🌙</button>
+                    <div style="position: relative;">
+                        <button class="header-btn" id="notifBtn" onclick="toggleNotifications()">🔔<span class="notification-badge-count">2</span></button>
+                    </div>
+                    <div style="position: relative;">
+                        <button class="header-btn" id="profileDropdownBtn" onclick="toggleProfileMenu()">👤</button>
+                    </div>
+                </div>
+            </header>
+
+            <div class="portal-content">
+                <div class="page-top-bar">
+                    <div class="page-title-group">
+                        <h2>Parental Records & Emergency Contacts</h2>
+                        <p>Registered father, mother, and guardian contact details for university records.</p>
+                    </div>
+                    <div class="page-actions">
+                        <button class="btn btn-primary" onclick="openModal('editParentsModal')">✏️ Update Contact Information</button>
+                    </div>
+                </div>
+
+                <!-- Emergency Contact Highlight Banner -->
+                <div class="card" style="background: var(--danger-bg); border: 1px solid rgba(239,68,68,0.3); margin-bottom: 24px;">
+                    <div class="card-body" style="padding: 16px 22px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+                        <div style="display: flex; align-items: center; gap: 14px;">
+                            <span style="font-size: 28px;">🚨</span>
+                            <div>
+                                <h3 style="font-size: 15px; font-weight: 700; color: var(--danger);">Primary Emergency Contact:</h3>
+                                <p style="font-size: 13.5px; color: var(--text-main);">
+                                    <strong id="emergName">Alpeshbhai Kakadiya (Father)</strong> &bull; Phone: <strong id="emergPhone">+91 98242 40351</strong>
+                                </p>
+                            </div>
+                        </div>
+                        <div>
+                            <a href="tel:+919824240351" class="btn btn-danger" id="emergCallBtn">📞 Call Emergency Number</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Three Columns: Father, Mother, Primary Guardian -->
+                <div class="grid-3">
+                    <!-- Father Card -->
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">
+                                <span>👨</span> Father's Details
+                            </div>
+                            <span class="badge badge-primary">Primary Parent</span>
+                        </div>
+                        <div class="card-body">
+                            <div style="display: flex; flex-direction: column; gap: 12px; font-size: 13px;">
+                                <div>
+                                    <span style="color: var(--text-muted); display: block;">Full Name:</span>
+                                    <strong style="font-size: 14px;" id="fatherName">Alpeshbhai Kakadiya</strong>
+                                </div>
+                                <div>
+                                    <span style="color: var(--text-muted); display: block;">Occupation / Designation:</span>
+                                    <span id="fatherOcc">Business Executive</span>
+                                </div>
+                                <div>
+                                    <span style="color: var(--text-muted); display: block;">Phone Number:</span>
+                                    <strong id="fatherPhone">+91 98242 40351</strong>
+                                </div>
+                                <div>
+                                    <span style="color: var(--text-muted); display: block;">Email Address:</span>
+                                    <span id="fatherEmail">alpeshbhai.kakadiya@gmail.com</span>
+                                </div>
+                                <div>
+                                    <span style="color: var(--text-muted); display: block;">Residential Address:</span>
+                                    <span id="fatherAddress">Shukan Sky, Dabholi Link Road, Katargam, Surat, Gujarat - 395004</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer" style="padding: 14px 20px; border-top: 1px solid var(--border-color); display: flex; gap: 12px;">
+                            <a href="tel:+919824240351" class="btn btn-sm btn-secondary" style="flex: 1;" id="fatherCallBtn">📞 Call</a>
+                            <a href="mailto:alpeshbhai.kakadiya@gmail.com" class="btn btn-sm btn-outline" style="flex: 1;" id="fatherEmailBtn">✉️ Email</a>
+                        </div>
+                    </div>
+
+                    <!-- Mother Card -->
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">
+                                <span>👩</span> Mother's Details
+                            </div>
+                            <span class="badge badge-primary">Parent</span>
+                        </div>
+                        <div class="card-body">
+                            <div style="display: flex; flex-direction: column; gap: 12px; font-size: 13px;">
+                                <div>
+                                    <span style="color: var(--text-muted); display: block;">Full Name:</span>
+                                    <strong style="font-size: 14px;" id="motherName">Paritaben Kakadiya</strong>
+                                </div>
+                                <div>
+                                    <span style="color: var(--text-muted); display: block;">Occupation / Designation:</span>
+                                    <span id="motherOcc">Homemaker</span>
+                                </div>
+                                <div>
+                                    <span style="color: var(--text-muted); display: block;">Phone Number:</span>
+                                    <strong id="motherPhone">+91 70693 83741</strong>
+                                </div>
+                                <div>
+                                    <span style="color: var(--text-muted); display: block;">Email Address:</span>
+                                    <span id="motherEmail">paritaben.kakadiya@gmail.com</span>
+                                </div>
+                                <div>
+                                    <span style="color: var(--text-muted); display: block;">Residential Address:</span>
+                                    <span id="motherAddress">Shukan Sky, Dabholi Link Road, Katargam, Surat, Gujarat - 395004</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer" style="padding: 14px 20px; border-top: 1px solid var(--border-color); display: flex; gap: 12px;">
+                            <a href="tel:+917069383741" class="btn btn-sm btn-secondary" style="flex: 1;" id="motherCallBtn">📞 Call</a>
+                            <a href="mailto:paritaben.kakadiya@gmail.com" class="btn btn-sm btn-outline" style="flex: 1;" id="motherEmailBtn">✉️ Email</a>
+                        </div>
+                    </div>
+
+                    <!-- Guardian Card -->
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">
+                                <span>👨‍💼</span> Primary Guardian
+                            </div>
+                            <span class="badge badge-info">Guardian Desk</span>
+                        </div>
+                        <div class="card-body">
+                            <div style="display: flex; flex-direction: column; gap: 12px; font-size: 13px;">
+                                <div>
+                                    <span style="color: var(--text-muted); display: block;">Full Name & Relationship:</span>
+                                    <strong style="font-size: 14px;" id="guardianName">Alpeshbhai Kakadiya</strong>
+                                    <div style="font-size: 11px; color: var(--accent-color);">Primary Guardian (Father)</div>
+                                </div>
+                                <div>
+                                    <span style="color: var(--text-muted); display: block;">Occupation:</span>
+                                    <span id="guardianOcc">Business Executive</span>
+                                </div>
+                                <div>
+                                    <span style="color: var(--text-muted); display: block;">Phone Number:</span>
+                                    <strong id="guardianPhone">+91 98242 40351</strong>
+                                </div>
+                                <div>
+                                    <span style="color: var(--text-muted); display: block;">Email Address:</span>
+                                    <span id="guardianEmail">alpeshbhai.kakadiya@gmail.com</span>
+                                </div>
+                                <div>
+                                    <span style="color: var(--text-muted); display: block;">Address:</span>
+                                    <span id="guardianAddress">Shukan Sky, Dabholi Link Road, Katargam, Surat, Gujarat - 395004</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer" style="padding: 14px 20px; border-top: 1px solid var(--border-color); display: flex; gap: 12px;">
+                            <a href="tel:+919824240351" class="btn btn-sm btn-secondary" style="flex: 1;" id="guardianCallBtn">📞 Call</a>
+                            <a href="mailto:alpeshbhai.kakadiya@gmail.com" class="btn btn-sm btn-outline" style="flex: 1;" id="guardianEmailBtn">✉️ Email</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Edit Parents Contact Modal -->
+    <div class="modal-overlay" id="editParentsModal">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3 class="modal-title">Update Parent & Guardian Contacts</h3>
+                <button class="modal-close-btn" onclick="closeModal('editParentsModal')">&times;</button>
+            </div>
+            <form id="editParentsForm">
+                <div class="modal-body">
+                    <h4 style="font-size: 13px; color: var(--primary-color); margin-bottom: 8px;">Father's Contact:</h4>
+                    <div class="form-group">
+                        <label for="inpFatherPhone">Father's Phone Number</label>
+                        <input type="tel" id="inpFatherPhone" value="+91 98242 40351" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="inpFatherEmail">Father's Email</label>
+                        <input type="email" id="inpFatherEmail" value="alpeshbhai.kakadiya@gmail.com" required>
+                    </div>
+
+                    <h4 style="font-size: 13px; color: var(--primary-color); margin-top: 14px; margin-bottom: 8px;">Mother's Contact:</h4>
+                    <div class="form-group">
+                        <label for="inpMotherPhone">Mother's Phone Number</label>
+                        <input type="tel" id="inpMotherPhone" value="+91 70693 83741" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="inpMotherEmail">Mother's Email</label>
+                        <input type="email" id="inpMotherEmail" value="paritaben.kakadiya@gmail.com" required>
+                    </div>
+
+                    <h4 style="font-size: 13px; color: var(--primary-color); margin-top: 14px; margin-bottom: 8px;">Emergency Contact:</h4>
+                    <div class="form-group">
+                        <label for="inpGuardianPhone">Emergency Phone Number</label>
+                        <input type="tel" id="inpGuardianPhone" value="+91 98242 40351" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('editParentsModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Contacts</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Global Search Modal -->
+    <div class="global-search-modal" id="globalSearchModal">
+        <div class="global-search-box">
+            <div class="global-search-header">
+                <span>🔍</span>
+                <input type="text" id="globalSearchInput" placeholder="Search portal...">
+                <button class="modal-close-btn" onclick="closeGlobalSearch()">&times;</button>
+            </div>
+            <div class="global-search-results" id="globalSearchResults"></div>
+        </div>
+    </div>
+
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="../js/portal-data.js"></script>
+    <script src="../js/portal.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            function refreshParentsUI() {
+                const data = getPortalData();
+                const p = data.parents;
+
+                document.getElementById("fatherName").textContent = p.father.name;
+                document.getElementById("fatherOcc").textContent = p.father.occupation;
+                document.getElementById("fatherPhone").textContent = p.father.phone;
+                document.getElementById("fatherEmail").textContent = p.father.email;
+                document.getElementById("fatherAddress").textContent = p.father.address;
+                document.getElementById("fatherCallBtn").href = `tel:${p.father.phone}`;
+                document.getElementById("fatherEmailBtn").href = `mailto:${p.father.email}`;
+
+                document.getElementById("motherName").textContent = p.mother.name;
+                document.getElementById("motherOcc").textContent = p.mother.occupation;
+                document.getElementById("motherPhone").textContent = p.mother.phone;
+                document.getElementById("motherEmail").textContent = p.mother.email;
+                document.getElementById("motherAddress").textContent = p.mother.address;
+                document.getElementById("motherCallBtn").href = `tel:${p.mother.phone}`;
+                document.getElementById("motherEmailBtn").href = `mailto:${p.mother.email}`;
+
+                document.getElementById("guardianName").textContent = p.guardian.name;
+                document.getElementById("guardianOcc").textContent = p.guardian.occupation;
+                document.getElementById("guardianPhone").textContent = p.guardian.phone;
+                document.getElementById("guardianEmail").textContent = p.guardian.email;
+                document.getElementById("guardianAddress").textContent = p.guardian.address;
+                document.getElementById("guardianCallBtn").href = `tel:${p.guardian.phone}`;
+                document.getElementById("guardianEmailBtn").href = `mailto:${p.guardian.email}`;
+
+                document.getElementById("emergName").textContent = p.emergencyContact.name;
+                document.getElementById("emergPhone").textContent = p.emergencyContact.phone;
+                document.getElementById("emergCallBtn").href = `tel:${p.emergencyContact.phone}`;
+
+                // Form inputs
+                document.getElementById("inpFatherPhone").value = p.father.phone;
+                document.getElementById("inpFatherEmail").value = p.father.email;
+                document.getElementById("inpMotherPhone").value = p.mother.phone;
+                document.getElementById("inpMotherEmail").value = p.mother.email;
+                document.getElementById("inpGuardianPhone").value = p.emergencyContact.phone;
+            }
+
+            const editForm = document.getElementById("editParentsForm");
+            editForm.addEventListener("submit", function(e) {
+                e.preventDefault();
+                const data = getPortalData();
+                data.parents.father.phone = document.getElementById("inpFatherPhone").value.trim();
+                data.parents.father.email = document.getElementById("inpFatherEmail").value.trim();
+                data.parents.mother.phone = document.getElementById("inpMotherPhone").value.trim();
+                data.parents.mother.email = document.getElementById("inpMotherEmail").value.trim();
+                data.parents.emergencyContact.phone = document.getElementById("inpGuardianPhone").value.trim();
+                data.parents.guardian.phone = data.parents.emergencyContact.phone;
+
+                savePortalData(data);
+                closeModal("editParentsModal");
+                refreshParentsUI();
+                showToast("Parent & emergency contact records updated!", "success");
+            });
+
+            refreshParentsUI();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+﻿# Local database credentials
+/db.php
+/config/db.php
+
+# Database backups containing records
+/data/backup_student_hub_db.sql
+
+# Temporary backup files
+*.bak
+*.bak_*
+*.bak.*
+
+# Environment files and secrets
+.env
+.env.*
+!.env.example
+
+# Logs and operating-system files
+*.log
+.DS_Store
+Thumbs.db
+
+# Dependencies (can be installed using package.json)
+node_modules/
+
+# Local student and registration data
+/data/registrations.csv
+/data/registrations.json
+/data/students.json
+
+# Uploaded user files (keep the folder itself)
+/uploads/*
+!/uploads/.gitkeep
+
+# Local password-reset and debugging scripts
+/scripts/set_admin_password.php
+/scripts/set_student_password.php
+/tests/debug-login.php

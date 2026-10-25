@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings & Academic Hub - Student Hub Portal</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/portal.css">
+</head>
+
+<body class="portal-body">
+    <div class="sidebar-overlay" onclick="closeSidebar()"></div>
+
+    <div class="portal-layout">
+        <aside class="portal-sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo-icon">🎓</div>
+                <div class="sidebar-brand-text">
+                    <span class="sidebar-brand-title">Student Hub</span>
+                    <span class="sidebar-brand-sub">CHARUSAT CSPIT</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section-title">Overview</div>
+                <a href="dashboard.html" class="nav-link">
+                    <span class="nav-icon">📊</span> Dashboard
+                </a>
+                <a href="profile.html" class="nav-link">
+                    <span class="nav-icon">👤</span> My Profile
+                </a>
+
+                <div class="nav-section-title">Academics</div>
+                <a href="courses.html" class="nav-link">
+                    <span class="nav-icon">📚</span> Courses & Subjects
+                </a>
+                <a href="timetable.html" class="nav-link">
+                    <span class="nav-icon">🗓️</span> Timetable
+                </a>
+                <a href="attendance.html" class="nav-link">
+                    <span class="nav-icon">📋</span> Attendance
+                </a>
+                <a href="assignments.html" class="nav-link">
+                    <span class="nav-icon">📝</span> Assignments
+                </a>
+                <a href="materials.html" class="nav-link">
+                    <span class="nav-icon">📁</span> Study Material
+                </a>
+                <a href="exams-results.html" class="nav-link">
+                    <span class="nav-icon">🏆</span> Exams & Results
+                </a>
+
+                <div class="nav-section-title">Finance & Residence</div>
+                <a href="college-fees.html" class="nav-link">
+                    <span class="nav-icon">💳</span> College Fees
+                </a>
+                <a href="hostel.html" class="nav-link">
+                    <span class="nav-icon">🏢</span> Hostel & Mess
+                </a>
+                <a href="payments.html" class="nav-link">
+                    <span class="nav-icon">🧾</span> Payments & Receipts
+                </a>
+
+                <div class="nav-section-title">Services & Campus</div>
+                <a href="parents.html" class="nav-link">
+                    <span class="nav-icon">👨‍👩‍👦</span> Parents / Guardian
+                </a>
+                <a href="documents.html" class="nav-link">
+                    <span class="nav-icon">📄</span> Documents
+                </a>
+                <a href="applications.html" class="nav-link">
+                    <span class="nav-icon">📬</span> Applications
+                </a>
+                <a href="verification.html" class="nav-link">
+                    <span class="nav-icon">🔍</span> Academic Verification
+                </a>
+                <a href="campus.html" class="nav-link">
+                    <span class="nav-icon">🏛️</span> Campus Life
+                </a>
+                <a href="settings.html" class="nav-link active">
+                    <span class="nav-icon">⚙️</span> Settings & Help
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="profile.html" class="sidebar-user">
+                    <div class="sidebar-avatar">KR</div>
+                    <div class="sidebar-user-info">
+                        <span class="sidebar-user-name">Kakadiya Rudri</span>
+                        <span class="sidebar-user-id">25CS027</span>
+                    </div>
+                </a>
+                <button class="btn-sidebar-logout" onclick="logoutUser()" title="Logout">🚪</button>
+            </div>
+        </aside>
+
+        <!-- Main Workspace -->
+        <main class="portal-main">
+            <header class="portal-header">
+                <div class="header-left">
+                    <button class="mobile-menu-btn" onclick="toggleSidebar()">☰</button>
+                    <div class="header-title-box">
+                        <h1>Settings & Data Governance</h1>
+                        <div class="header-breadcrumb">System / Configuration, Academic Lineage & Helpdesk</div>
+                    </div>
+                </div>
+
+                <div class="header-right">
+                    <button class="search-trigger-btn" onclick="openGlobalSearch()">
+                        <span>🔍 Search portal...</span>
+                        <span class="search-shortcut">Ctrl K</span>
+                    </button>
+                    <button class="header-btn" id="themeToggleBtn" onclick="toggleTheme()">🌙</button>
+                    <div style="position: relative;">
+                        <button class="header-btn" id="notifBtn" onclick="toggleNotifications()">🔔<span class="notification-badge-count">2</span></button>
+                    </div>
+                    <div style="position: relative;">
+                        <button class="header-btn" id="profileDropdownBtn" onclick="toggleProfileMenu()">👤</button>
+                    </div>
+                </div>
+            </header>
+
+            <div class="portal-content">
+                <div class="page-top-bar">
+                    <div class="page-title-group">
+                        <h2>Portal Preferences & Data Sync Center</h2>
+                        <p>Manage data lineage, authorized academic ingestion pipelines, theme preferences, and official CHARUSAT contacts.</p>
+                    </div>
+                    <div class="page-actions" style="display: flex; gap: 8px;">
+                        <button class="btn btn-secondary" onclick="exportAcademicData()">📥 Export Data</button>
+                        <button class="btn btn-primary" onclick="openAcademicImportModal()">📤 Ingest Data</button>
+                        <button class="btn btn-danger" onclick="logoutUser()">🚪 Log Out</button>
+                    </div>
+                </div>
+
+                <div class="grid-2">
+                    <!-- Left Column: Data Governance, Appearance & Notifications -->
+                    <div>
+                        <!-- Data Lineage & Ingestion Center -->
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title">
+                                    <span>🛡️</span> Academic Data Lineage & Synchronization
+                                </div>
+                                <span class="badge badge-source-official">CHARUSAT Verified</span>
+                            </div>
+                            <div class="card-body">
+                                <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 14px;">
+                                    This portal adheres strictly to the <strong>5-Tier Data Classification System</strong> ensuring data integrity, source traceability, and privacy isolation for <strong>Kakadiya Rudri (25CS027)</strong>.
+                                </p>
+
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 16px;">
+                                    <div style="background: var(--bg-alt); padding: 10px; border-radius: 8px; border: 1px solid var(--border-color);">
+                                        <div style="font-size: 11px; color: var(--text-muted);">PRIMARY DATA SOURCE</div>
+                                        <div style="font-weight: 600; font-size: 13px; color: var(--primary-color);">CHARUSAT e-Gov Records</div>
+                                    </div>
+                                    <div style="background: var(--bg-alt); padding: 10px; border-radius: 8px; border: 1px solid var(--border-color);">
+                                        <div style="font-size: 11px; color: var(--text-muted);">BOUND STUDENT ID</div>
+                                        <div style="font-weight: 600; font-size: 13px; color: var(--primary-color);">25CS027 (CSPIT CE)</div>
+                                    </div>
+                                </div>
+
+                                <div style="display: flex; flex-direction: column; gap: 8px;">
+                                    <button class="btn btn-primary" style="width: 100%; justify-content: center;" onclick="openAcademicImportModal()">
+                                        📂 Launch Academic Data Import Wizard
+                                    </button>
+                                    <div style="display: flex; gap: 8px;">
+                                        <button class="btn btn-secondary" style="flex: 1; justify-content: center;" onclick="exportAcademicData()">
+                                            💾 Export JSON Backup
+                                        </button>
+                                        <button class="btn btn-secondary" style="flex: 1; justify-content: center;" onclick="resetToDemoDefaults()">
+                                            🔄 Reset to Defaults
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Appearance & Theme Mode -->
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title">
+                                    <span>🎨</span> Appearance & Theme Mode
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 14px;">
+                                    Select your preferred portal color theme. Your choice is saved locally.
+                                </p>
+                                <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+                                    <label style="flex: 1; min-width: 130px; display: flex; align-items: center; gap: 10px; padding: 12px; border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer; background: var(--bg-alt);">
+                                        <input type="radio" name="themeChoice" value="light" id="radioLight" style="width: auto; margin: 0;">
+                                        <span>☀️ Light Mode</span>
+                                    </label>
+                                    <label style="flex: 1; min-width: 130px; display: flex; align-items: center; gap: 10px; padding: 12px; border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer; background: var(--bg-alt);">
+                                        <input type="radio" name="themeChoice" value="dark" id="radioDark" style="width: auto; margin: 0;">
+                                        <span>🌙 Dark Mode</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Notification Subscriptions -->
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title">
+                                    <span>🔔</span> Notification Alerts & Reminders
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div style="display: flex; flex-direction: column; gap: 14px; font-size: 13.5px;">
+                                    <label style="display: flex; justify-content: space-between; align-items: center; cursor: pointer; margin: 0;">
+                                        <div>
+                                            <div style="font-weight: 600;">Assignment Deadlines & Submissions</div>
+                                            <div style="font-size: 12px; color: var(--text-muted);">Receive alerts 24 hours prior to deadline (CE242, CE243, CE244)</div>
+                                        </div>
+                                        <input type="checkbox" checked style="width: 18px; height: 18px; accent-color: var(--accent-color); margin: 0;">
+                                    </label>
+                                    <label style="display: flex; justify-content: space-between; align-items: center; cursor: pointer; margin: 0;">
+                                        <div>
+                                            <div style="font-weight: 600;">Fee Due Dates & Receipts</div>
+                                            <div style="font-size: 12px; color: var(--text-muted);">Alerts when semester installments or exam fees are due</div>
+                                        </div>
+                                        <input type="checkbox" checked style="width: 18px; height: 18px; accent-color: var(--accent-color); margin: 0;">
+                                    </label>
+                                    <label style="display: flex; justify-content: space-between; align-items: center; cursor: pointer; margin: 0;">
+                                        <div>
+                                            <div style="font-weight: 600;">Examination Schedule & Admit Cards</div>
+                                            <div style="font-size: 12px; color: var(--text-muted);">Notices when University exam timetables and seating halls are released</div>
+                                        </div>
+                                        <input type="checkbox" checked style="width: 18px; height: 18px; accent-color: var(--accent-color); margin: 0;">
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: FAQs & Support -->
+                    <div>
+                        <!-- 5-Tier Taxonomy Reference -->
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title">
+                                    <span>🏷️</span> 5-Tier Data Badge Guide
+                                </div>
+                            </div>
+                            <div class="card-body" style="font-size: 13px;">
+                                <div style="display: flex; flex-direction: column; gap: 10px;">
+                                    <div style="display: flex; align-items: center; justify-content: space-between; padding-bottom: 8px; border-bottom: 1px solid var(--border-color);">
+                                        <span class="badge badge-source-official">Official</span>
+                                        <span style="color: var(--text-muted); font-size: 12px;">Verified from CHARUSAT e-Gov records</span>
+                                    </div>
+                                    <div style="display: flex; align-items: center; justify-content: space-between; padding-bottom: 8px; border-bottom: 1px solid var(--border-color);">
+                                        <span class="badge badge-source-imported">Imported</span>
+                                        <span style="color: var(--text-muted); font-size: 12px;">Authorized file/transcript ingestion</span>
+                                    </div>
+                                    <div style="display: flex; align-items: center; justify-content: space-between; padding-bottom: 8px; border-bottom: 1px solid var(--border-color);">
+                                        <span class="badge badge-source-manual">Manual</span>
+                                        <span style="color: var(--text-muted); font-size: 12px;">Entered by student in UI forms</span>
+                                    </div>
+                                    <div style="display: flex; align-items: center; justify-content: space-between; padding-bottom: 8px; border-bottom: 1px solid var(--border-color);">
+                                        <span class="badge badge-source-calculated">Calculated</span>
+                                        <span style="color: var(--text-muted); font-size: 12px;">Computed by internal engine (Attendance % / SGPA)</span>
+                                    </div>
+                                    <div style="display: flex; align-items: center; justify-content: space-between;">
+                                        <span class="badge badge-source-ai">AI Guidance</span>
+                                        <span style="color: var(--text-muted); font-size: 12px;">Recommendations from AI Career OS advisor</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQs Accordion -->
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title">
+                                    <span>❓</span> Frequently Asked Questions (FAQs)
+                                </div>
+                            </div>
+                            <div class="card-body" style="padding: 10px 18px;">
+                                <div style="display: flex; flex-direction: column; gap: 12px;">
+                                    <details style="padding: 10px 0; border-bottom: 1px solid var(--border-color); cursor: pointer;" open>
+                                        <summary style="font-weight: 600; font-size: 13.5px; color: var(--primary-color);">
+                                            How does the Data Ingestion & Conflict Resolver work?
+                                        </summary>
+                                        <p style="font-size: 12.5px; color: var(--text-muted); margin-top: 6px; line-height: 1.5;">
+                                            When you upload a new CHARUSAT semester scorecard or transcript (JSON/CSV), the ingestion engine parses records, checks for differences against your active database, and shows a side-by-side diff. You can selectively choose whether to accept new values or preserve existing verified data.
+                                        </p>
+                                    </details>
+
+                                    <details style="padding: 10px 0; border-bottom: 1px solid var(--border-color); cursor: pointer;">
+                                        <summary style="font-weight: 600; font-size: 13.5px; color: var(--primary-color);">
+                                            How do I calculate minimum attendance eligibility?
+                                        </summary>
+                                        <p style="font-size: 12.5px; color: var(--text-muted); margin-top: 6px; line-height: 1.5;">
+                                            CHARUSAT academic regulations require a minimum of 75% aggregate attendance in each registered theory and laboratory course. Use the Attendance Calculator tab to track shortage recovery and safe bunk limits.
+                                        </p>
+                                    </details>
+
+                                    <details style="padding: 10px 0; border-bottom: 1px solid var(--border-color); cursor: pointer;">
+                                        <summary style="font-weight: 600; font-size: 13.5px; color: var(--primary-color);">
+                                            Where can I download my official semester fee receipt?
+                                        </summary>
+                                        <p style="font-size: 12.5px; color: var(--text-muted); margin-top: 6px; line-height: 1.5;">
+                                            Navigate to <strong>Payments & Receipts</strong> or <strong>College Fees</strong>. Click "View Receipt" next to any completed transaction (e.g. ₹64,000 Sem 3 installment) to view and print your digitally sealed receipt.
+                                        </p>
+                                    </details>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- University Helpdesk Contacts -->
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title">
+                                    <span>🎧</span> University IT & Academic Helpdesk
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div style="display: flex; flex-direction: column; gap: 12px; font-size: 13px;">
+                                    <div>
+                                        <strong>CHARUSAT e-Governance & IT Cell Support:</strong><br>
+                                        <span style="color: var(--text-muted);">Email: egov.support@charusat.edu.in &bull; Ext: 5011 / 5012</span>
+                                    </div>
+                                    <div>
+                                        <strong>CSPIT Computer Engineering Department:</strong><br>
+                                        <span style="color: var(--text-muted);">Mentor: Prof. Vaibhavi Patel (vaibhavipatel.ce@charusat.edu.in) &bull; CSPIT CE Dept</span>
+                                    </div>
+                                    <div>
+                                        <strong>Office of University Registrar:</strong><br>
+                                        <span style="color: var(--text-muted);">Phone: 02697-265011 &bull; Admin Block, Changa Campus</span>
+                                    </div>
+                                    <div style="background: var(--primary-light); padding: 10px 12px; border-radius: 6px; border: 1px solid rgba(99,102,241,0.2); font-size: 12px;">
+                                        🏢 <strong>Helpdesk Office Hours:</strong> 09:00 AM - 05:00 PM (Monday to Saturday)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Global Search Modal -->
+    <div class="global-search-modal" id="globalSearchModal">
+        <div class="global-search-box">
+            <div class="global-search-header">
+                <span>🔍</span>
+                <input type="text" id="globalSearchInput" placeholder="Search settings & help...">
+                <button class="modal-close-btn" onclick="closeGlobalSearch()">&times;</button>
+            </div>
+            <div class="global-search-results" id="globalSearchResults"></div>
+        </div>
+    </div>
+
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="../js/portal-data.js"></script>
+    <script src="../js/portal.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Theme choice radio setup
+            const currentTheme = document.documentElement.getAttribute("data-theme") || "light";
+            if (currentTheme === "dark") {
+                document.getElementById("radioDark").checked = true;
+            } else {
+                document.getElementById("radioLight").checked = true;
+            }
+
+            document.getElementById("radioLight").addEventListener("change", function() {
+                if (this.checked) {
+                    document.documentElement.setAttribute("data-theme", "light");
+                    localStorage.setItem("studentHubTheme", "light");
+                    updateThemeIcon("light");
+                    showToast("Switched to Light mode", "info");
+                }
+            });
+
+            document.getElementById("radioDark").addEventListener("change", function() {
+                if (this.checked) {
+                    document.documentElement.setAttribute("data-theme", "dark");
+                    localStorage.setItem("studentHubTheme", "dark");
+                    updateThemeIcon("dark");
+                    showToast("Switched to Dark mode", "info");
+                }
+            });
+
+            window.resetToDemoDefaults = function() {
+                if (confirm("Reset all portal settings and local data to official CHARUSAT default records for Kakadiya Rudri (25CS027)?")) {
+                    resetPortalData();
+                    showToast("Portal data restored to official defaults!", "success");
+                    setTimeout(() => window.location.reload(), 600);
+                }
+            };
+        });
+    </script>
+</body>
+</html>

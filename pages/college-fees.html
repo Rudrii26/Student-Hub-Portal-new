@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Fees & Accounts - Student Hub Portal</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/portal.css">
+</head>
+
+<body class="portal-body">
+    <div class="sidebar-overlay" onclick="closeSidebar()"></div>
+
+    <div class="portal-layout">
+        <aside class="portal-sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo-icon">🎓</div>
+                <div class="sidebar-brand-text">
+                    <span class="sidebar-brand-title">Student Hub</span>
+                    <span class="sidebar-brand-sub">University Portal</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section-title">Overview</div>
+                <a href="dashboard.html" class="nav-link">
+                    <span class="nav-icon">📊</span> Dashboard
+                </a>
+                <a href="profile.html" class="nav-link">
+                    <span class="nav-icon">👤</span> My Profile
+                </a>
+
+                <div class="nav-section-title">Academics</div>
+                <a href="courses.html" class="nav-link">
+                    <span class="nav-icon">📚</span> Courses & Subjects
+                </a>
+                <a href="timetable.html" class="nav-link">
+                    <span class="nav-icon">🗓️</span> Timetable
+                </a>
+                <a href="attendance.html" class="nav-link">
+                    <span class="nav-icon">📋</span> Attendance
+                </a>
+                <a href="assignments.html" class="nav-link">
+                    <span class="nav-icon">📝</span> Assignments
+                </a>
+                <a href="materials.html" class="nav-link">
+                    <span class="nav-icon">📁</span> Study Material
+                </a>
+                <a href="exams-results.html" class="nav-link">
+                    <span class="nav-icon">🏆</span> Exams & Results
+                </a>
+
+                <div class="nav-section-title">Finance & Residence</div>
+                <a href="college-fees.html" class="nav-link active">
+                    <span class="nav-icon">💳</span> College Fees
+                </a>
+                <a href="hostel.html" class="nav-link">
+                    <span class="nav-icon">🏢</span> Hostel & Mess
+                </a>
+                <a href="payments.html" class="nav-link">
+                    <span class="nav-icon">🧾</span> Payments & Receipts
+                </a>
+
+                <div class="nav-section-title">Services & Campus</div>
+                <a href="parents.html" class="nav-link">
+                    <span class="nav-icon">👨‍👩‍👦</span> Parents / Guardian
+                </a>
+                <a href="documents.html" class="nav-link">
+                    <span class="nav-icon">📄</span> Documents
+                </a>
+                <a href="applications.html" class="nav-link">
+                    <span class="nav-icon">📬</span> Applications
+                </a>
+                <a href="verification.html" class="nav-link">
+                    <span class="nav-icon">🔍</span> Academic Verification
+                </a>
+                <a href="campus.html" class="nav-link">
+                    <span class="nav-icon">🏛️</span> Campus Life
+                </a>
+                <a href="settings.html" class="nav-link">
+                    <span class="nav-icon">⚙️</span> Settings & Help
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="profile.html" class="sidebar-user">
+                    <div class="sidebar-avatar">KR</div>
+                    <div class="sidebar-user-info">
+                        <span class="sidebar-user-name">Kakadiya Rudri</span>
+                        <span class="sidebar-user-id">25CS027</span>
+                    </div>
+                </a>
+                <button class="btn-sidebar-logout" onclick="logoutUser()" title="Logout">🚪</button>
+            </div>
+        </aside>
+
+        <!-- Main Workspace -->
+        <main class="portal-main">
+            <header class="portal-header">
+                <div class="header-left">
+                    <button class="mobile-menu-btn" onclick="toggleSidebar()">☰</button>
+                    <div class="header-title-box">
+                        <h1>College Fees & Dues</h1>
+                        <div class="header-breadcrumb">Finance / College Fees (Semester 3)</div>
+                    </div>
+                </div>
+
+                <div class="header-right">
+                    <button class="search-trigger-btn" onclick="openGlobalSearch()">
+                        <span>🔍 Search portal...</span>
+                        <span class="search-shortcut">Ctrl K</span>
+                    </button>
+                    <button class="header-btn" id="themeToggleBtn" onclick="toggleTheme()">🌙</button>
+                    <div style="position: relative;">
+                        <button class="header-btn" id="notifBtn" onclick="toggleNotifications()">🔔<span class="notification-badge-count">2</span></button>
+                    </div>
+                    <div style="position: relative;">
+                        <button class="header-btn" id="profileDropdownBtn" onclick="toggleProfileMenu()">👤</button>
+                    </div>
+                </div>
+            </header>
+
+            <div class="portal-content">
+                <div class="page-top-bar">
+                    <div class="page-title-group">
+                        <h2>Academic Year 2026-27 (Semester 3) Fee Statement</h2>
+                        <p>Tuition schedule, fee structure itemization, and online payment clearance portal for CSPIT Computer Engineering.</p>
+                    </div>
+                    <div class="page-actions">
+                        <button class="btn btn-primary" id="topPayBtn" onclick="openFeePaymentModal()">
+                            💳 Pay Pending Dues
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Fee Summary Stat Cards -->
+                <div class="stat-grid">
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <span class="stat-label">Total Semester Fee</span>
+                            <span class="stat-value" id="feeTotalVal">₹ 75,000</span>
+                            <span class="stat-sub">Academic Year 2026-27</span>
+                        </div>
+                        <div class="stat-icon">💰</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <span class="stat-label">Amount Paid</span>
+                            <span class="stat-value" style="color: var(--success);" id="feePaidVal">₹ 40,000</span>
+                            <span class="stat-sub">Installment-1 Cleared</span>
+                        </div>
+                        <div class="stat-icon green">✅</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <span class="stat-label">Balance Pending</span>
+                            <span class="stat-value" style="color: var(--warning);" id="feePendingVal">₹ 35,000</span>
+                            <span class="stat-sub" id="feeDueSub" style="color: var(--danger);">Due by: 15 October 2026</span>
+                        </div>
+                        <div class="stat-icon amber">⏳</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <span class="stat-label">Clearance Status</span>
+                            <span class="stat-value" id="feeStatusBadge">
+                                <span class="badge badge-warning" style="font-size: 14px;">Partial Due</span>
+                            </span>
+                            <span class="stat-sub">Installment 2 Outstanding</span>
+                        </div>
+                        <div class="stat-icon cyan">📜</div>
+                    </div>
+                </div>
+
+                <!-- Fee Breakdown Itemized Table -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <span>📋</span> Itemized Fee Breakdown (Semester 3 - CSPIT CE)
+                        </div>
+                        <span style="font-size: 13px; color: var(--text-muted);">Currency: INR (₹)</span>
+                    </div>
+                    <div class="card-body" style="padding: 0;">
+                        <div class="table-container">
+                            <table class="portal-table">
+                                <thead>
+                                    <tr>
+                                        <th>Fee Head / Category</th>
+                                        <th>Total Assessment</th>
+                                        <th>Amount Paid</th>
+                                        <th>Balance Due</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="feeBreakdownBody">
+                                    <!-- Rendered dynamically -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment History Table -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <span>🧾</span> Academic Fee Payment History
+                        </div>
+                        <a href="payments.html" class="btn btn-sm btn-outline">Central Ledger →</a>
+                    </div>
+                    <div class="card-body" style="padding: 0;">
+                        <div class="table-container">
+                            <table class="portal-table">
+                                <thead>
+                                    <tr>
+                                        <th>Transaction Reference</th>
+                                        <th>Payment Date</th>
+                                        <th>Installment Type</th>
+                                        <th>Amount Paid</th>
+                                        <th>Mode of Payment</th>
+                                        <th>Status</th>
+                                        <th>Receipt</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="feeHistoryBody">
+                                    <!-- Rendered dynamically -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Simulated Payment Modal -->
+    <div class="modal-overlay" id="payModal">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3 class="modal-title">CHARUSAT Tuition Fee Payment Gateway</h3>
+                <button class="modal-close-btn" onclick="closeModal('payModal')">&times;</button>
+            </div>
+            <form id="feePaymentForm">
+                <div class="modal-body">
+                    <div style="background: var(--primary-light); padding: 14px; border-radius: var(--radius-sm); border: 1px solid rgba(37,99,235,0.2); margin-bottom: 18px;">
+                        <div style="display: flex; justify-content: space-between; font-size: 14px;">
+                            <span>Pending College Dues (Sem 3):</span>
+                            <strong style="color: var(--primary-color); font-size: 16px;" id="modalPayAmount">₹ 35,000</strong>
+                        </div>
+                        <div style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">
+                            Student: Kakadiya Rudri Alpeshbhai (25CS027) &bull; CSPIT CE
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Select Payment Mode</label>
+                        <div style="display: flex; flex-direction: column; gap: 8px;">
+                            <label style="display: flex; align-items: center; gap: 8px; font-weight: 400; cursor: pointer; padding: 8px; border: 1px solid var(--border-color); border-radius: 6px;">
+                                <input type="radio" name="payMethod" value="HDFC Payment Gateway (UPI)" checked style="width: auto; margin: 0;">
+                                <span>⚡ UPI Quick Pay (Google Pay / PhonePe / Paytm / BHIM)</span>
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 8px; font-weight: 400; cursor: pointer; padding: 8px; border: 1px solid var(--border-color); border-radius: 6px;">
+                                <input type="radio" name="payMethod" value="NetBanking (SBI / HDFC)" style="width: auto; margin: 0;">
+                                <span>🏦 Internet Banking (HDFC / SBI / ICICI / Axis)</span>
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 8px; font-weight: 400; cursor: pointer; padding: 8px; border: 1px solid var(--border-color); border-radius: 6px;">
+                                <input type="radio" name="payMethod" value="Debit / Credit Card (HDFC)" style="width: auto; margin: 0;">
+                                <span>💳 Debit / Credit Card (Visa / MasterCard / RuPay)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div id="paymentProcessingIndicator" style="display: none; text-align: center; padding: 16px 0;">
+                        <div style="font-size: 24px; margin-bottom: 6px;">🔄</div>
+                        <strong>Connecting to CHARUSAT Payment Gateway & Processing Clearance...</strong>
+                        <div style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">Please do not refresh the page.</div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('payModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary" id="btnConfirmPay">Proceed to Pay ₹ 35,000</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Receipt Preview Modal -->
+    <div class="modal-overlay" id="receiptModal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-header">
+                <h3 class="modal-title">Official CHARUSAT Fee Receipt</h3>
+                <button class="modal-close-btn" onclick="closeModal('receiptModal')">&times;</button>
+            </div>
+            <div class="modal-body" id="receiptModalBody"></div>
+            <div class="modal-footer no-print">
+                <button class="btn btn-secondary" onclick="closeModal('receiptModal')">Close</button>
+                <button class="btn btn-primary" onclick="printReceipt()">🖨️ Print Official Receipt</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Global Search Modal -->
+    <div class="global-search-modal" id="globalSearchModal">
+        <div class="global-search-box">
+            <div class="global-search-header">
+                <span>🔍</span>
+                <input type="text" id="globalSearchInput" placeholder="Search portal...">
+                <button class="modal-close-btn" onclick="closeGlobalSearch()">&times;</button>
+            </div>
+            <div class="global-search-results" id="globalSearchResults"></div>
+        </div>
+    </div>
+
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="../js/portal-data.js"></script>
+    <script src="../js/portal.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            function refreshFeeUI() {
+                const data = getPortalData();
+                const feeData = data.collegeFees;
+
+                document.getElementById("feeTotalVal").textContent = `₹ ${(feeData.totalAmount || 75000).toLocaleString('en-IN')}`;
+                document.getElementById("feePaidVal").textContent = `₹ ${(feeData.paidAmount || 40000).toLocaleString('en-IN')}`;
+                document.getElementById("feePendingVal").textContent = `₹ ${(feeData.pendingAmount || 0).toLocaleString('en-IN')}`;
+                
+                const topPayBtn = document.getElementById("topPayBtn");
+                const statusBadge = document.getElementById("feeStatusBadge");
+
+                if (feeData.pendingAmount === 0) {
+                    statusBadge.innerHTML = `<span class="badge badge-success" style="font-size: 14px;">✅ Fully Paid (Cleared)</span>`;
+                    document.getElementById("feeDueSub").textContent = "All installments cleared!";
+                    document.getElementById("feeDueSub").style.color = "var(--success)";
+                    if (topPayBtn) {
+                        topPayBtn.disabled = true;
+                        topPayBtn.textContent = "✓ All Fees Cleared";
+                        topPayBtn.classList.remove("btn-primary");
+                        topPayBtn.classList.add("btn-secondary");
+                    }
+                } else {
+                    statusBadge.innerHTML = `<span class="badge badge-warning" style="font-size: 14px;">⏳ Partial Due</span>`;
+                    if (topPayBtn) {
+                        topPayBtn.disabled = false;
+                        topPayBtn.textContent = "💳 Pay Pending Dues";
+                        topPayBtn.classList.remove("btn-secondary");
+                        topPayBtn.classList.add("btn-primary");
+                    }
+                }
+
+                // Render Itemized Breakdown
+                const breakdownBody = document.getElementById("feeBreakdownBody");
+                if (breakdownBody && feeData.breakdown) {
+                    breakdownBody.innerHTML = feeData.breakdown.map(item => {
+                        const isZeroPending = item.pending === 0;
+                        return `
+                            <tr>
+                                <td><strong>${item.head}</strong></td>
+                                <td>₹ ${item.total.toLocaleString('en-IN')}</td>
+                                <td>₹ ${item.paid.toLocaleString('en-IN')}</td>
+                                <td><strong style="color: ${isZeroPending ? 'var(--success)' : 'var(--warning)'};">₹ ${item.pending.toLocaleString('en-IN')}</strong></td>
+                                <td>
+                                    ${isZeroPending ? '<span class="badge badge-success">Paid</span>' : '<span class="badge badge-warning">Partial</span>'}
+                                </td>
+                            </tr>
+                        `;
+                    }).join("");
+                }
+
+                // Render Payment History
+                const historyBody = document.getElementById("feeHistoryBody");
+                if (historyBody && feeData.history) {
+                    historyBody.innerHTML = feeData.history.map(txn => `
+                        <tr>
+                            <td><strong>${txn.txnId}</strong></td>
+                            <td>${txn.date}</td>
+                            <td>${txn.installment || txn.type || 'Sem 3 Fee'}</td>
+                            <td><strong>₹ ${txn.amount.toLocaleString('en-IN')}</strong></td>
+                            <td>${txn.method}</td>
+                            <td><span class="badge badge-success">✓ ${txn.status}</span></td>
+                            <td>
+                                <button class="btn btn-sm btn-outline" onclick="viewReceipt('${txn.txnId}')">
+                                    👁️ View Receipt
+                                </button>
+                            </td>
+                        </tr>
+                    `).join("");
+                }
+            }
+
+            window.openFeePaymentModal = function() {
+                const data = getPortalData();
+                if (data.collegeFees.pendingAmount === 0) {
+                    showToast("No pending fees for Semester 3!", "info");
+                    return;
+                }
+                document.getElementById("modalPayAmount").textContent = `₹ ${data.collegeFees.pendingAmount.toLocaleString('en-IN')}`;
+                document.getElementById("btnConfirmPay").textContent = `Proceed to Pay ₹ ${data.collegeFees.pendingAmount.toLocaleString('en-IN')}`;
+                document.getElementById("paymentProcessingIndicator").style.display = "none";
+                document.getElementById("btnConfirmPay").disabled = false;
+                openModal("payModal");
+            };
+
+            const payForm = document.getElementById("feePaymentForm");
+            payForm.addEventListener("submit", function(e) {
+                e.preventDefault();
+                const btn = document.getElementById("btnConfirmPay");
+                btn.disabled = true;
+                btn.textContent = "Processing Transaction...";
+                document.getElementById("paymentProcessingIndicator").style.display = "block";
+
+                const selectedMethod = document.querySelector('input[name="payMethod"]:checked').value;
+
+                setTimeout(() => {
+                    const data = getPortalData();
+                    const amountPaid = data.collegeFees.pendingAmount;
+                    const newTxnId = `CHARUSAT-FEE-2026-03`;
+                    const todayStr = new Date().toISOString().split('T')[0];
+
+                    // Update college fees
+                    data.collegeFees.paidAmount += amountPaid;
+                    data.collegeFees.pendingAmount = 0;
+                    data.collegeFees.status = "Cleared";
+                    data.stats.pendingCollegeFees = 0;
+                    if (data.collegeFees.breakdown) {
+                        data.collegeFees.breakdown.forEach(b => {
+                            b.paid = b.total;
+                            b.pending = 0;
+                            b.status = "Paid";
+                        });
+                    }
+
+                    // Add to history
+                    const newRecord = {
+                        txnId: newTxnId,
+                        date: todayStr,
+                        amount: amountPaid,
+                        installment: "Sem 3 Balance Clearance",
+                        method: selectedMethod,
+                        status: "Success"
+                    };
+
+                    data.collegeFees.history.unshift(newRecord);
+
+                    // Add to global payments ledger
+                    data.paymentsLedger = data.paymentsLedger || [];
+                    data.paymentsLedger.unshift({
+                        txnId: newTxnId,
+                        date: todayStr,
+                        category: "College Fees",
+                        desc: "Sem 3 Balance Clearance",
+                        amount: amountPaid,
+                        method: selectedMethod,
+                        status: "Success"
+                    });
+
+                    // Log activity
+                    data.recentActivity = data.recentActivity || [];
+                    data.recentActivity.unshift({
+                        title: `Paid College Fee Balance (₹ ${amountPaid.toLocaleString('en-IN')})`,
+                        time: "Just now",
+                        icon: "💳"
+                    });
+
+                    savePortalData(data);
+                    closeModal("payModal");
+                    refreshFeeUI();
+                    showToast("Payment confirmed! Official CHARUSAT receipt generated.", "success");
+                    viewReceipt(newTxnId);
+                }, 1000);
+            });
+
+            refreshFeeUI();
+        });
+    </script>
+</body>
+</html>

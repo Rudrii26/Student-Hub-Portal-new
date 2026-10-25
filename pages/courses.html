@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses & Subjects - Student Hub Portal</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/portal.css">
+</head>
+
+<body class="portal-body">
+    <div class="sidebar-overlay" onclick="closeSidebar()"></div>
+
+    <div class="portal-layout">
+        <aside class="portal-sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo-icon">🎓</div>
+                <div class="sidebar-brand-text">
+                    <span class="sidebar-brand-title">Student Hub</span>
+                    <span class="sidebar-brand-sub">University Portal</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section-title">Overview</div>
+                <a href="dashboard.html" class="nav-link">
+                    <span class="nav-icon">📊</span> Dashboard
+                </a>
+                <a href="profile.html" class="nav-link">
+                    <span class="nav-icon">👤</span> My Profile
+                </a>
+
+                <div class="nav-section-title">Academics</div>
+                <a href="courses.html" class="nav-link active">
+                    <span class="nav-icon">📚</span> Courses & Subjects
+                </a>
+                <a href="timetable.html" class="nav-link">
+                    <span class="nav-icon">🗓️</span> Timetable
+                </a>
+                <a href="attendance.html" class="nav-link">
+                    <span class="nav-icon">📋</span> Attendance
+                </a>
+                <a href="assignments.html" class="nav-link">
+                    <span class="nav-icon">📝</span> Assignments
+                </a>
+                <a href="materials.html" class="nav-link">
+                    <span class="nav-icon">📁</span> Study Material
+                </a>
+                <a href="exams-results.html" class="nav-link">
+                    <span class="nav-icon">🏆</span> Exams & Results
+                </a>
+
+                <div class="nav-section-title">Finance & Residence</div>
+                <a href="college-fees.html" class="nav-link">
+                    <span class="nav-icon">💳</span> College Fees
+                </a>
+                <a href="hostel.html" class="nav-link">
+                    <span class="nav-icon">🏢</span> Hostel & Mess
+                </a>
+                <a href="payments.html" class="nav-link">
+                    <span class="nav-icon">🧾</span> Payments & Receipts
+                </a>
+
+                <div class="nav-section-title">Services & Campus</div>
+                <a href="parents.html" class="nav-link">
+                    <span class="nav-icon">👨‍👩‍👦</span> Parents / Guardian
+                </a>
+                <a href="documents.html" class="nav-link">
+                    <span class="nav-icon">📄</span> Documents
+                </a>
+                <a href="applications.html" class="nav-link">
+                    <span class="nav-icon">📬</span> Applications
+                </a>
+                <a href="verification.html" class="nav-link">
+                    <span class="nav-icon">🔍</span> Academic Verification
+                </a>
+                <a href="campus.html" class="nav-link">
+                    <span class="nav-icon">🏛️</span> Campus Life
+                </a>
+                <a href="settings.html" class="nav-link">
+                    <span class="nav-icon">⚙️</span> Settings & Help
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="profile.html" class="sidebar-user">
+                    <div class="sidebar-avatar">KR</div>
+                    <div class="sidebar-user-info">
+                        <span class="sidebar-user-name">Kakadiya Rudri</span>
+                        <span class="sidebar-user-id">25CS027</span>
+                    </div>
+                </a>
+                <button class="btn-sidebar-logout" onclick="logoutUser()" title="Logout">🚪</button>
+            </div>
+        </aside>
+
+        <!-- Main Workspace -->
+        <main class="portal-main">
+            <header class="portal-header">
+                <div class="header-left">
+                    <button class="mobile-menu-btn" onclick="toggleSidebar()">☰</button>
+                    <div class="header-title-box">
+                        <h1>Courses & Subjects</h1>
+                        <div class="header-breadcrumb">Academics / Courses & Curriculum</div>
+                    </div>
+                </div>
+
+                <div class="header-right">
+                    <button class="search-trigger-btn" onclick="openGlobalSearch()">
+                        <span>🔍 Search portal...</span>
+                        <span class="search-shortcut">Ctrl K</span>
+                    </button>
+                    <button class="header-btn" id="themeToggleBtn" onclick="toggleTheme()">🌙</button>
+                    <div style="position: relative;">
+                        <button class="header-btn" id="notifBtn" onclick="toggleNotifications()">🔔<span class="notification-badge-count">2</span></button>
+                    </div>
+                    <div style="position: relative;">
+                        <button class="header-btn" id="profileDropdownBtn" onclick="toggleProfileMenu()">👤</button>
+                    </div>
+                </div>
+            </header>
+
+            <div class="portal-content">
+                <div class="page-top-bar">
+                    <div class="page-title-group">
+                        <h2>Semester 3 Curriculum & Enrolled Courses</h2>
+                        <p>Detailed syllabus, faculty allocations, credits, and course unit objectives for Computer Engineering (CSPIT).</p>
+                    </div>
+                    <div class="page-actions">
+                        <a href="materials.html" class="btn btn-outline">📁 Course Study Materials</a>
+                    </div>
+                </div>
+
+                <!-- Search & Filters -->
+                <div class="filter-toolbar">
+                    <div class="filter-left">
+                        <div class="search-input-group">
+                            <span class="search-input-icon">🔍</span>
+                            <input type="text" id="courseSearchInput" placeholder="Search by subject code, title or faculty...">
+                        </div>
+                        <select id="courseTypeFilter" style="width: auto;">
+                            <option value="all">All Course Types</option>
+                            <option value="Theory + Practical">Theory + Practical</option>
+                            <option value="Core">Core Subjects</option>
+                            <option value="Foundation">Foundation / Math</option>
+                        </select>
+                    </div>
+                    <div class="filter-right">
+                        <span style="font-size: 13px; color: var(--text-muted);">Total Registered Credits: <strong>22 Credits</strong></span>
+                    </div>
+                </div>
+
+                <!-- Course Cards List Container -->
+                <div id="courseCardsContainer" style="display: flex; flex-direction: column; gap: 20px;">
+                    <!-- Rendered by JS -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Global Search Modal -->
+    <div class="global-search-modal" id="globalSearchModal">
+        <div class="global-search-box">
+            <div class="global-search-header">
+                <span>🔍</span>
+                <input type="text" id="globalSearchInput" placeholder="Search courses or topics...">
+                <button class="modal-close-btn" onclick="closeGlobalSearch()">&times;</button>
+            </div>
+            <div class="global-search-results" id="globalSearchResults"></div>
+        </div>
+    </div>
+
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="../js/portal-data.js"></script>
+    <script src="../js/portal.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const data = getPortalData();
+            const container = document.getElementById("courseCardsContainer");
+            const searchInput = document.getElementById("courseSearchInput");
+            const filterSelect = document.getElementById("courseTypeFilter");
+
+            function renderCourses() {
+                const query = searchInput.value.toLowerCase().trim();
+                const filter = filterSelect.value;
+
+                const filtered = data.courses.filter(course => {
+                    const matchesQuery = course.code.toLowerCase().includes(query) ||
+                                         course.name.toLowerCase().includes(query) ||
+                                         course.faculty.toLowerCase().includes(query);
+                    const matchesType = filter === "all" || 
+                                        course.type.toLowerCase().includes(filter.toLowerCase());
+                    return matchesQuery && matchesType;
+                });
+
+                if (filtered.length === 0) {
+                    container.innerHTML = `
+                        <div class="card" style="padding: 40px; text-align: center; color: var(--text-muted);">
+                            <div style="font-size: 32px; margin-bottom: 8px;">📚</div>
+                            <h3>No courses matching your search.</h3>
+                            <p style="font-size: 13px; margin-top: 4px;">Try searching with a different subject keyword or reset the filter.</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                container.innerHTML = filtered.map((course, idx) => `
+                    <div class="card">
+                        <div class="card-header" style="flex-wrap: wrap; gap: 10px;">
+                            <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+                                <span class="badge badge-primary" style="font-size: 13px; padding: 4px 10px;">${course.code}</span>
+                                <h3 style="font-size: 16px; font-weight: 700; margin: 0;">${course.name}</h3>
+                                <span class="badge badge-muted">${course.type}</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 16px;">
+                                <span style="font-size: 13px;">Credits: <strong>${course.credits}</strong></span>
+                                <span style="font-size: 13px; color: var(--success);">Attendance: <strong>${course.attendance}</strong></span>
+                                <button class="btn btn-sm btn-secondary" onclick="toggleUnitAccordion('unitCollapse_${idx}')">
+                                    📖 Syllabus Units ▼
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 13px; color: var(--text-muted); flex-wrap: wrap; gap: 8px;">
+                                <span>👨‍🏫 <strong>Faculty:</strong> ${course.faculty}</span>
+                                <span>🎓 <strong>Program:</strong> B.Tech (Computer Engineering) &bull; CSPIT &bull; Semester 3 (CS-1)</span>
+                            </div>
+                            <p style="font-size: 13.5px; color: var(--text-main); margin-bottom: 16px; line-height: 1.5;">
+                                ${course.description}
+                            </p>
+
+                            <!-- Expandable Units Drawer -->
+                            <div id="unitCollapse_${idx}" style="display: block; background: var(--bg-alt); padding: 14px 16px; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+                                <h4 style="font-size: 13px; font-weight: 700; margin-bottom: 10px; color: var(--accent-color);">
+                                    Module Breakdown & Detailed Units:
+                                </h4>
+                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px;">
+                                    ${course.units.map(u => `
+                                        <div style="background: var(--bg-card); padding: 10px 12px; border-radius: 6px; border: 1px solid var(--border-color);">
+                                            <div style="font-weight: 700; font-size: 12.5px; color: var(--text-main); margin-bottom: 4px;">
+                                                ${u.unit}: ${u.title}
+                                            </div>
+                                            <div style="font-size: 11.5px; color: var(--text-muted); line-height: 1.4;">
+                                                ${u.topics}
+                                            </div>
+                                        </div>
+                                    `).join("")}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `).join("");
+            }
+
+            window.toggleUnitAccordion = function(id) {
+                const el = document.getElementById(id);
+                if (el) {
+                    el.style.display = el.style.display === "none" ? "block" : "none";
+                }
+            };
+
+            searchInput.addEventListener("input", renderCourses);
+            filterSelect.addEventListener("change", renderCourses);
+            renderCourses();
+        });
+    </script>
+</body>
+</html>

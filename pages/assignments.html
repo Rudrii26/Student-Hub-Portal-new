@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignments & Submissions - Student Hub Portal</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/portal.css">
+</head>
+
+<body class="portal-body">
+    <div class="sidebar-overlay" onclick="closeSidebar()"></div>
+
+    <div class="portal-layout">
+        <aside class="portal-sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo-icon">🎓</div>
+                <div class="sidebar-brand-text">
+                    <span class="sidebar-brand-title">Student Hub</span>
+                    <span class="sidebar-brand-sub">University Portal</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section-title">Overview</div>
+                <a href="dashboard.html" class="nav-link">
+                    <span class="nav-icon">📊</span> Dashboard
+                </a>
+                <a href="profile.html" class="nav-link">
+                    <span class="nav-icon">👤</span> My Profile
+                </a>
+
+                <div class="nav-section-title">Academics</div>
+                <a href="courses.html" class="nav-link">
+                    <span class="nav-icon">📚</span> Courses & Subjects
+                </a>
+                <a href="timetable.html" class="nav-link">
+                    <span class="nav-icon">🗓️</span> Timetable
+                </a>
+                <a href="attendance.html" class="nav-link">
+                    <span class="nav-icon">📋</span> Attendance
+                </a>
+                <a href="assignments.html" class="nav-link active">
+                    <span class="nav-icon">📝</span> Assignments
+                </a>
+                <a href="materials.html" class="nav-link">
+                    <span class="nav-icon">📁</span> Study Material
+                </a>
+                <a href="exams-results.html" class="nav-link">
+                    <span class="nav-icon">🏆</span> Exams & Results
+                </a>
+
+                <div class="nav-section-title">Finance & Residence</div>
+                <a href="college-fees.html" class="nav-link">
+                    <span class="nav-icon">💳</span> College Fees
+                </a>
+                <a href="hostel.html" class="nav-link">
+                    <span class="nav-icon">🏢</span> Hostel & Mess
+                </a>
+                <a href="payments.html" class="nav-link">
+                    <span class="nav-icon">🧾</span> Payments & Receipts
+                </a>
+
+                <div class="nav-section-title">Services & Campus</div>
+                <a href="parents.html" class="nav-link">
+                    <span class="nav-icon">👨‍👩‍👦</span> Parents / Guardian
+                </a>
+                <a href="documents.html" class="nav-link">
+                    <span class="nav-icon">📄</span> Documents
+                </a>
+                <a href="applications.html" class="nav-link">
+                    <span class="nav-icon">📬</span> Applications
+                </a>
+                <a href="verification.html" class="nav-link">
+                    <span class="nav-icon">🔍</span> Academic Verification
+                </a>
+                <a href="campus.html" class="nav-link">
+                    <span class="nav-icon">🏛️</span> Campus Life
+                </a>
+                <a href="settings.html" class="nav-link">
+                    <span class="nav-icon">⚙️</span> Settings & Help
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="profile.html" class="sidebar-user">
+                    <div class="sidebar-avatar">KR</div>
+                    <div class="sidebar-user-info">
+                        <span class="sidebar-user-name">Kakadiya Rudri</span>
+                        <span class="sidebar-user-id">25CS027</span>
+                    </div>
+                </a>
+                <button class="btn-sidebar-logout" onclick="logoutUser()" title="Logout">🚪</button>
+            </div>
+        </aside>
+
+        <!-- Main Workspace -->
+        <main class="portal-main">
+            <header class="portal-header">
+                <div class="header-left">
+                    <button class="mobile-menu-btn" onclick="toggleSidebar()">☰</button>
+                    <div class="header-title-box">
+                        <h1>Assignments & Lab Tasks</h1>
+                        <div class="header-breadcrumb">Academics / Assignments (Semester 3)</div>
+                    </div>
+                </div>
+
+                <div class="header-right">
+                    <button class="search-trigger-btn" onclick="openGlobalSearch()">
+                        <span>🔍 Search portal...</span>
+                        <span class="search-shortcut">Ctrl K</span>
+                    </button>
+                    <button class="header-btn" id="themeToggleBtn" onclick="toggleTheme()">🌙</button>
+                    <div style="position: relative;">
+                        <button class="header-btn" id="notifBtn" onclick="toggleNotifications()">🔔<span class="notification-badge-count">2</span></button>
+                    </div>
+                    <div style="position: relative;">
+                        <button class="header-btn" id="profileDropdownBtn" onclick="toggleProfileMenu()">👤</button>
+                    </div>
+                </div>
+            </header>
+
+            <div class="portal-content">
+                <div class="page-top-bar">
+                    <div class="page-title-group">
+                        <h2>Coursework Submissions & Problem Sets</h2>
+                        <p>Submit homework, laboratory problem sets, and review evaluations from CSPIT Computer Engineering faculty.</p>
+                    </div>
+                </div>
+
+                <!-- Tabs: All, Pending, Submitted, Overdue -->
+                <div class="tabs-nav" id="assignmentTabs">
+                    <button class="tab-btn active" onclick="switchAssignmentTab('all')">All Tasks (<span id="countAll">5</span>)</button>
+                    <button class="tab-btn" onclick="switchAssignmentTab('pending')">Pending (<span id="countPending">3</span>)</button>
+                    <button class="tab-btn" onclick="switchAssignmentTab('submitted')">Submitted (<span id="countSubmitted">2</span>)</button>
+                    <button class="tab-btn" onclick="switchAssignmentTab('overdue')">Overdue (0)</button>
+                </div>
+
+                <!-- Assignments List Container -->
+                <div id="assignmentsContainer" style="display: flex; flex-direction: column; gap: 18px;">
+                    <!-- Rendered dynamically -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Submit Assignment Modal -->
+    <div class="modal-overlay" id="submitModal">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3 class="modal-title" id="submitModalTitle">Submit Assignment</h3>
+                <button class="modal-close-btn" onclick="closeModal('submitModal')">&times;</button>
+            </div>
+            <form id="assignmentSubmitForm">
+                <div class="modal-body">
+                    <input type="hidden" id="submitAsnId">
+                    <div style="background: var(--bg-alt); padding: 12px; border-radius: var(--radius-sm); border: 1px solid var(--border-color); margin-bottom: 16px; font-size: 13px;">
+                        <div><strong>Subject:</strong> <span id="submitSubjectName">Data Structures & Algorithms</span></div>
+                        <div style="margin-top: 4px;"><strong>Due Date:</strong> <span id="submitDueDate" style="color: var(--danger); font-weight: 600;">Tomorrow, 11:59 PM</span></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="assignmentFileInput">Select Assignment File (PDF, ZIP, DOCX, C/Java)</label>
+                        <input type="file" id="assignmentFileInput" required>
+                        <div id="selectedFileNameDisplay" style="font-size: 12px; color: var(--accent-color); margin-top: 5px; font-weight: 600;"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="submissionNotes">Student Comments / GitHub Link (Optional)</label>
+                        <textarea id="submissionNotes" rows="3" placeholder="e.g. Implemented BST with AVL balance rotations and benchmark report."></textarea>
+                    </div>
+
+                    <div id="uploadProgressBox" style="display: none; margin-top: 14px;">
+                        <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px;">
+                            <span>Uploading solution...</span>
+                            <span id="uploadPercent">100%</span>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar-fill green" style="width: 100%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('submitModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary" id="confirmSubmitBtn">Confirm & Upload Solution</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Global Search Modal -->
+    <div class="global-search-modal" id="globalSearchModal">
+        <div class="global-search-box">
+            <div class="global-search-header">
+                <span>🔍</span>
+                <input type="text" id="globalSearchInput" placeholder="Search assignments...">
+                <button class="modal-close-btn" onclick="closeGlobalSearch()">&times;</button>
+            </div>
+            <div class="global-search-results" id="globalSearchResults"></div>
+        </div>
+    </div>
+
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="../js/portal-data.js"></script>
+    <script src="../js/portal.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let activeTab = "all";
+            const container = document.getElementById("assignmentsContainer");
+
+            function updateCounts(data) {
+                const list = data.assignments || [];
+                const pending = list.filter(a => a.status === "pending").length;
+                const submitted = list.filter(a => a.status === "submitted").length;
+                document.getElementById("countAll").textContent = list.length;
+                document.getElementById("countPending").textContent = pending;
+                document.getElementById("countSubmitted").textContent = submitted;
+            }
+
+            window.switchAssignmentTab = function(tabKey) {
+                activeTab = tabKey;
+                document.querySelectorAll("#assignmentTabs .tab-btn").forEach(btn => {
+                    if (btn.textContent.toLowerCase().includes(tabKey)) {
+                        btn.classList.add("active");
+                    } else {
+                        btn.classList.remove("active");
+                    }
+                });
+                renderAssignments();
+            };
+
+            function renderAssignments() {
+                const data = getPortalData();
+                updateCounts(data);
+                const list = data.assignments || [];
+
+                const filtered = list.filter(a => {
+                    if (activeTab === "all") return true;
+                    if (activeTab === "pending") return a.status === "pending";
+                    if (activeTab === "submitted") return a.status === "submitted";
+                    if (activeTab === "overdue") return a.status === "overdue";
+                    return true;
+                });
+
+                if (filtered.length === 0) {
+                    container.innerHTML = `
+                        <div class="card" style="padding: 40px; text-align: center; color: var(--text-muted);">
+                            <div style="font-size: 32px; margin-bottom: 8px;">🎉</div>
+                            <h3>No assignments in this category.</h3>
+                            <p style="font-size: 13px; margin-top: 4px;">All caught up or no submissions pending!</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                container.innerHTML = filtered.map(a => {
+                    const isPending = a.status === "pending";
+                    const isSubmitted = a.status === "submitted";
+
+                    return `
+                        <div class="card" style="${isPending ? 'border-left: 4px solid var(--warning);' : 'border-left: 4px solid var(--success);'}">
+                            <div class="card-header" style="flex-wrap: wrap; gap: 10px;">
+                                <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                                    <span class="badge badge-primary">${a.code}</span>
+                                    <h3 style="font-size: 15.5px; font-weight: 700; margin: 0;">${a.title}</h3>
+                                </div>
+                                <div>
+                                    ${isPending ? '<span class="badge badge-warning">⏳ Pending Submission</span>' : '<span class="badge badge-success">✅ Submitted & Verified</span>'}
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div style="display: flex; justify-content: space-between; font-size: 13px; color: var(--text-muted); margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+                                    <span>📚 <strong>Subject:</strong> ${a.subject}</span>
+                                    <span>👨‍🏫 <strong>Instructor:</strong> ${a.faculty || 'Course Faculty'}</span>
+                                    <span>📅 <strong>Due Date:</strong> <strong style="color: ${isPending ? 'var(--danger)' : 'var(--text-main)'};">${a.dueDate}</strong></span>
+                                    <span>🏆 <strong>Max Marks:</strong> ${a.maxMarks}</span>
+                                </div>
+                                <p style="font-size: 13px; color: var(--text-main); margin-bottom: 14px; line-height: 1.5; background: var(--bg-alt); padding: 10px 14px; border-radius: 6px; border: 1px solid var(--border-color);">
+                                    ${a.description || `Submit required solution for ${a.subject} as part of continuous internal evaluation.`}
+                                </p>
+
+                                ${isSubmitted ? `
+                                    <div style="background: var(--success-bg); border: 1px solid rgba(16,185,129,0.3); padding: 10px 14px; border-radius: 6px; font-size: 13px; color: var(--text-main); margin-bottom: 12px;">
+                                        <strong>Submission Record:</strong><br>
+                                        📄 File: <code>${a.submittedFile || 'Rudri_25CS027_Solution.pdf'}</code> &bull; Submitted on: <strong>${a.submissionDate || 'Recently'}</strong><br>
+                                        ${a.marksObtained !== undefined && a.marksObtained !== null ? `⭐ Marks Awarded: <strong>${a.marksObtained} / ${a.maxMarks}</strong>` : '⏳ Evaluation in progress by instructor.'}
+                                    </div>
+                                ` : ''}
+
+                                <div style="display: flex; justify-content: flex-end; gap: 10px;">
+                                    ${isPending ? `
+                                        <button class="btn btn-primary" onclick="openSubmitModal('${a.id}')">
+                                            📤 Upload & Submit Assignment
+                                        </button>
+                                    ` : `
+                                        <button class="btn btn-secondary" onclick="showToast('Downloading copy of ${a.submittedFile || 'solution.pdf'}...', 'info')">
+                                            📥 Download Submitted Copy
+                                        </button>
+                                        <button class="btn btn-outline" onclick="openSubmitModal('${a.id}')">
+                                            🔄 Resubmit Solution
+                                        </button>
+                                    `}
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }).join("");
+            }
+
+            window.openSubmitModal = function(asnId) {
+                const data = getPortalData();
+                const asn = (data.assignments || []).find(a => String(a.id) === String(asnId));
+                if (!asn) return;
+
+                document.getElementById("submitAsnId").value = asn.id;
+                document.getElementById("submitModalTitle").textContent = `Submit: ${asn.code} - ${asn.title}`;
+                document.getElementById("submitSubjectName").textContent = `${asn.subject}`;
+                document.getElementById("submitDueDate").textContent = asn.dueDate;
+                document.getElementById("assignmentFileInput").value = "";
+                document.getElementById("selectedFileNameDisplay").textContent = "";
+                document.getElementById("submissionNotes").value = "";
+                document.getElementById("uploadProgressBox").style.display = "none";
+
+                openModal("submitModal");
+            };
+
+            const fileInput = document.getElementById("assignmentFileInput");
+            fileInput.addEventListener("change", function(e) {
+                if (e.target.files && e.target.files[0]) {
+                    document.getElementById("selectedFileNameDisplay").textContent = `Selected: ${e.target.files[0].name} (${(e.target.files[0].size / 1024).toFixed(1)} KB)`;
+                }
+            });
+
+            const submitForm = document.getElementById("assignmentSubmitForm");
+            submitForm.addEventListener("submit", function(e) {
+                e.preventDefault();
+                const asnId = document.getElementById("submitAsnId").value;
+                const file = fileInput.files[0];
+                const btn = document.getElementById("confirmSubmitBtn");
+
+                btn.disabled = true;
+                btn.textContent = "Uploading Solution...";
+                document.getElementById("uploadProgressBox").style.display = "block";
+
+                setTimeout(() => {
+                    const data = getPortalData();
+                    const asn = (data.assignments || []).find(a => String(a.id) === String(asnId));
+                    if (asn) {
+                        asn.status = "submitted";
+                        asn.submittedFile = file ? file.name : "Rudri_25CS027_Assignment.pdf";
+                        asn.submissionDate = new Date().toISOString().split('T')[0];
+                        asn.marksObtained = null;
+                    }
+
+                    data.recentActivity = data.recentActivity || [];
+                    data.recentActivity.unshift({
+                        title: `Submitted Assignment ${asn ? asn.code : ''}`,
+                        time: "Just now",
+                        icon: "✅"
+                    });
+
+                    savePortalData(data);
+                    btn.disabled = false;
+                    btn.textContent = "Confirm & Upload Solution";
+                    closeModal("submitModal");
+                    showToast(`Assignment ${asn ? asn.code : ''} submitted successfully!`, "success");
+                    renderAssignments();
+                }, 800);
+            });
+
+            renderAssignments();
+        });
+    </script>
+</body>
+</html>

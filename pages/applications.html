@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applications & Requests - Student Hub Portal</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/portal.css">
+</head>
+
+<body class="portal-body">
+    <div class="sidebar-overlay" onclick="closeSidebar()"></div>
+
+    <div class="portal-layout">
+        <aside class="portal-sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo-icon">🎓</div>
+                <div class="sidebar-brand-text">
+                    <span class="sidebar-brand-title">Student Hub</span>
+                    <span class="sidebar-brand-sub">University Portal</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section-title">Overview</div>
+                <a href="dashboard.html" class="nav-link">
+                    <span class="nav-icon">📊</span> Dashboard
+                </a>
+                <a href="profile.html" class="nav-link">
+                    <span class="nav-icon">👤</span> My Profile
+                </a>
+
+                <div class="nav-section-title">Academics</div>
+                <a href="courses.html" class="nav-link">
+                    <span class="nav-icon">📚</span> Courses & Subjects
+                </a>
+                <a href="timetable.html" class="nav-link">
+                    <span class="nav-icon">🗓️</span> Timetable
+                </a>
+                <a href="attendance.html" class="nav-link">
+                    <span class="nav-icon">📋</span> Attendance
+                </a>
+                <a href="assignments.html" class="nav-link">
+                    <span class="nav-icon">📝</span> Assignments
+                </a>
+                <a href="materials.html" class="nav-link">
+                    <span class="nav-icon">📁</span> Study Material
+                </a>
+                <a href="exams-results.html" class="nav-link">
+                    <span class="nav-icon">🏆</span> Exams & Results
+                </a>
+
+                <div class="nav-section-title">Finance & Residence</div>
+                <a href="college-fees.html" class="nav-link">
+                    <span class="nav-icon">💳</span> College Fees
+                </a>
+                <a href="hostel.html" class="nav-link">
+                    <span class="nav-icon">🏢</span> Hostel & Mess
+                </a>
+                <a href="payments.html" class="nav-link">
+                    <span class="nav-icon">🧾</span> Payments & Receipts
+                </a>
+
+                <div class="nav-section-title">Services & Campus</div>
+                <a href="parents.html" class="nav-link">
+                    <span class="nav-icon">👨‍👩‍👦</span> Parents / Guardian
+                </a>
+                <a href="documents.html" class="nav-link">
+                    <span class="nav-icon">📄</span> Documents
+                </a>
+                <a href="applications.html" class="nav-link active">
+                    <span class="nav-icon">📬</span> Applications
+                </a>
+                <a href="verification.html" class="nav-link">
+                    <span class="nav-icon">🔍</span> Academic Verification
+                </a>
+                <a href="campus.html" class="nav-link">
+                    <span class="nav-icon">🏛️</span> Campus Life
+                </a>
+                <a href="settings.html" class="nav-link">
+                    <span class="nav-icon">⚙️</span> Settings & Help
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="profile.html" class="sidebar-user">
+                    <div class="sidebar-avatar">KR</div>
+                    <div class="sidebar-user-info">
+                        <span class="sidebar-user-name">Kakadiya Rudri</span>
+                        <span class="sidebar-user-id">25CS027</span>
+                    </div>
+                </a>
+                <button class="btn-sidebar-logout" onclick="logoutUser()" title="Logout">🚪</button>
+            </div>
+        </aside>
+
+        <!-- Main Workspace -->
+        <main class="portal-main">
+            <header class="portal-header">
+                <div class="header-left">
+                    <button class="mobile-menu-btn" onclick="toggleSidebar()">☰</button>
+                    <div class="header-title-box">
+                        <h1>Applications & Service Requests</h1>
+                        <div class="header-breadcrumb">Services / Administrative Requests</div>
+                    </div>
+                </div>
+
+                <div class="header-right">
+                    <button class="search-trigger-btn" onclick="openGlobalSearch()">
+                        <span>🔍 Search portal...</span>
+                        <span class="search-shortcut">Ctrl K</span>
+                    </button>
+                    <button class="header-btn" id="themeToggleBtn" onclick="toggleTheme()">🌙</button>
+                    <div style="position: relative;">
+                        <button class="header-btn" id="notifBtn" onclick="toggleNotifications()">🔔<span class="notification-badge-count">2</span></button>
+                    </div>
+                    <div style="position: relative;">
+                        <button class="header-btn" id="profileDropdownBtn" onclick="toggleProfileMenu()">👤</button>
+                    </div>
+                </div>
+            </header>
+
+            <div class="portal-content">
+                <div class="page-top-bar">
+                    <div class="page-title-group">
+                        <h2>Administrative Service Desk & Petitions</h2>
+                        <p>Track formal requests submitted to CSPIT Dean Office, Registrar, Mentor Prof. Vaibhavi Patel, or Warden.</p>
+                    </div>
+                    <div class="page-actions">
+                        <button class="btn btn-primary" onclick="openModal('newAppModal')">
+                            ➕ New Application / Request
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Applications Table Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <span>📬</span> Submitted Applications & Tracking
+                        </div>
+                        <span style="font-size: 13px; color: var(--text-muted);">Real-time university workflow status</span>
+                    </div>
+                    <div class="card-body" style="padding: 0;">
+                        <div class="table-container">
+                            <table class="portal-table">
+                                <thead>
+                                    <tr>
+                                        <th>Application ID</th>
+                                        <th>Request Type</th>
+                                        <th>Reason / Subject</th>
+                                        <th>Submission Date</th>
+                                        <th>Current Status</th>
+                                        <th>Authority Remarks</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="applicationsTableBody">
+                                    <!-- Rendered dynamically -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- New Application Modal -->
+    <div class="modal-overlay" id="newAppModal">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3 class="modal-title">Submit Administrative Application</h3>
+                <button class="modal-close-btn" onclick="closeModal('newAppModal')">&times;</button>
+            </div>
+            <form id="newApplicationForm">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="appTypeSelect">Application Category</label>
+                        <select id="appTypeSelect" required>
+                            <option value="Bonafide Certificate">Bonafide Certificate Request</option>
+                            <option value="Official Transcript Request">Consolidated Transcript Request</option>
+                            <option value="Duty Leave Application">Academic Duty Leave (Hackathons/Events)</option>
+                            <option value="Hostel Room Change Application">Hostel Room Change Application</option>
+                            <option value="Course Add / Drop Request">Elective Course Change / Drop</option>
+                            <option value="Medical Leave Condonation">Medical Leave Attendance Condonation</option>
+                            <option value="General Grievance / Petition">General Administrative Petition</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="appSubject">Subject / Short Title</label>
+                        <input type="text" id="appSubject" placeholder="e.g. Leave application for National Hackathon" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="appReason">Detailed Statement & Justification</label>
+                        <textarea id="appReason" rows="4" placeholder="Explain the context and justification for your request..." required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="appAttachment">Supporting Document (Optional)</label>
+                        <input type="file" id="appAttachment">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('newAppModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary" id="btnSubmitApp">Submit Application</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Global Search Modal -->
+    <div class="global-search-modal" id="globalSearchModal">
+        <div class="global-search-box">
+            <div class="global-search-header">
+                <span>🔍</span>
+                <input type="text" id="globalSearchInput" placeholder="Search applications...">
+                <button class="modal-close-btn" onclick="closeGlobalSearch()">&times;</button>
+            </div>
+            <div class="global-search-results" id="globalSearchResults"></div>
+        </div>
+    </div>
+
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="../js/portal-data.js"></script>
+    <script src="../js/portal.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            function renderApps() {
+                const data = getPortalData();
+                const tableBody = document.getElementById("applicationsTableBody");
+                const list = data.applications || [];
+
+                tableBody.innerHTML = list.map(app => {
+                    let badgeClass = "badge-warning";
+                    if (app.status === "Approved" || app.status === "Completed") badgeClass = "badge-success";
+                    if (app.status === "Rejected") badgeClass = "badge-danger";
+
+                    return `
+                        <tr>
+                            <td><strong>${app.id}</strong></td>
+                            <td><span class="badge badge-primary">${app.type}</span></td>
+                            <td><strong>${app.subject || app.reason || app.type}</strong></td>
+                            <td>${app.submittedDate || app.date || 'Recently'}</td>
+                            <td><span class="badge ${badgeClass}">● ${app.status}</span></td>
+                            <td style="font-size: 12.5px; color: var(--text-muted);">${app.remarks || 'Pending review'}</td>
+                        </tr>
+                    `;
+                }).join("");
+            }
+
+            const appForm = document.getElementById("newApplicationForm");
+            appForm.addEventListener("submit", function(e) {
+                e.preventDefault();
+                const btn = document.getElementById("btnSubmitApp");
+                btn.disabled = true;
+                btn.textContent = "Submitting...";
+
+                setTimeout(() => {
+                    const data = getPortalData();
+                    const type = document.getElementById("appTypeSelect").value;
+                    const subject = document.getElementById("appSubject").value.trim();
+                    const newId = `APP-2026-${Math.floor(120 + Math.random() * 880)}`;
+                    const todayStr = new Date().toISOString().split('T')[0];
+
+                    data.applications = data.applications || [];
+                    data.applications.unshift({
+                        id: newId,
+                        type: type,
+                        subject: subject,
+                        submittedDate: todayStr,
+                        status: "Under Review",
+                        remarks: "Application received and routed to Faculty Mentor / CSPIT Dean for clearance."
+                    });
+
+                    data.recentActivity = data.recentActivity || [];
+                    data.recentActivity.unshift({
+                        title: `Submitted Application ${newId}`,
+                        time: "Just now",
+                        icon: "📬"
+                    });
+
+                    savePortalData(data);
+                    btn.disabled = false;
+                    btn.textContent = "Submit Application";
+                    closeModal("newAppModal");
+                    appForm.reset();
+                    renderApps();
+                    showToast(`Application #${newId} logged successfully!`, "success");
+                }, 700);
+            });
+
+            renderApps();
+        });
+    </script>
+</body>
+</html>

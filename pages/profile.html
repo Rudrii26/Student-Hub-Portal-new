@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - Student Hub Portal</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/portal.css">
+</head>
+
+<body class="portal-body">
+    <div class="sidebar-overlay" onclick="closeSidebar()"></div>
+
+    <div class="portal-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="portal-sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo-icon">🎓</div>
+                <div class="sidebar-brand-text">
+                    <span class="sidebar-brand-title">CHARUSAT</span>
+                    <span class="sidebar-brand-sub">e-Governance Portal</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section-title">Overview</div>
+                <a href="dashboard.html" class="nav-link">
+                    <span class="nav-icon">📊</span> Dashboard
+                </a>
+                <a href="profile.html" class="nav-link active">
+                    <span class="nav-icon">👤</span> My Profile
+                </a>
+
+                <div class="nav-section-title">Academics</div>
+                <a href="courses.html" class="nav-link">
+                    <span class="nav-icon">📚</span> Courses & Subjects
+                </a>
+                <a href="timetable.html" class="nav-link">
+                    <span class="nav-icon">🗓️</span> Timetable
+                </a>
+                <a href="attendance.html" class="nav-link">
+                    <span class="nav-icon">📋</span> Attendance
+                </a>
+                <a href="assignments.html" class="nav-link">
+                    <span class="nav-icon">📝</span> Assignments
+                </a>
+                <a href="materials.html" class="nav-link">
+                    <span class="nav-icon">📁</span> Study Material
+                </a>
+                <a href="exams-results.html" class="nav-link">
+                    <span class="nav-icon">🏆</span> Exams & Results
+                </a>
+
+                <div class="nav-section-title">Finance & Residence</div>
+                <a href="college-fees.html" class="nav-link">
+                    <span class="nav-icon">💳</span> College Fees
+                </a>
+                <a href="hostel.html" class="nav-link">
+                    <span class="nav-icon">🏢</span> Hostel & Mess
+                </a>
+                <a href="payments.html" class="nav-link">
+                    <span class="nav-icon">🧾</span> Payments & Receipts
+                </a>
+
+                <div class="nav-section-title">Services & Campus</div>
+                <a href="parents.html" class="nav-link">
+                    <span class="nav-icon">👨‍👩‍👦</span> Parents / Guardian
+                </a>
+                <a href="documents.html" class="nav-link">
+                    <span class="nav-icon">📄</span> Documents
+                </a>
+                <a href="applications.html" class="nav-link">
+                    <span class="nav-icon">📬</span> Applications
+                </a>
+                <a href="verification.html" class="nav-link">
+                    <span class="nav-icon">🔍</span> Academic Verification
+                </a>
+                <a href="campus.html" class="nav-link">
+                    <span class="nav-icon">🏛️</span> Campus Life
+                </a>
+                <a href="settings.html" class="nav-link">
+                    <span class="nav-icon">⚙️</span> Settings & Help
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="profile.html" class="sidebar-user">
+                    <div class="sidebar-avatar">KR</div>
+                    <div class="sidebar-user-info">
+                        <span class="sidebar-user-name">Kakadiya Rudri Alpeshbhai</span>
+                        <span class="sidebar-user-id">25CS027</span>
+                    </div>
+                </a>
+                <button class="btn-sidebar-logout" onclick="logoutUser()" title="Logout">🚪</button>
+            </div>
+        </aside>
+
+        <!-- Main Workspace -->
+        <main class="portal-main">
+            <!-- Top Header -->
+            <header class="portal-header">
+                <div class="header-left">
+                    <button class="mobile-menu-btn" onclick="toggleSidebar()">☰</button>
+                    <div class="header-title-box">
+                        <h1>Student Profile</h1>
+                        <div class="header-breadcrumb">Home / My Profile</div>
+                    </div>
+                </div>
+
+                <div class="header-right">
+                    <button class="search-trigger-btn" onclick="openGlobalSearch()">
+                        <span>🔍 Search portal...</span>
+                        <span class="search-shortcut">Ctrl K</span>
+                    </button>
+                    <button class="header-btn" id="themeToggleBtn" onclick="toggleTheme()" title="Toggle Theme">🌙</button>
+                    
+                    <div style="position: relative;">
+                        <button class="header-btn" id="notifBtn" onclick="toggleNotifications()" title="Notifications">
+                            🔔<span class="notification-badge-count">2</span>
+                        </button>
+                        <div class="notification-dropdown" id="notificationDropdown">
+                            <div class="notification-header">
+                                <h4>Notifications</h4>
+                                <button class="btn-clear-notif" onclick="markAllNotificationsRead()">Mark all as read</button>
+                            </div>
+                            <div class="notification-list">
+                                <div class="notification-item unread" onclick="window.location.href='assignments.html'">
+                                    <div class="notif-title">📝 Assignment Due Tomorrow</div>
+                                    <div class="notif-desc">CS201 Data Structures Assignment 2 deadline is tomorrow.</div>
+                                    <div class="notif-time">1 hour ago</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="position: relative;">
+                        <button class="header-btn" id="profileDropdownBtn" onclick="toggleProfileMenu()">👤</button>
+                        <div class="profile-dropdown" id="profileDropdown">
+                            <div style="padding: 8px 12px; border-bottom: 1px solid var(--border-color);">
+                                <div style="font-weight: 700; font-size: 13px;">Kakadiya Rudri Alpeshbhai</div>
+                                <div style="font-size: 11px; color: var(--text-muted);">25CS027 &bull; CSPIT (Sem 3)</div>
+                            </div>
+                            <a href="profile.html" class="dropdown-item">👤 My Profile</a>
+                            <a href="settings.html" class="dropdown-item">⚙️ Settings</a>
+                            <div class="dropdown-divider"></div>
+                            <button class="dropdown-item" onclick="logoutUser()" style="color: var(--danger);">🚪 Logout</button>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Profile Page Content -->
+            <div class="portal-content">
+                <div class="page-top-bar">
+                    <div class="page-title-group">
+                        <h2>Personal & Academic Record</h2>
+                        <p>Detailed student credentials, academic registration, and contact information.</p>
+                    </div>
+                    <div class="page-actions">
+                        <button class="btn btn-secondary" onclick="openModal('changePasswordModal')">🔑 Change Password</button>
+                        <button class="btn btn-primary" onclick="openModal('editProfileModal')">✏️ Edit Profile</button>
+                    </div>
+                </div>
+
+                <!-- Profile Hero Card -->
+                <div class="card" style="margin-bottom: 24px;">
+                    <div class="card-body" style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap;">
+                        <div style="width: 88px; height: 88px; border-radius: var(--radius-full); background: var(--gradient-primary); color: white; display: flex; align-items: center; justify-content: center; font-size: 28px; font-weight: 800; box-shadow: var(--shadow-glow); border: 4px solid var(--bg-card);">
+                            KR
+                        </div>
+                        <div style="flex: 1; min-width: 250px;">
+                            <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                                <h3 style="font-size: 22px; font-weight: 800;" id="profileName">Kakadiya Rudri Alpeshbhai</h3>
+                                <span class="badge badge-success">● Active Enrolled Student</span>
+                                <span class="badge badge-primary">Semester 3 (CS-1)</span>
+                            </div>
+                            <p style="color: var(--text-muted); font-size: 13.5px; margin-top: 4px;">
+                                Bachelor of Technology in Computer Engineering &bull; CSPIT &bull; Student ID: <strong>25CS027</strong>
+                            </p>
+                            <div style="display: flex; gap: 18px; margin-top: 10px; font-size: 13px; color: var(--text-muted); flex-wrap: wrap;">
+                                <span>📧 <span id="profileEmail">25cs027@charusat.edu.in</span></span>
+                                <span>📞 <span id="profilePhone">+91 92745 04643</span></span>
+                                <span>📍 Tej Smruti Girls Hostel (Room 505-H5)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Personal & Academic Details Grids -->
+                <div class="grid-2">
+                    <!-- Personal Information Card -->
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">
+                                <span>👤</span> Personal Information
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-container">
+                                <table class="portal-table">
+                                    <tbody>
+                                        <tr>
+                                            <td style="width: 40%; color: var(--text-muted);"><strong>Full Name:</strong></td>
+                                            <td id="infoFullName">Kakadiya Rudri Alpeshbhai</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="color: var(--text-muted);"><strong>Student ID / Roll:</strong></td>
+                                            <td><span class="badge badge-primary" id="infoStudentId">25CS027</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="color: var(--text-muted);"><strong>Enrollment Number:</strong></td>
+                                            <td><strong>25CS027</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="color: var(--text-muted);"><strong>Date of Birth:</strong></td>
+                                            <td id="infoDOB">15 September 2007</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="color: var(--text-muted);"><strong>Gender & Blood Group:</strong></td>
+                                            <td>Female &bull; NA</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="color: var(--text-muted);"><strong>University Email:</strong></td>
+                                            <td id="infoEmail">25cs027@charusat.edu.in</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="color: var(--text-muted);"><strong>Personal Email:</strong></td>
+                                            <td id="infoAltEmail">rudrikakadiya26@gmail.com</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="color: var(--text-muted);"><strong>Contact Phone:</strong></td>
+                                            <td id="infoPhone">+91 92745 04643</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="color: var(--text-muted);"><strong>Aadhaar / Govt ID:</strong></td>
+                                            <td>XXXX-XXXX-8912</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Academic Information Card -->
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">
+                                <span>🎓</span> Academic Information
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-container">
+                                <table class="portal-table">
+                                    <tbody>
+                                        <tr>
+                                            <td style="width: 40%; color: var(--text-muted);"><strong>Institute:</strong></td>
+                                            <td>Chandubhai S. Patel Institute of Technology (CSPIT)</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="color: var(--text-muted);"><strong>Department:</strong></td>
+                                            <td>Computer Engineering (CE)</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="color: var(--text-muted);"><strong>Degree & Program:</strong></td>
+                                            <td>B.Tech (Computer Engineering)</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="color: var(--text-muted);"><strong>Current Semester:</strong></td>
+                                            <td>Semester 3 (Academic Year 2026-27)</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="color: var(--text-muted);"><strong>Batch & Section:</strong></td>
+                                            <td>2025 - 2029 Batch &bull; Section CS-1</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="color: var(--text-muted);"><strong>Faculty Counselor:</strong></td>
+                                            <td>Prof. Vaibhavi Patel (Faculty Mentor, CSPIT)</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="color: var(--text-muted);"><strong>Cumulative CGPA:</strong></td>
+                                            <td><span class="badge badge-success" style="font-size: 13px;">8.53 / 10.0</span> (Sem 2 SGPA: 8.56)</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="color: var(--text-muted);"><strong>Credits Earned:</strong></td>
+                                            <td>44 / 164 Credits Completed</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Addresses Card -->
+                <div class="grid-2">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">
+                                <span>🏠</span> Permanent Home Address
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p style="font-size: 14px; line-height: 1.6;" id="infoPermanentAddress">
+                                Shukan Sky, Dabholi Link Road, Katargam<br>
+                                Surat, Gujarat, India - 395004
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">
+                                <span>🏢</span> Campus Hostel Residence
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p style="font-size: 14px; line-height: 1.6;" id="infoHostelAddress">
+                                Room 505-H5, Tej Smruti Girls Hostel<br>
+                                CHARUSAT Education Campus, Changa<br>
+                                Ta. Petlad, Dist. Anand, Gujarat - 388421
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Edit Profile Modal -->
+    <div class="modal-overlay" id="editProfileModal">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3 class="modal-title">Edit Profile Information</h3>
+                <button class="modal-close-btn" onclick="closeModal('editProfileModal')">&times;</button>
+            </div>
+            <form id="editProfileForm">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="editName">Full Name</label>
+                        <input type="text" id="editName" value="Kakadiya Rudri Alpeshbhai" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editEmail">University Email</label>
+                        <input type="email" id="editEmail" value="25cs027@charusat.edu.in" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editAltEmail">Personal Email</label>
+                        <input type="email" id="editAltEmail" value="rudrikakadiya26@gmail.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editPhone">Mobile Phone</label>
+                        <input type="tel" id="editPhone" value="+91 92745 04643" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editAddress">Permanent Address</label>
+                        <textarea id="editAddress" rows="3">Shukan Sky, Dabholi Link Road, Katargam, Surat, Gujarat, India - 395004</textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('editProfileModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Change Password Modal -->
+    <div class="modal-overlay" id="changePasswordModal">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3 class="modal-title">Change Account Password</h3>
+                <button class="modal-close-btn" onclick="closeModal('changePasswordModal')">&times;</button>
+            </div>
+            <form id="changePasswordForm">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="currentPass">Current Password</label>
+                        <input type="password" id="currentPass" placeholder="Enter current password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="newPass">New Password</label>
+                        <input type="password" id="newPass" placeholder="At least 6 characters" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmNewPass">Confirm New Password</label>
+                        <input type="password" id="confirmNewPass" placeholder="Repeat new password" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('changePasswordModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Update Password</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Global Search Modal -->
+    <div class="global-search-modal" id="globalSearchModal">
+        <div class="global-search-box">
+            <div class="global-search-header">
+                <span>🔍</span>
+                <input type="text" id="globalSearchInput" placeholder="Search portal pages or actions...">
+                <button class="modal-close-btn" onclick="closeGlobalSearch()">&times;</button>
+            </div>
+            <div class="global-search-results" id="globalSearchResults"></div>
+        </div>
+    </div>
+
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="../js/portal-data.js"></script>
+    <script src="../js/portal.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const data = getPortalData();
+
+            function refreshProfileUI() {
+                document.getElementById("profileName").textContent = data.student.name;
+                document.getElementById("infoFullName").textContent = data.student.name;
+                document.getElementById("profileEmail").textContent = data.student.email;
+                document.getElementById("infoEmail").textContent = data.student.email;
+                document.getElementById("infoAltEmail").textContent = data.student.alternateEmail || "rudrikakadiya26@gmail.com";
+                document.getElementById("profilePhone").textContent = data.student.phone;
+                document.getElementById("infoPhone").textContent = data.student.phone;
+                document.getElementById("infoDOB").textContent = data.student.dobFormatted || "15 September 2007";
+                document.getElementById("infoPermanentAddress").textContent = data.student.permanentAddress;
+                
+                document.getElementById("editName").value = data.student.name;
+                document.getElementById("editEmail").value = data.student.email;
+                document.getElementById("editAltEmail").value = data.student.alternateEmail || "rudrikakadiya26@gmail.com";
+                document.getElementById("editPhone").value = data.student.phone;
+                document.getElementById("editAddress").value = data.student.permanentAddress;
+            }
+
+            refreshProfileUI();
+
+            // Handle Profile Edit Submission
+            const editForm = document.getElementById("editProfileForm");
+            if (editForm) {
+                editForm.addEventListener("submit", function(e) {
+                    e.preventDefault();
+                    data.student.name = document.getElementById("editName").value.trim();
+                    data.student.email = document.getElementById("editEmail").value.trim();
+                    data.student.alternateEmail = document.getElementById("editAltEmail").value.trim();
+                    data.student.phone = document.getElementById("editPhone").value.trim();
+                    data.student.permanentAddress = document.getElementById("editAddress").value.trim();
+
+                    savePortalData(data);
+                    refreshProfileUI();
+                    closeModal("editProfileModal");
+                    showToast("Profile details updated successfully!", "success");
+                });
+            }
+
+            // Handle Password Change Submission
+            const passForm = document.getElementById("changePasswordForm");
+            if (passForm) {
+                passForm.addEventListener("submit", function(e) {
+                    e.preventDefault();
+                    const newPass = document.getElementById("newPass").value;
+                    const confirmPass = document.getElementById("confirmNewPass").value;
+
+                    if (newPass.length < 6) {
+                        showToast("Password must be at least 6 characters!", "danger");
+                        return;
+                    }
+                    if (newPass !== confirmPass) {
+                        showToast("New passwords do not match!", "danger");
+                        return;
+                    }
+
+                    closeModal("changePasswordModal");
+                    passForm.reset();
+                    showToast("Password updated successfully!", "success");
+                });
+            }
+        });
+    </script>
+</body>
+</html>

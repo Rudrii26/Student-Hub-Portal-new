@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exams & Results - Student Hub Portal</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/portal.css">
+</head>
+
+<body class="portal-body">
+    <div class="sidebar-overlay" onclick="closeSidebar()"></div>
+
+    <div class="portal-layout">
+        <aside class="portal-sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo-icon">🎓</div>
+                <div class="sidebar-brand-text">
+                    <span class="sidebar-brand-title">Student Hub</span>
+                    <span class="sidebar-brand-sub">University Portal</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section-title">Overview</div>
+                <a href="dashboard.html" class="nav-link">
+                    <span class="nav-icon">📊</span> Dashboard
+                </a>
+                <a href="profile.html" class="nav-link">
+                    <span class="nav-icon">👤</span> My Profile
+                </a>
+
+                <div class="nav-section-title">Academics</div>
+                <a href="courses.html" class="nav-link">
+                    <span class="nav-icon">📚</span> Courses & Subjects
+                </a>
+                <a href="timetable.html" class="nav-link">
+                    <span class="nav-icon">🗓️</span> Timetable
+                </a>
+                <a href="attendance.html" class="nav-link">
+                    <span class="nav-icon">📋</span> Attendance
+                </a>
+                <a href="assignments.html" class="nav-link">
+                    <span class="nav-icon">📝</span> Assignments
+                </a>
+                <a href="materials.html" class="nav-link">
+                    <span class="nav-icon">📁</span> Study Material
+                </a>
+                <a href="exams-results.html" class="nav-link active">
+                    <span class="nav-icon">🏆</span> Exams & Results
+                </a>
+
+                <div class="nav-section-title">Finance & Residence</div>
+                <a href="college-fees.html" class="nav-link">
+                    <span class="nav-icon">💳</span> College Fees
+                </a>
+                <a href="hostel.html" class="nav-link">
+                    <span class="nav-icon">🏢</span> Hostel & Mess
+                </a>
+                <a href="payments.html" class="nav-link">
+                    <span class="nav-icon">🧾</span> Payments & Receipts
+                </a>
+
+                <div class="nav-section-title">Services & Campus</div>
+                <a href="parents.html" class="nav-link">
+                    <span class="nav-icon">👨‍👩‍👦</span> Parents / Guardian
+                </a>
+                <a href="documents.html" class="nav-link">
+                    <span class="nav-icon">📄</span> Documents
+                </a>
+                <a href="applications.html" class="nav-link">
+                    <span class="nav-icon">📬</span> Applications
+                </a>
+                <a href="verification.html" class="nav-link">
+                    <span class="nav-icon">🔍</span> Academic Verification
+                </a>
+                <a href="campus.html" class="nav-link">
+                    <span class="nav-icon">🏛️</span> Campus Life
+                </a>
+                <a href="settings.html" class="nav-link">
+                    <span class="nav-icon">⚙️</span> Settings & Help
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="profile.html" class="sidebar-user">
+                    <div class="sidebar-avatar">KR</div>
+                    <div class="sidebar-user-info">
+                        <span class="sidebar-user-name">Kakadiya Rudri</span>
+                        <span class="sidebar-user-id">25CS027</span>
+                    </div>
+                </a>
+                <button class="btn-sidebar-logout" onclick="logoutUser()" title="Logout">🚪</button>
+            </div>
+        </aside>
+
+        <!-- Main Workspace -->
+        <main class="portal-main">
+            <header class="portal-header">
+                <div class="header-left">
+                    <button class="mobile-menu-btn" onclick="toggleSidebar()">☰</button>
+                    <div class="header-title-box">
+                        <h1>Exams & Semester Results</h1>
+                        <div class="header-breadcrumb">Academics / Examination Portal</div>
+                    </div>
+                </div>
+
+                <div class="header-right">
+                    <button class="search-trigger-btn" onclick="openGlobalSearch()">
+                        <span>🔍 Search portal...</span>
+                        <span class="search-shortcut">Ctrl K</span>
+                    </button>
+                    <button class="header-btn" id="themeToggleBtn" onclick="toggleTheme()">🌙</button>
+                    <div style="position: relative;">
+                        <button class="header-btn" id="notifBtn" onclick="toggleNotifications()">🔔<span class="notification-badge-count">2</span></button>
+                    </div>
+                    <div style="position: relative;">
+                        <button class="header-btn" id="profileDropdownBtn" onclick="toggleProfileMenu()">👤</button>
+                    </div>
+                </div>
+            </header>
+
+            <div class="portal-content">
+                <div class="page-top-bar">
+                    <div class="page-title-group">
+                        <h2>Examination Timetable & Scorecards</h2>
+                        <p>View upcoming examination dates, seat numbers, and cumulative semester grade performance.</p>
+                    </div>
+                    <div class="page-actions">
+                        <button class="btn btn-secondary" onclick="window.print()">🖨️ Print Grade Sheet</button>
+                    </div>
+                </div>
+
+                <!-- Academic CGPA Overview Strip -->
+                <div class="stat-grid">
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <span class="stat-label">Cumulative CGPA</span>
+                            <span class="stat-value" id="cgpaVal" style="color: var(--accent-color);">8.53</span>
+                            <span class="stat-sub">Grading Scale: 10.0</span>
+                        </div>
+                        <div class="stat-icon cyan">🏆</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <span class="stat-label">Latest Semester (Sem 2) SGPA</span>
+                            <span class="stat-value" id="sgpaVal" style="color: var(--success);">8.56</span>
+                            <span class="stat-sub">Passed with Distinction</span>
+                        </div>
+                        <div class="stat-icon green">⭐</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <span class="stat-label">Earned Credits</span>
+                            <span class="stat-value">44 / 164</span>
+                            <span class="stat-sub">Degree Completion: 26.8%</span>
+                        </div>
+                        <div class="stat-icon">🎓</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <span class="stat-label">Backlogs / Arrears</span>
+                            <span class="stat-value" style="color: var(--success);">0</span>
+                            <span class="stat-sub">All cleared in 1st attempt</span>
+                        </div>
+                        <div class="stat-icon green">✅</div>
+                    </div>
+                </div>
+
+                <!-- 1. Upcoming Examination Schedule Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <span>🗓️</span> Upcoming Mid-Semester Examination Schedule (October 2026)
+                        </div>
+                        <span class="badge badge-success">Admit Card: Verified (Seat: 25CS027-01)</span>
+                    </div>
+                    <div class="card-body" style="padding: 0;">
+                        <div class="table-container">
+                            <table class="portal-table">
+                                <thead>
+                                    <tr>
+                                        <th>Course Code</th>
+                                        <th>Subject Name</th>
+                                        <th>Exam Date</th>
+                                        <th>Timing</th>
+                                        <th>Hall & Room</th>
+                                        <th>Seat Number</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="upcomingExamsTableBody">
+                                    <!-- Populated by JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. University Result Search / Verification Box -->
+                <div class="card" style="background-color: var(--primary-light); border: 1px solid rgba(37,99,235,0.2);">
+                    <div class="card-header" style="background: transparent;">
+                        <div class="card-title" style="color: var(--primary-color);">
+                            <span>🔍</span> CHARUSAT Examination Scorecard Lookup
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <form id="resultLookupForm" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; align-items: flex-end;">
+                            <div class="form-group" style="margin-bottom: 0;">
+                                <label for="resInstitute">Institute</label>
+                                <select id="resInstitute">
+                                    <option value="CSPIT">Chandubhai S. Patel Institute of Technology (CSPIT)</option>
+                                </select>
+                            </div>
+                            <div class="form-group" style="margin-bottom: 0;">
+                                <label for="resSemester">Semester</label>
+                                <select id="resSemester">
+                                    <option value="Sem 2">Semester 2 (May 2026)</option>
+                                    <option value="Sem 1">Semester 1 (Dec 2025)</option>
+                                </select>
+                            </div>
+                            <div class="form-group" style="margin-bottom: 0;">
+                                <label for="resStudentId">Student ID</label>
+                                <input type="text" id="resStudentId" value="25CS027" required>
+                            </div>
+                            <div>
+                                <button type="submit" class="btn btn-primary" style="width: 100%; height: 42px;">
+                                    🔍 Fetch Scorecard
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- 3. Semester-Wise Performance & Grade Sheet -->
+                <div class="grid-2">
+                    <!-- Semester History Progression -->
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">
+                                <span>📈</span> Semester SGPA Progression
+                            </div>
+                        </div>
+                        <div class="card-body" style="padding: 0;">
+                            <div class="table-container">
+                                <table class="portal-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Semester</th>
+                                            <th>Exam Session</th>
+                                            <th>SGPA</th>
+                                            <th>Credits</th>
+                                            <th>Result Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="semHistoryBody">
+                                        <!-- Rendered by JS -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Selected Semester Subject-Wise Grades Breakdown -->
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">
+                                <span>📋</span> Detailed Grade Sheet (Semester 2)
+                            </div>
+                            <span class="badge badge-success">SGPA: 8.56</span>
+                        </div>
+                        <div class="card-body" style="padding: 0;">
+                            <div class="table-container">
+                                <table class="portal-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Subject</th>
+                                            <th>Credits</th>
+                                            <th>Grade</th>
+                                            <th>Points</th>
+                                            <th>Marks</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="subjectGradesBody">
+                                        <!-- Rendered by JS -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Global Search Modal -->
+    <div class="global-search-modal" id="globalSearchModal">
+        <div class="global-search-box">
+            <div class="global-search-header">
+                <span>🔍</span>
+                <input type="text" id="globalSearchInput" placeholder="Search exams or results...">
+                <button class="modal-close-btn" onclick="closeGlobalSearch()">&times;</button>
+            </div>
+            <div class="global-search-results" id="globalSearchResults"></div>
+        </div>
+    </div>
+
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="../js/portal-data.js"></script>
+    <script src="../js/portal.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const data = getPortalData();
+
+            // Populate upcoming exams
+            const examsTable = document.getElementById("upcomingExamsTableBody");
+            const examsList = data.exams || (data.examsData && data.examsData.upcomingSchedule) || [];
+            if (examsTable) {
+                examsTable.innerHTML = examsList.map(e => `
+                    <tr>
+                        <td><span class="badge badge-primary">${e.code}</span></td>
+                        <td><strong>${e.subject}</strong></td>
+                        <td><strong>${e.date}</strong></td>
+                        <td>${e.time}</td>
+                        <td><span class="badge badge-muted">${e.room}</span></td>
+                        <td><strong>${e.seat || '25CS027-01'}</strong></td>
+                    </tr>
+                `).join("");
+            }
+
+            // Populate semester progression
+            const semTable = document.getElementById("semHistoryBody");
+            const semHistory = data.resultsHistory || (data.examsData && data.examsData.semesters) || [];
+            if (semTable) {
+                semTable.innerHTML = semHistory.map(r => `
+                    <tr>
+                        <td><strong>${r.semester || r.sem}</strong></td>
+                        <td style="font-size: 12px; color: var(--text-muted);">${r.examSession || r.session}</td>
+                        <td><strong style="color: var(--accent-color); font-size: 14px;">${Number(r.sgpa).toFixed(2)}</strong></td>
+                        <td>${r.credits || r.earnedCredits || 22}</td>
+                        <td><span class="badge badge-success">${r.status || r.result || 'DISTINCTION'}</span></td>
+                    </tr>
+                `).join("");
+            }
+
+            // Populate Sem 2 Subject Grades
+            const gradeTable = document.getElementById("subjectGradesBody");
+            const grades = data.sem2SubjectGrades || [];
+            if (gradeTable && grades.length) {
+                gradeTable.innerHTML = grades.map(g => `
+                    <tr>
+                        <td>
+                            <strong>${g.name}</strong><br>
+                            <span style="font-size: 11px; color: var(--text-muted);">${g.code}</span>
+                        </td>
+                        <td>${g.credits}</td>
+                        <td><span class="badge ${g.grade === 'AA' || g.grade === 'O' || g.grade === 'A+' ? 'badge-success' : 'badge-primary'}">${g.grade}</span></td>
+                        <td><strong>${g.gradePoints}</strong></td>
+                        <td>${g.marks}</td>
+                    </tr>
+                `).join("");
+            }
+
+            // Handle Result Lookup Form
+            const lookupForm = document.getElementById("resultLookupForm");
+            if (lookupForm) {
+                lookupForm.addEventListener("submit", function(e) {
+                    e.preventDefault();
+                    const sem = document.getElementById("resSemester").value;
+                    const id = document.getElementById("resStudentId").value;
+                    showToast(`Verified official CHARUSAT scorecard loaded for ${id} (${sem})!`, "success");
+                });
+            }
+        });
+    </script>
+</body>
+</html>

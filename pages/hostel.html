@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hostel & Mess Services - Student Hub Portal</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/portal.css">
+</head>
+
+<body class="portal-body">
+    <div class="sidebar-overlay" onclick="closeSidebar()"></div>
+
+    <div class="portal-layout">
+        <aside class="portal-sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo-icon">🎓</div>
+                <div class="sidebar-brand-text">
+                    <span class="sidebar-brand-title">Student Hub</span>
+                    <span class="sidebar-brand-sub">University Portal</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section-title">Overview</div>
+                <a href="dashboard.html" class="nav-link">
+                    <span class="nav-icon">📊</span> Dashboard
+                </a>
+                <a href="profile.html" class="nav-link">
+                    <span class="nav-icon">👤</span> My Profile
+                </a>
+
+                <div class="nav-section-title">Academics</div>
+                <a href="courses.html" class="nav-link">
+                    <span class="nav-icon">📚</span> Courses & Subjects
+                </a>
+                <a href="timetable.html" class="nav-link">
+                    <span class="nav-icon">🗓️</span> Timetable
+                </a>
+                <a href="attendance.html" class="nav-link">
+                    <span class="nav-icon">📋</span> Attendance
+                </a>
+                <a href="assignments.html" class="nav-link">
+                    <span class="nav-icon">📝</span> Assignments
+                </a>
+                <a href="materials.html" class="nav-link">
+                    <span class="nav-icon">📁</span> Study Material
+                </a>
+                <a href="exams-results.html" class="nav-link">
+                    <span class="nav-icon">🏆</span> Exams & Results
+                </a>
+
+                <div class="nav-section-title">Finance & Residence</div>
+                <a href="college-fees.html" class="nav-link">
+                    <span class="nav-icon">💳</span> College Fees
+                </a>
+                <a href="hostel.html" class="nav-link active">
+                    <span class="nav-icon">🏢</span> Hostel & Mess
+                </a>
+                <a href="payments.html" class="nav-link">
+                    <span class="nav-icon">🧾</span> Payments & Receipts
+                </a>
+
+                <div class="nav-section-title">Services & Campus</div>
+                <a href="parents.html" class="nav-link">
+                    <span class="nav-icon">👨‍👩‍👦</span> Parents / Guardian
+                </a>
+                <a href="documents.html" class="nav-link">
+                    <span class="nav-icon">📄</span> Documents
+                </a>
+                <a href="applications.html" class="nav-link">
+                    <span class="nav-icon">📬</span> Applications
+                </a>
+                <a href="verification.html" class="nav-link">
+                    <span class="nav-icon">🔍</span> Academic Verification
+                </a>
+                <a href="campus.html" class="nav-link">
+                    <span class="nav-icon">🏛️</span> Campus Life
+                </a>
+                <a href="settings.html" class="nav-link">
+                    <span class="nav-icon">⚙️</span> Settings & Help
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="profile.html" class="sidebar-user">
+                    <div class="sidebar-avatar">KR</div>
+                    <div class="sidebar-user-info">
+                        <span class="sidebar-user-name">Kakadiya Rudri Alpeshbhai</span>
+                        <span class="sidebar-user-id">25CS027</span>
+                    </div>
+                </a>
+                <button class="btn-sidebar-logout" onclick="logoutUser()" title="Logout">🚪</button>
+            </div>
+        </aside>
+
+        <!-- Main Workspace -->
+        <main class="portal-main">
+            <header class="portal-header">
+                <div class="header-left">
+                    <button class="mobile-menu-btn" onclick="toggleSidebar()">☰</button>
+                    <div class="header-title-box">
+                        <h1>Hostel & Mess Services</h1>
+                        <div class="header-breadcrumb">Residence / Hostel & Dining</div>
+                    </div>
+                </div>
+
+                <div class="header-right">
+                    <button class="search-trigger-btn" onclick="openGlobalSearch()">
+                        <span>🔍 Search portal...</span>
+                        <span class="search-shortcut">Ctrl K</span>
+                    </button>
+                    <button class="header-btn" id="themeToggleBtn" onclick="toggleTheme()">🌙</button>
+                    <div style="position: relative;">
+                        <button class="header-btn" id="notifBtn" onclick="toggleNotifications()">🔔<span class="notification-badge-count">2</span></button>
+                    </div>
+                    <div style="position: relative;">
+                        <button class="header-btn" id="profileDropdownBtn" onclick="toggleProfileMenu()">👤</button>
+                    </div>
+                </div>
+            </header>
+
+            <div class="portal-content">
+                <div class="page-top-bar">
+                    <div class="page-title-group">
+                        <h2>Campus Residence & Dining Hub</h2>
+                        <p>Room details, weekly dining menu, hostel fee clearance, and maintenance request services.</p>
+                    </div>
+                    <div class="page-actions">
+                        <button class="btn btn-secondary" onclick="openModal('complaintModal')">🛠️ File Maintenance / Complaint</button>
+                        <button class="btn btn-primary" id="payHostelFeeBtn" onclick="openHostelPaymentModal()">💳 Pay Hostel Dues (₹ 12,000)</button>
+                    </div>
+                </div>
+
+                <!-- 1. Room Details & Warden Information Grid -->
+                <div class="grid-2">
+                    <!-- Room Information Card -->
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">
+                                <span>🏢</span> Room & Residence Details
+                            </div>
+                            <span class="badge badge-success">● Active Resident</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-container">
+                                <table class="portal-table">
+                                    <tbody>
+                                        <tr>
+                                            <td style="width: 38%; color: var(--text-muted);"><strong>Hostel Residence:</strong></td>
+                                            <td><strong>Tej Smruti Girls Hostel (H5 - CHARUSAT Campus)</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="color: var(--text-muted);"><strong>Block & Room No:</strong></td>
+                                            <td><span class="badge badge-primary">505-H5 TEJ SMRUTI</span> (5th Floor)</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="color: var(--text-muted);"><strong>Occupancy Type:</strong></td>
+                                            <td>Double Sharing (Air-Conditioned Attached)</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="color: var(--text-muted);"><strong>Resident Student:</strong></td>
+                                            <td>Kakadiya Rudri (25CS027 &bull; CSPIT CE)</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="color: var(--text-muted);"><strong>Check-in Date:</strong></td>
+                                            <td>10 July 2025</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="color: var(--text-muted);"><strong>Wi-Fi Network:</strong></td>
+                                            <td><code>CHARUSAT_TejSmruti_5G (IP: 172.16.5.505)</code></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Warden & Administration Card -->
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">
+                                <span>👩‍💼</span> Warden & Caretaker Office
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-container">
+                                <table class="portal-table">
+                                    <tbody>
+                                        <tr>
+                                            <td style="width: 38%; color: var(--text-muted);"><strong>Chief Warden:</strong></td>
+                                            <td><strong>Dr. Gitaben Patel</strong> (Warden, Tej Smruti)</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="color: var(--text-muted);"><strong>Phone Contact:</strong></td>
+                                            <td><a href="tel:+912697265140" style="color: var(--accent-color); text-decoration: none;">+91 2697 265140</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="color: var(--text-muted);"><strong>Email:</strong></td>
+                                            <td>warden.tejsmruti@charusat.ac.in</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="color: var(--text-muted);"><strong>Warden Office:</strong></td>
+                                            <td>Ground Floor, Room G-01, Tej Smruti (H5) Block</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="color: var(--text-muted);"><strong>Office Hours:</strong></td>
+                                            <td>05:00 PM - 07:30 PM (Mon - Sat)</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="color: var(--text-muted);"><strong>Hostel Caretaker:</strong></td>
+                                            <td>Mrs. Gitaben (+91 2697 265140)</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Hostel Fees Summary & Breakdown -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <span>💳</span> Hostel & Mess Fee Schedule (Semester 3)
+                        </div>
+                        <span id="hostelFeeStatusBadge"><span class="badge badge-warning">Partial Due: ₹ 12,000</span></span>
+                    </div>
+                    <div class="card-body" style="padding: 0;">
+                        <div class="table-container">
+                            <table class="portal-table">
+                                <thead>
+                                    <tr>
+                                        <th>Fee Head</th>
+                                        <th>Total Assessment</th>
+                                        <th>Amount Paid</th>
+                                        <th>Balance Due</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="hostelFeeBreakdownBody">
+                                    <!-- Rendered dynamically -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Mess Timings & Weekly Food Menu -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <span>🍽️</span> Central Mess Schedule & Weekly Dining Menu
+                        </div>
+                        <button class="btn btn-sm btn-outline" onclick="openModal('messFeedbackModal')">💬 Mess Feedback</button>
+                    </div>
+                    <div class="card-body">
+                        <!-- Meal Timings Banner -->
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-bottom: 20px;">
+                            <div style="background: var(--bg-alt); padding: 12px; border-radius: 6px; border: 1px solid var(--border-color); text-align: center;">
+                                <div style="font-size: 11px; color: var(--text-muted); font-weight: 700;">BREAKFAST</div>
+                                <div style="font-weight: 700; font-size: 13.5px; color: var(--primary-color);">07:30 - 09:30 AM</div>
+                            </div>
+                            <div style="background: var(--bg-alt); padding: 12px; border-radius: 6px; border: 1px solid var(--border-color); text-align: center;">
+                                <div style="font-size: 11px; color: var(--text-muted); font-weight: 700;">LUNCH</div>
+                                <div style="font-weight: 700; font-size: 13.5px; color: var(--primary-color);">12:30 - 02:30 PM</div>
+                            </div>
+                            <div style="background: var(--bg-alt); padding: 12px; border-radius: 6px; border: 1px solid var(--border-color); text-align: center;">
+                                <div style="font-size: 11px; color: var(--text-muted); font-weight: 700;">EVENING SNACKS</div>
+                                <div style="font-weight: 700; font-size: 13.5px; color: var(--primary-color);">05:00 - 06:15 PM</div>
+                            </div>
+                            <div style="background: var(--bg-alt); padding: 12px; border-radius: 6px; border: 1px solid var(--border-color); text-align: center;">
+                                <div style="font-size: 11px; color: var(--text-muted); font-weight: 700;">DINNER</div>
+                                <div style="font-weight: 700; font-size: 13.5px; color: var(--primary-color);">07:45 - 09:45 PM</div>
+                            </div>
+                        </div>
+
+                        <!-- 7 Days Menu Tabs -->
+                        <div class="tabs-nav" id="messDayTabs">
+                            <button class="tab-btn active" onclick="switchMessDay('monday')">Monday</button>
+                            <button class="tab-btn" onclick="switchMessDay('tuesday')">Tuesday</button>
+                            <button class="tab-btn" onclick="switchMessDay('wednesday')">Wednesday</button>
+                            <button class="tab-btn" onclick="switchMessDay('thursday')">Thursday</button>
+                            <button class="tab-btn" onclick="switchMessDay('friday')">Friday</button>
+                            <button class="tab-btn" onclick="switchMessDay('saturday')">Saturday</button>
+                            <button class="tab-btn" onclick="switchMessDay('sunday')">Sunday</button>
+                        </div>
+
+                        <!-- Menu Display Box -->
+                        <div id="messMenuDisplayBox" class="table-container">
+                            <!-- Rendered by JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Maintenance Requests & Complaints Tracker -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <span>🛠️</span> Room Maintenance & Complaint Tickets
+                        </div>
+                        <button class="btn btn-sm btn-primary" onclick="openModal('complaintModal')">+ New Complaint Request</button>
+                    </div>
+                    <div class="card-body" style="padding: 0;">
+                        <div class="table-container">
+                            <table class="portal-table">
+                                <thead>
+                                    <tr>
+                                        <th>Ticket ID</th>
+                                        <th>Category</th>
+                                        <th>Issue Description</th>
+                                        <th>Reported Date</th>
+                                        <th>Status</th>
+                                        <th>Resolution Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="complaintsTableBody">
+                                    <!-- Rendered dynamically -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Hostel Rules & Emergency Guidelines -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <span>📜</span> Residence Regulations & Emergency Protocols
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; font-size: 13px; line-height: 1.6;">
+                            <div>
+                                <h4 style="color: var(--primary-color); margin-bottom: 6px;">🚪 Gate Timings & In-Time:</h4>
+                                <p style="color: var(--text-muted);">
+                                    Hostel main gate closes at <strong>10:00 PM</strong> daily. Night out-passes must be approved by the Warden through the Student Portal 24 hours prior.
+                                </p>
+                            </div>
+                            <div>
+                                <h4 style="color: var(--primary-color); margin-bottom: 6px;">🔇 Study Hours & Noise:</h4>
+                                <p style="color: var(--text-muted);">
+                                    Mandatory silent study hours are observed between <strong>11:00 PM and 06:00 AM</strong>. High wattage electric heaters/appliances are strictly prohibited.
+                                </p>
+                            </div>
+                            <div>
+                                <h4 style="color: var(--primary-color); margin-bottom: 6px;">🚨 Campus Medical Emergency:</h4>
+                                <p style="color: var(--text-muted);">
+                                    University Health Center: <strong>0141-2889000</strong> &bull; Ambulance: <strong>108</strong> &bull; Security Desk: <strong>+91 98765 00100</strong>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Submit Complaint Modal -->
+    <div class="modal-overlay" id="complaintModal">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3 class="modal-title">Submit Room Maintenance / Complaint</h3>
+                <button class="modal-close-btn" onclick="closeModal('complaintModal')">&times;</button>
+            </div>
+            <form id="complaintSubmitForm">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="complaintCategory">Issue Category</label>
+                        <select id="complaintCategory" required>
+                            <option value="Electrical">Electrical (Fan, Tube Light, Switch, AC)</option>
+                            <option value="Plumbing">Plumbing (Washroom, Tap, Geyser, Leakage)</option>
+                            <option value="Carpentry">Carpentry (Bed, Study Table, Cupboard, Lock)</option>
+                            <option value="Housekeeping">Housekeeping & Cleaning</option>
+                            <option value="Internet / Wi-Fi">Wi-Fi & LAN Network</option>
+                            <option value="Mess & Food">Mess Quality / Dining</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="complaintDesc">Problem Details</label>
+                        <textarea id="complaintDesc" rows="3" placeholder="Describe the maintenance requirement in detail..." required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="complaintPrefTime">Preferred Inspection Time</label>
+                        <select id="complaintPrefTime">
+                            <option value="Morning (09:00 AM - 12:00 PM)">Morning (09:00 AM - 12:00 PM)</option>
+                            <option value="Afternoon (02:00 PM - 05:00 PM)">Afternoon (02:00 PM - 05:00 PM)</option>
+                            <option value="Evening (05:00 PM - 07:00 PM)">Evening (05:00 PM - 07:00 PM)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('complaintModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Submit Ticket</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Mess Feedback Modal -->
+    <div class="modal-overlay" id="messFeedbackModal">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3 class="modal-title">Submit Dining & Mess Feedback</h3>
+                <button class="modal-close-btn" onclick="closeModal('messFeedbackModal')">&times;</button>
+            </div>
+            <form id="messFeedbackForm">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="mealType">Meal Category</label>
+                        <select id="mealType">
+                            <option value="Breakfast">Breakfast</option>
+                            <option value="Lunch">Lunch</option>
+                            <option value="Snacks">Evening Snacks</option>
+                            <option value="Dinner">Dinner</option>
+                            <option value="Overall Hygiene">Overall Hygiene & Cleanliness</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ratingSelect">Quality Rating</label>
+                        <select id="ratingSelect">
+                            <option value="5">⭐⭐⭐⭐⭐ Excellent</option>
+                            <option value="4">⭐⭐⭐⭐ Good</option>
+                            <option value="3" selected>⭐⭐⭐ Average</option>
+                            <option value="2">⭐⭐ Needs Improvement</option>
+                            <option value="1">⭐ Poor</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="feedbackComments">Suggestions / Comments</label>
+                        <textarea id="feedbackComments" rows="3" placeholder="Enter your suggestions for food quality or menu changes..." required></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('messFeedbackModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Submit Feedback</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Hostel Fee Payment Modal -->
+    <div class="modal-overlay" id="hostelPayModal">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3 class="modal-title">Pay Hostel & Mess Dues</h3>
+                <button class="modal-close-btn" onclick="closeModal('hostelPayModal')">&times;</button>
+            </div>
+            <form id="hostelPayForm">
+                <div class="modal-body">
+                    <div style="background: var(--primary-light); padding: 14px; border-radius: 6px; border: 1px solid rgba(37,99,235,0.2); margin-bottom: 16px;">
+                        <div style="display: flex; justify-content: space-between; font-size: 14px;">
+                            <span>Pending Hostel Dues:</span>
+                            <strong style="color: var(--primary-color); font-size: 16px;">₹ 12,000</strong>
+                        </div>
+                        <div style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">
+                            Ramanujan Residence (Room 304) &bull; Due: 20 April 2026
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Select Payment Mode</label>
+                        <div style="display: flex; flex-direction: column; gap: 8px;">
+                            <label style="display: flex; align-items: center; gap: 8px; font-weight: 400; cursor: pointer; padding: 8px; border: 1px solid var(--border-color); border-radius: 6px;">
+                                <input type="radio" name="hostelPayMethod" value="UPI (Google Pay)" checked style="width: auto; margin: 0;">
+                                <span>⚡ UPI Quick Pay (Google Pay / PhonePe)</span>
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 8px; font-weight: 400; cursor: pointer; padding: 8px; border: 1px solid var(--border-color); border-radius: 6px;">
+                                <input type="radio" name="hostelPayMethod" value="NetBanking" style="width: auto; margin: 0;">
+                                <span>🏦 Internet Banking</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('hostelPayModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary" id="btnConfirmHostelPay">Pay ₹ 12,000</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Receipt Preview Modal -->
+    <div class="modal-overlay" id="receiptModal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-header">
+                <h3 class="modal-title">Hostel & Mess Transaction Receipt</h3>
+                <button class="modal-close-btn" onclick="closeModal('receiptModal')">&times;</button>
+            </div>
+            <div class="modal-body" id="receiptModalBody"></div>
+            <div class="modal-footer no-print">
+                <button class="btn btn-secondary" onclick="closeModal('receiptModal')">Close</button>
+                <button class="btn btn-primary" onclick="printReceipt()">🖨️ Print Receipt</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Global Search Modal -->
+    <div class="global-search-modal" id="globalSearchModal">
+        <div class="global-search-box">
+            <div class="global-search-header">
+                <span>🔍</span>
+                <input type="text" id="globalSearchInput" placeholder="Search hostel services...">
+                <button class="modal-close-btn" onclick="closeGlobalSearch()">&times;</button>
+            </div>
+            <div class="global-search-results" id="globalSearchResults"></div>
+        </div>
+    </div>
+
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="../js/portal-data.js"></script>
+    <script src="../js/portal.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            function refreshHostelUI() {
+                const data = getPortalData();
+                const hFees = data.hostelData.fees;
+
+                // Update fee breakdown
+                const feeBody = document.getElementById("hostelFeeBreakdownBody");
+                feeBody.innerHTML = hFees.breakdown.map(item => `
+                    <tr>
+                        <td><strong>${item.head}</strong></td>
+                        <td>₹ ${item.amount.toLocaleString('en-IN')}</td>
+                        <td>₹ ${item.paid.toLocaleString('en-IN')}</td>
+                        <td><strong style="color: ${item.pending === 0 ? 'var(--success)' : 'var(--warning)'};">₹ ${item.pending.toLocaleString('en-IN')}</strong></td>
+                        <td>
+                            ${item.pending === 0 ? '<span class="badge badge-success">Cleared</span>' : '<span class="badge badge-warning">Due</span>'}
+                        </td>
+                    </tr>
+                `).join("");
+
+                const payBtn = document.getElementById("payHostelFeeBtn");
+                const badge = document.getElementById("hostelFeeStatusBadge");
+
+                if (hFees.pendingAmount === 0) {
+                    badge.innerHTML = `<span class="badge badge-success">✅ Fully Paid (Cleared)</span>`;
+                    if (payBtn) {
+                        payBtn.disabled = true;
+                        payBtn.textContent = "✓ Hostel Fees Cleared";
+                        payBtn.classList.remove("btn-primary");
+                        payBtn.classList.add("btn-secondary");
+                    }
+                } else {
+                    badge.innerHTML = `<span class="badge badge-warning">Partial Due: ₹ ${hFees.pendingAmount.toLocaleString('en-IN')}</span>`;
+                    if (payBtn) {
+                        payBtn.disabled = false;
+                        payBtn.textContent = `💳 Pay Hostel Dues (₹ ${hFees.pendingAmount.toLocaleString('en-IN')})`;
+                        payBtn.classList.remove("btn-secondary");
+                        payBtn.classList.add("btn-primary");
+                    }
+                }
+
+                // Render Complaints
+                const compBody = document.getElementById("complaintsTableBody");
+                compBody.innerHTML = data.hostelData.complaints.map(c => `
+                    <tr>
+                        <td><strong>${c.id}</strong></td>
+                        <td><span class="badge badge-primary">${c.category}</span></td>
+                        <td>${c.desc}</td>
+                        <td>${c.date}</td>
+                        <td><span class="badge ${c.status === 'Resolved' ? 'badge-success' : 'badge-warning'}">${c.status}</span></td>
+                        <td>${c.resolutionDate ? c.resolutionDate : '<em>In progress</em>'}</td>
+                    </tr>
+                `).join("");
+            }
+
+            // Mess Menu Tab Switcher
+            window.switchMessDay = function(dayKey) {
+                const data = getPortalData();
+                document.querySelectorAll("#messDayTabs .tab-btn").forEach(btn => {
+                    if (btn.textContent.toLowerCase() === dayKey) {
+                        btn.classList.add("active");
+                    } else {
+                        btn.classList.remove("active");
+                    }
+                });
+
+                const menu = data.hostelData.messWeeklyMenu[dayKey];
+                const box = document.getElementById("messMenuDisplayBox");
+                if (menu && box) {
+                    box.innerHTML = `
+                        <table class="portal-table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 20%;">Meal Service</th>
+                                    <th>Menu Items</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>🍳 Breakfast</strong></td>
+                                    <td>${menu.breakfast}</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>🍛 Lunch</strong></td>
+                                    <td>${menu.lunch}</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>☕ Evening Snacks</strong></td>
+                                    <td>${menu.snacks}</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>🍲 Dinner</strong></td>
+                                    <td><strong>${menu.dinner}</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    `;
+                }
+            };
+
+            // Open Hostel Payment Modal
+            window.openHostelPaymentModal = function() {
+                const data = getPortalData();
+                if (data.hostelData.fees.pendingAmount === 0) {
+                    showToast("No pending hostel fees!", "info");
+                    return;
+                }
+                openModal("hostelPayModal");
+            };
+
+            // Handle Hostel Payment Submission
+            const hPayForm = document.getElementById("hostelPayForm");
+            hPayForm.addEventListener("submit", function(e) {
+                e.preventDefault();
+                const btn = document.getElementById("btnConfirmHostelPay");
+                btn.disabled = true;
+                btn.textContent = "Processing Payment...";
+
+                setTimeout(() => {
+                    const data = getPortalData();
+                    const amountPaid = data.hostelData.fees.pendingAmount;
+                    const newTxnId = `TXN-HST-${Math.floor(100000 + Math.random() * 900000)}`;
+                    const todayStr = new Date().toISOString().split('T')[0];
+
+                    data.hostelData.fees.paidAmount += amountPaid;
+                    data.hostelData.fees.pendingAmount = 0;
+                    data.hostelData.fees.breakdown.forEach(b => {
+                        b.paid = b.amount;
+                        b.pending = 0;
+                    });
+
+                    // Add to global ledger
+                    data.paymentsLedger.unshift({
+                        txnId: newTxnId,
+                        date: todayStr,
+                        category: "Hostel & Mess",
+                        desc: "Sem 6 Hostel Room & Mess Final Dues",
+                        amount: amountPaid,
+                        method: "UPI / NetBanking",
+                        status: "Success"
+                    });
+
+                    data.recentActivity.unshift({
+                        title: `Paid Hostel Fee (₹ ${amountPaid.toLocaleString('en-IN')})`,
+                        time: "Just now",
+                        icon: "🏢"
+                    });
+
+                    savePortalData(data);
+                    btn.disabled = false;
+                    btn.textContent = "Pay ₹ 12,000";
+                    closeModal("hostelPayModal");
+                    refreshHostelUI();
+                    showToast("Hostel & Mess dues cleared successfully!", "success");
+                    viewReceipt(newTxnId);
+                }, 800);
+            });
+
+            // Handle Complaint Submission
+            const compForm = document.getElementById("complaintSubmitForm");
+            compForm.addEventListener("submit", function(e) {
+                e.preventDefault();
+                const data = getPortalData();
+                const category = document.getElementById("complaintCategory").value;
+                const desc = document.getElementById("complaintDesc").value.trim();
+                const newId = `CMP-${Math.floor(850 + Math.random() * 100)}`;
+                const todayStr = new Date().toISOString().split('T')[0];
+
+                data.hostelData.complaints.unshift({
+                    id: newId,
+                    category: category,
+                    desc: desc,
+                    date: todayStr,
+                    status: "In Progress",
+                    resolutionDate: null
+                });
+
+                data.recentActivity.unshift({
+                    title: `Submitted Hostel Ticket ${newId}`,
+                    time: "Just now",
+                    icon: "🛠️"
+                });
+
+                savePortalData(data);
+                compForm.reset();
+                closeModal("complaintModal");
+                refreshHostelUI();
+                showToast(`Complaint ticket #${newId} logged with Warden Office!`, "success");
+            });
+
+            // Handle Mess Feedback Submission
+            const messForm = document.getElementById("messFeedbackForm");
+            messForm.addEventListener("submit", function(e) {
+                e.preventDefault();
+                closeModal("messFeedbackModal");
+                messForm.reset();
+                showToast("Thank you! Your dining feedback has been forwarded to the Mess Committee.", "success");
+            });
+
+            refreshHostelUI();
+            switchMessDay("monday");
+        });
+    </script>
+</body>
+</html>

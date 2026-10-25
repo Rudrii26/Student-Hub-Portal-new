@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHARUSAT e-Governance - Student Portal</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="landing-body">
+    <!-- Ambient Background Mesh Glow Orbs -->
+    <div class="ambient-glow-orb ambient-glow-1"></div>
+    <div class="ambient-glow-orb ambient-glow-2"></div>
+
+    <!-- =====================================================================
+         NOTIFICATION / ANNOUNCEMENT BANNER
+         ===================================================================== -->
+    <div id="notifBanner" class="notification-banner" role="alert">
+        <div class="notif-content-flex">
+            <span class="notif-badge-pill">📢 ACADEMIC UPDATE</span>
+            <span class="notif-text">
+                Welcome to CHARUSAT Student Hub! Stay updated with your academics, announcements, schedules and important campus information.
+            </span>
+            <button type="button" class="notif-btn-modal open-modal-trigger">
+                <span>View Updates &rarr;</span>
+            </button>
+        </div>
+        <button type="button" id="closeBannerBtn" class="notif-close-btn" aria-label="Close notification banner" title="Dismiss banner">&times;</button>
+    </div>
+
+    <!-- =====================================================================
+         STICKY NAVIGATION, HAMBURGER MENU & THEME TOGGLE
+         ===================================================================== -->
+    <header class="landing-header">
+        <div class="header-container">
+            <!-- University Brand Logo -->
+            <a href="index.html" class="brand-logo-link">
+                <div class="brand-emblem-sm">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                </div>
+                <div class="brand-title-group">
+                    <h2>CHARUSAT e-Governance</h2>
+                    <span>Student Portal &bull; NAAC A+</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <nav class="nav-links-desktop" aria-label="Main Navigation">
+                <a href="#login" class="nav-link-item" id="navSignInLink">Sign In</a>
+                <button type="button" class="nav-link-item" id="navRegisterBtn" style="background:none; border:none; cursor:pointer; font-family:inherit;">Registration</button>
+                <a href="#slider" class="nav-link-item">Campus Features</a>
+                <a href="#faq" class="nav-link-item">Student FAQ</a>
+                <button type="button" class="nav-link-item open-modal-trigger" style="background:none; border:none; cursor:pointer; font-family:inherit;">Academic Updates</button>
+                <a href="pages/dashboard.html" class="nav-link-item" style="color: var(--primary-color);">Student Dashboard &rarr;</a>
+            </nav>
+
+            <!-- Action Controls (Theme Toggle & Hamburger Button) -->
+            <div class="nav-actions-group">
+                <!-- Theme Switcher Button -->
+                <button type="button" id="themeToggleBtn" class="theme-toggle-btn" aria-label="Toggle Light and Dark Mode" title="Toggle Light / Dark Theme">
+                    <span id="themeIcon" class="theme-icon">☀️</span>
+                    <span id="themeText">Light Mode</span>
+                </button>
+
+                <!-- Hamburger Button for Mobile/Tablet -->
+                <button type="button" id="hamburgerBtn" class="hamburger-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileNavMenu">
+                    <span class="hamburger-bar bar-1"></span>
+                    <span class="hamburger-bar bar-2"></span>
+                    <span class="hamburger-bar bar-3"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu Dropdown -->
+        <nav id="mobileNavMenu" class="mobile-nav-menu" aria-label="Mobile Navigation">
+            <a href="#login" class="mobile-nav-link" id="mobSignInLink">
+                <span>🔐 Student Authentication</span>
+                <span>&rarr;</span>
+            </a>
+            <button type="button" class="mobile-nav-link" id="mobRegisterBtn" style="text-align:left; cursor:pointer; width:100%; font-family:inherit;">
+                <span>📝 New Student Registration</span>
+                <span>&rarr;</span>
+            </button>
+            <a href="#slider" class="mobile-nav-link">
+                <span>✨ Campus & Academic Highlights</span>
+                <span>&rarr;</span>
+            </a>
+            <a href="#faq" class="mobile-nav-link">
+                <span>💡 Frequently Asked Questions</span>
+                <span>&rarr;</span>
+            </a>
+            <button type="button" class="mobile-nav-link open-modal-trigger" style="text-align:left; cursor:pointer; width:100%;">
+                <span>📢 Academic Notices & Updates</span>
+                <span>&rarr;</span>
+            </button>
+            <a href="pages/dashboard.html" class="mobile-nav-link" style="color: var(--primary-color);">
+                <span>🚀 Open Student Dashboard</span>
+                <span>&rarr;</span>
+            </a>
+        </nav>
+    </header>
+
+    <!-- =====================================================================
+         SECTION 1: HERO & AUTHENTICATION PORTAL (PRESERVED)
+         ===================================================================== -->
+    <main>
+        <section id="login" class="auth-wrapper">
+            <div class="auth-card-grid">
+                
+                <!-- Left Hero Brand Panel -->
+                <div class="auth-hero-panel">
+                    <div class="auth-brand-badge">
+                        <span class="live-pulse-dot"></span>
+                        <span>CHARUSAT e-Governance &bull; NAAC A+</span>
+                    </div>
+
+                    <div class="auth-hero-content">
+                        <h1>Charotar University <br><span class="gradient-text">e-Governance OS.</span></h1>
+                        <p>
+                            High-speed unified academic portal for CSPIT, DEPSTAR, CMPICA, and all CHARUSAT institutes. Manage live attendance, semester exams, online fee clearance, and campus life.
+                        </p>
+
+                        <div class="auth-features-pills">
+                            <div class="feature-pill-item">
+                                <div class="feature-pill-icon">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                                </div>
+                                <div><strong>Live Attendance Radar:</strong> 89.0% across 3rd Sem CS subjects</div>
+                            </div>
+                            <div class="feature-pill-item">
+                                <div class="feature-pill-icon">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+                                </div>
+                                <div><strong>Official Results & GPA:</strong> SGPA 8.56 &bull; CGPA 8.53</div>
+                            </div>
+                            <div class="feature-pill-item">
+                                <div class="feature-pill-icon">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
+                                </div>
+                                <div><strong>Online Fee Clearance:</strong> 1-Click HDFC / UPI gateway</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="auth-hero-footer">
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <span class="live-pulse-dot"></span>
+                            <span>CHARUSAT Campus, Changa &bull; 1,420+ active</span>
+                        </div>
+                        <div>AES-256 Auth</div>
+                    </div>
+                </div>
+
+                <!-- Right Auth Form Panel (Sign In & Student Registration) -->
+                <div class="auth-form-panel">
+                    <!-- Auth Mode Tabs Switcher -->
+                    <div class="auth-tabs-nav" role="tablist" aria-label="Portal Access Tabs">
+                        <button type="button" class="auth-tab-btn active" id="tabLoginBtn" role="tab" aria-selected="true" aria-controls="loginFormWrapper">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" x2="3" y1="12" y2="12"/></svg>
+                            <span>Sign In</span>
+                        </button>
+                        <button type="button" class="auth-tab-btn" id="tabRegisterBtn" role="tab" aria-selected="false" aria-controls="registerFormWrapper">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" x2="19" y1="8" y2="14"/><line x1="22" x2="16" y1="11" y2="11"/></svg>
+                            <span>Student Registration</span>
+                        </button>
+                    </div>
+
+                    <!-- 1. Sign In Form View -->
+                    <div id="loginFormWrapper" class="form-view-wrapper active" role="tabpanel" aria-labelledby="tabLoginBtn">
+                        <div class="auth-form-header">
+                            <div class="auth-brand-logo-row">
+                                <div class="auth-brand-emblem">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                                </div>
+                                <div>
+                                    <h2>CHARUSAT e-Governance</h2>
+                                    <p>Student Portal Authentication</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <form id="loginForm">
+                            <div class="form-group">
+                                <label for="studentId">
+                                    <span>Student ID / Username</span>
+                                    <span style="font-size: 11px; color: var(--text-light); font-weight: 400;">e.g. 25CS027</span>
+                                </label>
+                                <div class="input-icon-wrapper">
+                                    <div class="input-icon">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 7h10"/><path d="M7 12h10"/><path d="M7 17h10"/></svg>
+                                    </div>
+                                    <input type="text" id="studentId" placeholder="Enter CHARUSAT Student ID (e.g. 25CS027)" required autocomplete="username">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <div class="input-icon-wrapper password-box">
+                                    <div class="input-icon">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                                    </div>
+                                    <input type="password" id="password" placeholder="Enter your password" required autocomplete="current-password">
+                                    <button type="button" class="btn-toggle-pwd" id="togglePassword" title="Toggle password visibility">
+                                        <svg id="eyeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="auth-options-row">
+                                <label class="auth-checkbox-label" for="remember">
+                                    <input type="checkbox" id="remember">
+                                    <span>Keep me signed in</span>
+                                </label>
+                                <a href="pages/forgot-password.html" class="auth-forgot-link">Forgot Password?</a>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="captcha">Security Verification (CAPTCHA)</label>
+                                <div class="captcha-container">
+                                    <div class="captcha-box">
+                                        <span id="captchaCode">A7K9P</span>
+                                    </div>
+                                    <button type="button" class="captcha-refresh-btn" id="refreshCaptchaBtn" title="Generate new code">
+                                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 16h5v5"/></svg>
+                                    </button>
+                                </div>
+                                <input type="text" id="captcha" placeholder="Enter characters shown above" required autocomplete="off">
+                            </div>
+
+                            <p id="captchaMessage" class="form-message"></p>
+                            
+                            <button type="submit" class="login-button" id="loginBtn">
+                                <span id="loginBtnText">Sign In to CHARUSAT Portal</span>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                            </button>
+
+                            <div style="text-align: center; margin-top: 14px; font-size: 13px; color: var(--text-muted);">
+                                New Student at CHARUSAT? 
+                                <button type="button" id="linkToRegister" style="background:none; border:none; color:var(--primary-color); font-weight:700; cursor:pointer; text-decoration:underline; font-family:inherit; padding:0 4px;">Register for Portal Access &rarr;</button>
+                            </div>
+                        </form>
+
+                        <!-- Fast Student Credentials Helper Box -->
+                        <div class="demo-credentials-box">
+                            <div class="demo-title">
+                                <span>⚡ 1-Click Fast Student Sign In</span>
+                            </div>
+                            <div class="demo-pills-row">
+                                <button type="button" class="demo-pill-btn" onclick="quickFillDemo('25CS027', 'password123')">
+                                    <span>👉 Auto-Fill (Kakadiya Rudri - 25CS027)</span>
+                                </button>
+                            </div>
+                            <div style="font-size: 11px; color: var(--text-muted);">
+                                Official portal at <a href="https://support.charusat.edu.in/Egov/frmAppSelection.aspx" target="_blank" style="text-decoration: underline; color: var(--primary-color);">support.charusat.edu.in/Egov</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. Student Registration Form View -->
+                    <div id="registerFormWrapper" class="form-view-wrapper" role="tabpanel" aria-labelledby="tabRegisterBtn">
+                        <div class="auth-form-header">
+                            <div class="auth-brand-logo-row">
+                                <div class="auth-brand-emblem">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" x2="19" y1="8" y2="14"/><line x1="22" x2="16" y1="11" y2="11"/></svg>
+                                </div>
+                                <div>
+                                    <h2>New Student Registration</h2>
+                                    <p>Create your CHARUSAT Student Portal Profile</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Registration Form -->
+                        <form id="registrationForm" method="POST" action="register.php" novalidate>
+                            <!-- 1 & 2. Full Name & Username (2-col grid) -->
+                            <div class="form-row-2col">
+                                <div class="form-group">
+                                    <label for="regFullName">
+                                        <span>Full Name <span class="required-star">*</span></span>
+                                    </label>
+                                    <div class="input-icon-wrapper">
+                                        <div class="input-icon">
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                                        </div>
+                                        <input type="text" id="regFullName" name="fullName" placeholder="e.g. Kakadiya Rudri" required autocomplete="name">
+                                    </div>
+                                    <p class="field-error" id="fullNameError" role="alert"></p>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="regUsername">
+                                        <span>Username / Student ID <span class="required-star">*</span></span>
+                                    </label>
+                                    <div class="input-icon-wrapper">
+                                        <div class="input-icon">
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8"/></svg>
+                                        </div>
+                                        <input type="text" id="regUsername" name="username" placeholder="e.g. 25CS027 or rudri" required autocomplete="username">
+                                    </div>
+                                    <p class="field-error" id="usernameError" role="alert"></p>
+                                </div>
+                            </div>
+
+                            <!-- 2 & 3. Email & Mobile (2-col grid) -->
+                            <div class="form-row-2col">
+                                <div class="form-group">
+                                    <label for="regEmail">
+                                        <span>Email Address <span class="required-star">*</span></span>
+                                    </label>
+                                    <div class="input-icon-wrapper">
+                                        <div class="input-icon">
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                                        </div>
+                                        <input type="email" id="regEmail" name="email" placeholder="e.g. student@charusat.edu.in" required autocomplete="email">
+                                    </div>
+                                    <p class="field-error" id="emailError" role="alert"></p>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="regMobile">
+                                        <span>Mobile Number <span class="required-star">*</span></span>
+                                    </label>
+                                    <div class="input-icon-wrapper">
+                                        <div class="input-icon">
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                                        </div>
+                                        <input type="tel" id="regMobile" name="mobile" placeholder="10-digit (e.g. 9876543210)" maxlength="15" required autocomplete="tel">
+                                    </div>
+                                    <p class="field-error" id="mobileError" role="alert"></p>
+                                </div>
+                            </div>
+
+                            <!-- 6 & 7. Course & Year (2-col grid) -->
+                            <div class="form-row-2col">
+                                <div class="form-group">
+                                    <label for="regCourse">
+                                        <span>Enrolled Course <span class="required-star">*</span></span>
+                                    </label>
+                                    <select id="regCourse" name="course" required>
+                                        <option value="">-- Select Degree Program --</option>
+                                        <option value="B.Tech Computer Engineering (CSPIT)">B.Tech Computer Engineering (CSPIT)</option>
+                                        <option value="B.Tech Information Technology (CSPIT)">B.Tech Information Technology (CSPIT)</option>
+                                        <option value="B.Tech Computer Engineering (DEPSTAR)">B.Tech Computer Engineering (DEPSTAR)</option>
+                                        <option value="B.Tech Information Technology (DEPSTAR)">B.Tech Information Technology (DEPSTAR)</option>
+                                        <option value="B.Tech CSE - AI & ML (DEPSTAR)">B.Tech CSE - AI & ML (DEPSTAR)</option>
+                                        <option value="MCA / BCA (CMPICA)">MCA / BCA (CMPICA)</option>
+                                        <option value="B.Pharm / M.Pharm (RPCP)">B.Pharm / M.Pharm (RPCP)</option>
+                                        <option value="BBA / MBA (I2IM)">BBA / MBA (I2IM)</option>
+                                    </select>
+                                    <p class="field-error" id="courseError" role="alert"></p>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="regYear">
+                                        <span>Academic Year <span class="required-star">*</span></span>
+                                    </label>
+                                    <select id="regYear" name="year" required>
+                                        <option value="">-- Select Academic Year --</option>
+                                        <option value="1st Year (Semester 1 & 2)">1st Year (Semester 1 & 2)</option>
+                                        <option value="2nd Year (Semester 3 & 4)">2nd Year (Semester 3 & 4)</option>
+                                        <option value="3rd Year (Semester 5 & 6)">3rd Year (Semester 5 & 6)</option>
+                                        <option value="4th Year (Semester 7 & 8)">4th Year (Semester 7 & 8)</option>
+                                    </select>
+                                    <p class="field-error" id="yearError" role="alert"></p>
+                                </div>
+                            </div>
+
+                            <!-- 8. Gender Identity Radio Group -->
+                            <fieldset class="gender-fieldset" id="genderFieldset">
+                                <legend class="gender-legend">Gender Identity <span class="required-star">*</span></legend>
+                                <div class="gender-radio-group">
+                                    <label class="gender-radio-item" for="genderMale">
+                                        <input type="radio" id="genderMale" name="gender" value="Male" required>
+                                        <span>Male</span>
+                                    </label>
+                                    <label class="gender-radio-item" for="genderFemale">
+                                        <input type="radio" id="genderFemale" name="gender" value="Female">
+                                        <span>Female</span>
+                                    </label>
+                                    <label class="gender-radio-item" for="genderOther">
+                                        <input type="radio" id="genderOther" name="gender" value="Other">
+                                        <span>Other</span>
+                                    </label>
+                                </div>
+                            </fieldset>
+                            <p class="field-error" id="genderError" role="alert" style="margin-top: -12px; margin-bottom: 14px;"></p>
+
+                            <!-- 4 & 5. Password & Confirm Password (2-col grid) -->
+                            <div class="form-row-2col">
+                                <div class="form-group">
+                                    <label for="regPassword">
+                                        <span>Password <span class="required-star">*</span></span>
+                                    </label>
+                                    <div class="input-icon-wrapper password-box">
+                                        <div class="input-icon">
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                                        </div>
+                                        <input type="password" id="regPassword" name="password" placeholder="Min. 8 characters" minlength="8" required autocomplete="new-password">
+                                        <button type="button" class="btn-toggle-pwd" id="toggleRegPassword" title="Toggle password visibility" aria-label="Toggle password visibility">
+                                            <svg id="regEyeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                                        </button>
+                                    </div>
+                                    
+                                    <!-- Dynamic Password Strength Indicator -->
+                                    <div class="password-strength-container" id="passwordStrengthContainer" aria-live="polite">
+                                        <div class="strength-status-row">
+                                            <span>Strength:</span>
+                                            <span class="strength-badge" id="strengthBadge">None</span>
+                                        </div>
+                                        <div class="strength-meter-track">
+                                            <div class="strength-meter-fill" id="strengthMeterFill"></div>
+                                        </div>
+                                        <p class="password-hint-text">Req: 8+ chars (upper, lower, number & symbol).</p>
+                                    </div>
+                                    <p class="field-error" id="passwordError" role="alert"></p>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="regConfirmPassword">
+                                        <span>Confirm Password <span class="required-star">*</span></span>
+                                    </label>
+                                    <div class="input-icon-wrapper password-box">
+                                        <div class="input-icon">
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 12 2 2 4-4"/><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                                        </div>
+                                        <input type="password" id="regConfirmPassword" name="confirmPassword" placeholder="Re-type password" required autocomplete="new-password">
+                                        <button type="button" class="btn-toggle-pwd" id="toggleRegConfirmPassword" title="Toggle confirm password visibility" aria-label="Toggle confirm password visibility">
+                                            <svg id="regConfirmEyeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                                        </button>
+                                    </div>
+                                    <p class="field-success" id="confirmPasswordSuccess">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>
+                                        <span>Passwords match</span>
+                                    </p>
+                                    <p class="field-error" id="confirmPasswordError" role="alert"></p>
+                                </div>
+                            </div>
+
+                            <!-- 9. Terms & Conditions Checkbox -->
+                            <div class="terms-group">
+                                <label class="auth-checkbox-label" for="regTerms">
+                                    <input type="checkbox" id="regTerms" name="terms" required>
+                                    <span>I agree to the <a href="#infoModal" class="open-modal-trigger" style="color:var(--primary-color);text-decoration:underline;font-weight:600;">CHARUSAT Code of Conduct & Terms</a> <span class="required-star">*</span></span>
+                                </label>
+                                <p class="field-error" id="termsError" role="alert"></p>
+                            </div>
+
+                            <!-- 10. Submit / Create Account Button -->
+                            <button type="submit" class="login-button" id="regSubmitBtn">
+                                <span>Complete Student Registration</span>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                            </button>
+
+                            <div style="text-align: center; margin-top: 14px; font-size: 13px; color: var(--text-muted);">
+                                Already have an active account? 
+                                <button type="button" id="linkToLogin" style="background:none; border:none; color:var(--primary-color); font-weight:700; cursor:pointer; text-decoration:underline; font-family:inherit; padding:0 4px;">Sign In Here &rarr;</button>
+                            </div>
+                        </form>
+
+                        <!-- Dynamic Registration Success Container -->
+                        <div id="registrationSuccessCard" style="display: none;"></div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- =====================================================================
+             FEATURE 3: INTERACTIVE IMAGE / CONTENT SLIDER
+             ===================================================================== -->
+        <section id="slider" class="portal-slider-section">
+            <div class="section-header-center">
+                <div class="section-badge-pill">✨ Interactive Showcase</div>
+                <h2 class="section-main-title">CHARUSAT Digital Campus & Academic Features</h2>
+                <p class="section-desc-text">
+                    Explore key modules and features of the next-generation e-Governance portal designed for students at CSPIT, DEPSTAR & CMPICA.
+                </p>
+            </div>
+
+            <div id="sliderWrapper" class="slider-wrapper">
+                <div class="slider-container">
+                    
+                    <!-- Slide 1: Attendance Radar -->
+                    <div class="slide active" aria-hidden="false">
+                        <div class="slide-content">
+                            <span class="slide-category-badge">Academic Telemetry</span>
+                            <h3 class="slide-heading">Live Attendance Radar & 75% Safe Threshold</h3>
+                            <p class="slide-text">
+                                Monitor subject-wise lecture and lab attendance in real time. The portal automatically calculates remaining safe bunks and alerts you before falling below the mandatory 75% university requirement.
+                            </p>
+                            <div>
+                                <a href="pages/attendance.html" class="btn btn-secondary btn-sm">View Attendance Tracker &rarr;</a>
+                            </div>
+                        </div>
+                        <div class="slide-visual-card">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span class="badge badge-success">89.0% ATTENDANCE</span>
+                                <span style="font-size: 11px; color: var(--text-muted); font-family: var(--font-mono);">3rd Sem CS</span>
+                            </div>
+                            <div style="font-size: 13px; line-height: 1.5;">
+                                <div><strong>CS301 Data Structures:</strong> 92.5% (37/40)</div>
+                                <div><strong>CS302 Database Systems:</strong> 87.5% (28/32)</div>
+                                <div><strong>CS303 Java Programming:</strong> 88.0% (22/25)</div>
+                            </div>
+                            <div style="font-size: 11.5px; color: var(--success); font-weight: 600;">
+                                ✓ Full examination eligibility status cleared
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2: Exams & Results Engine -->
+                    <div class="slide" aria-hidden="true">
+                        <div class="slide-content">
+                            <span class="slide-category-badge">Examination Engine</span>
+                            <h3 class="slide-heading">Official SGPA / CGPA Scorecard & Grade Cards</h3>
+                            <p class="slide-text">
+                                Instant official semester transcript generator with NAAC A+ verified grade points, credit breakdown, and tamper-proof verification badges for university certificates.
+                            </p>
+                            <div>
+                                <a href="pages/exams-results.html" class="btn btn-secondary btn-sm">Explore Results &rarr;</a>
+                            </div>
+                        </div>
+                        <div class="slide-visual-card">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span class="badge badge-primary">SEMESTER 3 RESULTS</span>
+                                <span style="font-size: 11px; color: var(--text-muted); font-family: var(--font-mono);">25CS027</span>
+                            </div>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 6px 0;">
+                                <div style="background: var(--bg-card); padding: 10px; border-radius: 8px; text-align: center;">
+                                    <div style="font-size: 11px; color: var(--text-muted);">Current SGPA</div>
+                                    <div style="font-size: 22px; font-weight: 800; color: var(--primary-color);">8.56</div>
+                                </div>
+                                <div style="background: var(--bg-card); padding: 10px; border-radius: 8px; text-align: center;">
+                                    <div style="font-size: 11px; color: var(--text-muted);">Cumulative CGPA</div>
+                                    <div style="font-size: 22px; font-weight: 800; color: var(--success);">8.53</div>
+                                </div>
+                            </div>
+                            <div style="font-size: 11.5px; color: var(--text-muted);">
+                                Status: <strong>Distinction (First Class with Honours)</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3: 1-Click Fee Clearance -->
+                    <div class="slide" aria-hidden="true">
+                        <div class="slide-content">
+                            <span class="slide-category-badge">Cashless Finance</span>
+                            <h3 class="slide-heading">1-Click Online Fee Clearance & Payment Receipts</h3>
+                            <p class="slide-text">
+                                Seamless integrated payment gateway for tuition, hostel, and exam fees. Automatically generates instant university receipts with printable voucher tokens and transaction histories.
+                            </p>
+                            <div>
+                                <a href="pages/college-fees.html" class="btn btn-secondary btn-sm">Open Fee Gateway &rarr;</a>
+                            </div>
+                        </div>
+                        <div class="slide-visual-card">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span class="badge badge-warning">CLEARANCE VOUCHER</span>
+                                <span style="font-size: 11px; color: var(--text-muted); font-family: var(--font-mono);">HDFC / UPI</span>
+                            </div>
+                            <div style="background: var(--bg-card); padding: 12px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <div style="font-weight: 700; font-size: 13px;">Semester 3 Tuition Fee</div>
+                                    <div style="font-size: 11px; color: var(--text-muted);">Receipt #CHARU-2026-8942</div>
+                                </div>
+                                <div style="font-size: 18px; font-weight: 800; color: var(--success); font-family: var(--font-mono);">
+                                    ₹35,000
+                                </div>
+                            </div>
+                            <div style="font-size: 11.5px; color: var(--success); font-weight: 600;">
+                                ✓ 100% Cashless online confirmation
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 4: Hostel & Campus Life -->
+                    <div class="slide" aria-hidden="true">
+                        <div class="slide-content">
+                            <span class="slide-category-badge">Campus Services</span>
+                            <h3 class="slide-heading">Tej Smruti Hostel & 7-Day Mess Telemetry</h3>
+                            <p class="slide-text">
+                                Complete residential campus management featuring room allocations (Room 505-H5), real-time dining mess nutritional schedules, digital gatepass requests, and warden desk contact.
+                            </p>
+                            <div>
+                                <a href="pages/hostel.html" class="btn btn-secondary btn-sm">Hostel Portal &rarr;</a>
+                            </div>
+                        </div>
+                        <div class="slide-visual-card">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span class="badge badge-info">HOSTEL H5 &bull; ROOM 505</span>
+                                <span style="font-size: 11px; color: var(--text-muted); font-family: var(--font-mono);">Tej Smruti</span>
+                            </div>
+                            <div style="font-size: 13px; line-height: 1.5;">
+                                <div><strong>Today's Lunch:</strong> Paneer Makhani, Gujarati Dal, Rotli & Chaas</div>
+                                <div><strong>Evening Tea:</strong> Herbal Chai with Methi Gota</div>
+                                <div><strong>Gatepass Status:</strong> Active &bull; Warden approved</div>
+                            </div>
+                            <div style="font-size: 11.5px; color: var(--info); font-weight: 600;">
+                                ✓ Campus WiFi (100 Mbps) connected
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Slider Previous and Next Controls -->
+                <button type="button" id="sliderPrevBtn" class="slider-btn prev" aria-label="Previous Slide">&#10094;</button>
+                <button type="button" id="sliderNextBtn" class="slider-btn next" aria-label="Next Slide">&#10095;</button>
+
+                <!-- Dynamic Slide Indicators / Dots -->
+                <div id="sliderDots" class="slider-dots" role="tablist" aria-label="Slide Selector"></div>
+            </div>
+        </section>
+
+        <!-- =====================================================================
+             FEATURE 1: DYNAMIC DATA-DRIVEN FAQ KNOWLEDGE BASE
+             ===================================================================== -->
+        <section id="faq" class="portal-faq-section">
+            <div class="section-header-center">
+                <div class="section-badge-pill">💡 Knowledge Base</div>
+                <h2 class="section-main-title">Frequently Asked Questions (FAQ)</h2>
+                <p class="section-desc-text">
+                    Search and explore answers regarding academic telemetry, semester examinations, fee clearance, and campus life.
+                </p>
+            </div>
+
+            <!-- FAQ Interactive Controls Card (Search + Category Filter + Sort + Count) -->
+            <div class="data-controls-card" id="faqControlsContainer">
+                <div class="data-controls-row">
+                    <!-- Search Input Box -->
+                    <div class="data-search-box">
+                        <span class="data-search-icon">🔍</span>
+                        <input type="text" id="faqSearchInput" placeholder="Search questions & answers (e.g. attendance, fees, exams)..." aria-label="Search FAQs">
+                        <button type="button" class="data-search-clear" id="faqClearSearchBtn" aria-label="Clear search">&times;</button>
+                    </div>
+
+                    <!-- Category Filter Dropdown (Mobile fallback) & Sort Selector -->
+                    <div class="data-filter-group">
+                        <div class="data-select-wrap">
+                            <select id="faqCategorySelect" aria-label="Filter by Category">
+                                <option value="all">All Categories</option>
+                                <option value="Academic">Academic</option>
+                                <option value="Fees">Fees & Finance</option>
+                                <option value="Attendance">Attendance</option>
+                                <option value="Examination">Examination</option>
+                                <option value="Results">Results & GPA</option>
+                                <option value="Timetable">Timetable</option>
+                                <option value="Profile">Profile & Auth</option>
+                                <option value="Campus">Campus & Hostel</option>
+                                <option value="General">General Inquiries</option>
+                            </select>
+                            <span class="data-select-arrow">&#9662;</span>
+                        </div>
+
+                        <div class="data-select-wrap">
+                            <select id="faqSortSelect" aria-label="Sort FAQs">
+                                <option value="default">Sort: Default</option>
+                                <option value="alpha-asc">Question: A &rarr; Z</option>
+                                <option value="alpha-desc">Question: Z &rarr; A</option>
+                                <option value="category-asc">Category &rarr; A to Z</option>
+                            </select>
+                            <span class="data-select-arrow">&#9662;</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category Pills Bar for Quick Filter Switching -->
+                <div class="category-chips-nav" role="tablist" aria-label="FAQ Category Filters">
+                    <button type="button" class="category-chip-btn active" data-category="all" role="tab">All FAQs</button>
+                    <button type="button" class="category-chip-btn" data-category="Academic" role="tab">📚 Academic</button>
+                    <button type="button" class="category-chip-btn" data-category="Attendance" role="tab">📋 Attendance</button>
+                    <button type="button" class="category-chip-btn" data-category="Results" role="tab">🏆 Results & GPA</button>
+                    <button type="button" class="category-chip-btn" data-category="Fees" role="tab">💳 Fees</button>
+                    <button type="button" class="category-chip-btn" data-category="Examination" role="tab">📝 Exams</button>
+                    <button type="button" class="category-chip-btn" data-category="Timetable" data-category="Timetable" role="tab">🗓️ Timetable</button>
+                    <button type="button" class="category-chip-btn" data-category="Campus" role="tab">🏛️ Campus & Hostel</button>
+                    <button type="button" class="category-chip-btn" data-category="Profile" role="tab">👤 Profile</button>
+                    <button type="button" class="category-chip-btn" data-category="General" role="tab">💡 General</button>
+                </div>
+
+                <!-- Dynamic Status Result Counter -->
+                <div class="data-status-bar">
+                    <div id="faqStatusCount" class="data-count-text">Loading FAQs knowledge base...</div>
+                    <div style="font-size: 11.5px; color: var(--text-light);">Instant Fetch API &bull; Live Knowledge Base</div>
+                </div>
+            </div>
+
+            <!-- Dynamic FAQs Accordion Target Container -->
+            <div id="dynamicFaqContainer" class="faq-container">
+                <!-- Dynamically populated by js/faqs.js via Fetch API -->
+            </div>
+
+            <!-- Accessible Pagination Controls -->
+            <div id="faqPaginationContainer" class="pagination-container">
+                <!-- Dynamically populated by js/faqs.js -->
+            </div>
+        </section>
+    </main>
+
+    <!-- =====================================================================
+         ACCESSIBLE MODAL POPUP DIALOG
+         ===================================================================== -->
+    <div id="infoModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
+        <div class="modal-card">
+            <div class="modal-header">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <span class="badge badge-primary">Academic Notice</span>
+                    <h3 id="modalTitle">CHARUSAT Student Hub Notice & Guidelines</h3>
+                </div>
+                <button type="button" id="modalCloseBtn" class="modal-close-btn" aria-label="Close modal dialog">&times;</button>
+            </div>
+            
+            <div class="modal-body">
+                <div style="margin-bottom: 16px;">
+                    <h4 style="font-size: 15px; font-weight: 700; margin-bottom: 6px; color: var(--text-main);">
+                        Important Academic Notices & Semester Announcements
+                    </h4>
+                    <p style="font-size: 13.5px; line-height: 1.55; color: var(--text-muted);">
+                        Welcome to the official CHARUSAT e-Governance Student Hub. Please review the following campus guidelines and academic schedule updates for the current term:
+                    </p>
+                </div>
+
+                <div style="background: var(--bg-alt); padding: 16px; border-radius: var(--radius-sm); border: 1px solid var(--border-color); font-size: 13px; margin-bottom: 16px;">
+                    <div style="font-weight: 700; color: var(--primary-color); margin-bottom: 8px;">
+                        📌 Key Announcements & Deadlines:
+                    </div>
+                    <ul style="padding-left: 20px; line-height: 1.7; color: var(--text-main);">
+                        <li><strong>Attendance Criteria:</strong> Minimum 75% attendance is strictly enforced across all theory and laboratory courses for semester exam eligibility.</li>
+                        <li><strong>Semester Examination Schedules:</strong> Mid-term and end-term examination timetables and hall tickets are available under the <em>Exams & Results</em> tab.</li>
+                        <li><strong>Cashless Fee Payments:</strong> Semester tuition and hostel dues can be cleared seamlessly online with instant printable receipt generation.</li>
+                        <li><strong>Digital Applications & Services:</strong> Submit bonafide certificate requests, gatepasses, and leave applications directly to your faculty mentor.</li>
+                        <li><strong>Helpdesk & Inquiries:</strong> For any registration or portal assistance, contact the CSPIT IT Cell or Prof. Vaibhavi Patel.</li>
+                    </ul>
+                </div>
+
+                <div style="font-size: 12px; color: var(--text-light); font-family: var(--font-mono);">
+                    Student: Kakadiya Rudri Alpeshbhai (25CS027) &bull; CSPIT Computer Engineering
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" id="modalSecondaryBtn" class="btn btn-secondary">Close</button>
+                <a href="pages/dashboard.html" class="btn btn-primary" style="gap: 6px;">
+                    <span>Open Student Dashboard</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- =====================================================================
+         LANDING FOOTER
+         ===================================================================== -->
+    <footer class="landing-footer">
+        <div class="footer-grid">
+            <div style="font-weight: 700; color: var(--text-main); font-size: 14px;">
+                Charotar University of Science and Technology (CHARUSAT)
+            </div>
+            <div style="font-size: 12.5px; color: var(--text-muted);">
+                NAAC A+ Accredited University &bull; CSPIT &bull; DEPSTAR &bull; CMPICA &bull; Changa, Anand, Gujarat - 388421
+            </div>
+            
+            <div class="footer-links-row">
+                <a href="#login">Student Sign In</a>
+                <a href="#slider">Campus Highlights</a>
+                <a href="#faq">Student FAQ</a>
+                <a href="pages/dashboard.html">Live Dashboard</a>
+                <a href="https://www.charusat.ac.in" target="_blank">Official CHARUSAT Website</a>
+            </div>
+
+            <div style="border-top: 1px solid var(--border-color); width: 100%; max-width: 600px; padding-top: 14px; font-size: 12px; color: var(--text-light);">
+                CHARUSAT e-Governance Portal &bull; Student: <strong>Kakadiya Rudri Alpeshbhai (25CS027)</strong>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Alerts Container -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="js/portal-data.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/faqs.js"></script>
+</body>
+</html>

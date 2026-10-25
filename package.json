@@ -1,0 +1,19 @@
+{
+  "name": "charusat-student-hub-portal",
+  "version": "1.0.0",
+  "description": "CHARUSAT Student Hub e-Governance Portal",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "node tests/test-faq-module.js && node tests/integration-test.js && node tests/test-suite.js && php tests/test-php-registration.php && php tests/test-php-auth.php && php tests/test-student-crud.php"
+  },
+  "keywords": [
+    "student-hub",
+    "charusat",
+    "portal",
+    "faq"
+  ],
+  "author": "Kakadiya Rudri",
+  "license": "ISC"
+}

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration - CHARUSAT Student Portal</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="landing-body">
+    <!-- Ambient Background Mesh Glow Orbs -->
+    <div class="ambient-glow-orb ambient-glow-1"></div>
+    <div class="ambient-glow-orb ambient-glow-2"></div>
+
+    <div class="login-container" style="max-width: 620px;">
+        <div class="login-brand">
+            <div class="login-brand-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" x2="19" y1="8" y2="14"/><line x1="22" x2="16" y1="11" y2="11"/></svg>
+            </div>
+            <h1>New Student Registration</h1>
+            <p class="login-subtitle">Enroll your profile on CHARUSAT e-Governance Portal</p>
+        </div>
+
+        <!-- Registration Form -->
+        <form id="registrationForm" method="POST" action="../register.php" novalidate>
+            <!-- 1 & 2. Full Name & Username (2-col grid) -->
+            <div class="form-row-2col">
+                <div class="form-group">
+                    <label for="regFullName">
+                        <span>Full Name <span class="required-star">*</span></span>
+                    </label>
+                    <div class="input-icon-wrapper">
+                        <div class="input-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        </div>
+                        <input type="text" id="regFullName" name="fullName" placeholder="e.g. Kakadiya Rudri" required autocomplete="name">
+                    </div>
+                    <p class="field-error" id="fullNameError" role="alert"></p>
+                </div>
+
+                <div class="form-group">
+                    <label for="regUsername">
+                        <span>Username / Student ID <span class="required-star">*</span></span>
+                    </label>
+                    <div class="input-icon-wrapper">
+                        <div class="input-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8"/></svg>
+                        </div>
+                        <input type="text" id="regUsername" name="username" placeholder="e.g. 25CS027 or rudri" required autocomplete="username">
+                    </div>
+                    <p class="field-error" id="usernameError" role="alert"></p>
+                </div>
+            </div>
+
+            <!-- 2 & 3. Email & Mobile (2-col grid) -->
+            <div class="form-row-2col">
+                <div class="form-group">
+                    <label for="regEmail">
+                        <span>Email Address <span class="required-star">*</span></span>
+                    </label>
+                    <div class="input-icon-wrapper">
+                        <div class="input-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                        </div>
+                        <input type="email" id="regEmail" name="email" placeholder="e.g. student@charusat.edu.in" required autocomplete="email">
+                    </div>
+                    <p class="field-error" id="emailError" role="alert"></p>
+                </div>
+
+                <div class="form-group">
+                    <label for="regMobile">
+                        <span>Mobile Number <span class="required-star">*</span></span>
+                    </label>
+                    <div class="input-icon-wrapper">
+                        <div class="input-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        </div>
+                        <input type="tel" id="regMobile" name="mobile" placeholder="10-digit number (e.g. 9876543210)" maxlength="15" required autocomplete="tel">
+                    </div>
+                    <p class="field-error" id="mobileError" role="alert"></p>
+                </div>
+            </div>
+
+            <!-- 6 & 7. Course & Year (2-col grid) -->
+            <div class="form-row-2col">
+                <div class="form-group">
+                    <label for="regCourse">
+                        <span>Enrolled Course <span class="required-star">*</span></span>
+                    </label>
+                    <select id="regCourse" name="course" required>
+                        <option value="">-- Select Degree Program --</option>
+                        <option value="B.Tech Computer Engineering (CSPIT)">B.Tech Computer Engineering (CSPIT)</option>
+                        <option value="B.Tech Information Technology (CSPIT)">B.Tech Information Technology (CSPIT)</option>
+                        <option value="B.Tech Computer Engineering (DEPSTAR)">B.Tech Computer Engineering (DEPSTAR)</option>
+                        <option value="B.Tech Information Technology (DEPSTAR)">B.Tech Information Technology (DEPSTAR)</option>
+                        <option value="B.Tech CSE - AI & ML (DEPSTAR)">B.Tech CSE - AI & ML (DEPSTAR)</option>
+                        <option value="MCA / BCA (CMPICA)">MCA / BCA (CMPICA)</option>
+                        <option value="B.Pharm / M.Pharm (RPCP)">B.Pharm / M.Pharm (RPCP)</option>
+                        <option value="BBA / MBA (I2IM)">BBA / MBA (I2IM)</option>
+                    </select>
+                    <p class="field-error" id="courseError" role="alert"></p>
+                </div>
+
+                <div class="form-group">
+                    <label for="regYear">
+                        <span>Academic Year <span class="required-star">*</span></span>
+                    </label>
+                    <select id="regYear" name="year" required>
+                        <option value="">-- Select Academic Year --</option>
+                        <option value="1st Year (Semester 1 & 2)">1st Year (Semester 1 & 2)</option>
+                        <option value="2nd Year (Semester 3 & 4)">2nd Year (Semester 3 & 4)</option>
+                        <option value="3rd Year (Semester 5 & 6)">3rd Year (Semester 5 & 6)</option>
+                        <option value="4th Year (Semester 7 & 8)">4th Year (Semester 7 & 8)</option>
+                    </select>
+                    <p class="field-error" id="yearError" role="alert"></p>
+                </div>
+            </div>
+
+            <!-- 8. Gender Identity Radio Group -->
+            <fieldset class="gender-fieldset" id="genderFieldset">
+                <legend class="gender-legend">Gender Identity <span class="required-star">*</span></legend>
+                <div class="gender-radio-group">
+                    <label class="gender-radio-item" for="genderMale">
+                        <input type="radio" id="genderMale" name="gender" value="Male" required>
+                        <span>Male</span>
+                    </label>
+                    <label class="gender-radio-item" for="genderFemale">
+                        <input type="radio" id="genderFemale" name="gender" value="Female">
+                        <span>Female</span>
+                    </label>
+                    <label class="gender-radio-item" for="genderOther">
+                        <input type="radio" id="genderOther" name="gender" value="Other">
+                        <span>Other</span>
+                    </label>
+                </div>
+            </fieldset>
+            <p class="field-error" id="genderError" role="alert" style="margin-top: -12px; margin-bottom: 14px;"></p>
+
+            <!-- 4 & 5. Password & Confirm Password (2-col grid) -->
+            <div class="form-row-2col">
+                <div class="form-group">
+                    <label for="regPassword">
+                        <span>Password <span class="required-star">*</span></span>
+                    </label>
+                    <div class="input-icon-wrapper password-box">
+                        <div class="input-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        </div>
+                        <input type="password" id="regPassword" name="password" placeholder="Min. 8 characters" minlength="8" required autocomplete="new-password">
+                        <button type="button" class="btn-toggle-pwd" id="toggleRegPassword" title="Toggle password visibility" aria-label="Toggle password visibility">
+                            <svg id="regEyeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                        </button>
+                    </div>
+                    
+                    <!-- Dynamic Password Strength Indicator -->
+                    <div class="password-strength-container" id="passwordStrengthContainer" aria-live="polite">
+                        <div class="strength-status-row">
+                            <span>Strength:</span>
+                            <span class="strength-badge" id="strengthBadge">None</span>
+                        </div>
+                        <div class="strength-meter-track">
+                            <div class="strength-meter-fill" id="strengthMeterFill"></div>
+                        </div>
+                        <p class="password-hint-text">Req: 8+ chars (upper, lower, number & symbol).</p>
+                    </div>
+                    <p class="field-error" id="passwordError" role="alert"></p>
+                </div>
+
+                <div class="form-group">
+                    <label for="regConfirmPassword">
+                        <span>Confirm Password <span class="required-star">*</span></span>
+                    </label>
+                    <div class="input-icon-wrapper password-box">
+                        <div class="input-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 12 2 2 4-4"/><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        </div>
+                        <input type="password" id="regConfirmPassword" name="confirmPassword" placeholder="Re-type password" required autocomplete="new-password">
+                        <button type="button" class="btn-toggle-pwd" id="toggleRegConfirmPassword" title="Toggle confirm password visibility" aria-label="Toggle confirm password visibility">
+                            <svg id="regConfirmEyeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                        </button>
+                    </div>
+                    <p class="field-success" id="confirmPasswordSuccess">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>
+                        <span>Passwords match</span>
+                    </p>
+                    <p class="field-error" id="confirmPasswordError" role="alert"></p>
+                </div>
+            </div>
+
+            <!-- 9. Terms & Conditions Checkbox -->
+            <div class="terms-group">
+                <label class="auth-checkbox-label" for="regTerms">
+                    <input type="checkbox" id="regTerms" name="terms" required>
+                    <span>I agree to the CHARUSAT Academic Code of Conduct & Portal Terms <span class="required-star">*</span></span>
+                </label>
+                <p class="field-error" id="termsError" role="alert"></p>
+            </div>
+
+            <!-- 10. Submit / Create Account Button -->
+            <button type="submit" class="login-button" id="regSubmitBtn">
+                <span>Complete Student Registration</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </button>
+        </form>
+
+        <!-- Dynamic Registration Success Container -->
+        <div id="registrationSuccessCard" style="display: none;"></div>
+
+        <a href="../index.html" class="back-link" style="margin-top: 22px;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m15 18-6-6 6-6"/></svg>
+            <span>Back to Portal Sign In</span>
+        </a>
+    </div>
+
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>

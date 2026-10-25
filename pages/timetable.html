@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Timetable - Student Hub Portal</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/portal.css">
+</head>
+
+<body class="portal-body">
+    <div class="sidebar-overlay" onclick="closeSidebar()"></div>
+
+    <div class="portal-layout">
+        <aside class="portal-sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo-icon">🎓</div>
+                <div class="sidebar-brand-text">
+                    <span class="sidebar-brand-title">Student Hub</span>
+                    <span class="sidebar-brand-sub">University Portal</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section-title">Overview</div>
+                <a href="dashboard.html" class="nav-link">
+                    <span class="nav-icon">📊</span> Dashboard
+                </a>
+                <a href="profile.html" class="nav-link">
+                    <span class="nav-icon">👤</span> My Profile
+                </a>
+
+                <div class="nav-section-title">Academics</div>
+                <a href="courses.html" class="nav-link">
+                    <span class="nav-icon">📚</span> Courses & Subjects
+                </a>
+                <a href="timetable.html" class="nav-link active">
+                    <span class="nav-icon">🗓️</span> Timetable
+                </a>
+                <a href="attendance.html" class="nav-link">
+                    <span class="nav-icon">📋</span> Attendance
+                </a>
+                <a href="assignments.html" class="nav-link">
+                    <span class="nav-icon">📝</span> Assignments
+                </a>
+                <a href="materials.html" class="nav-link">
+                    <span class="nav-icon">📁</span> Study Material
+                </a>
+                <a href="exams-results.html" class="nav-link">
+                    <span class="nav-icon">🏆</span> Exams & Results
+                </a>
+
+                <div class="nav-section-title">Finance & Residence</div>
+                <a href="college-fees.html" class="nav-link">
+                    <span class="nav-icon">💳</span> College Fees
+                </a>
+                <a href="hostel.html" class="nav-link">
+                    <span class="nav-icon">🏢</span> Hostel & Mess
+                </a>
+                <a href="payments.html" class="nav-link">
+                    <span class="nav-icon">🧾</span> Payments & Receipts
+                </a>
+
+                <div class="nav-section-title">Services & Campus</div>
+                <a href="parents.html" class="nav-link">
+                    <span class="nav-icon">👨‍👩‍👦</span> Parents / Guardian
+                </a>
+                <a href="documents.html" class="nav-link">
+                    <span class="nav-icon">📄</span> Documents
+                </a>
+                <a href="applications.html" class="nav-link">
+                    <span class="nav-icon">📬</span> Applications
+                </a>
+                <a href="verification.html" class="nav-link">
+                    <span class="nav-icon">🔍</span> Academic Verification
+                </a>
+                <a href="campus.html" class="nav-link">
+                    <span class="nav-icon">🏛️</span> Campus Life
+                </a>
+                <a href="settings.html" class="nav-link">
+                    <span class="nav-icon">⚙️</span> Settings & Help
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="profile.html" class="sidebar-user">
+                    <div class="sidebar-avatar">KR</div>
+                    <div class="sidebar-user-info">
+                        <span class="sidebar-user-name">Kakadiya Rudri</span>
+                        <span class="sidebar-user-id">25CS027</span>
+                    </div>
+                </a>
+                <button class="btn-sidebar-logout" onclick="logoutUser()" title="Logout">🚪</button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="portal-main">
+            <header class="portal-header">
+                <div class="header-left">
+                    <button class="mobile-menu-btn" onclick="toggleSidebar()">☰</button>
+                    <div class="header-title-box">
+                        <h1>Weekly Class Timetable</h1>
+                        <div class="header-breadcrumb">Academics / Timetable (Section CS-1)</div>
+                    </div>
+                </div>
+
+                <div class="header-right">
+                    <button class="search-trigger-btn" onclick="openGlobalSearch()">
+                        <span>🔍 Search portal...</span>
+                        <span class="search-shortcut">Ctrl K</span>
+                    </button>
+                    <button class="header-btn" id="themeToggleBtn" onclick="toggleTheme()">🌙</button>
+                    <div style="position: relative;">
+                        <button class="header-btn" id="notifBtn" onclick="toggleNotifications()">🔔<span class="notification-badge-count">2</span></button>
+                    </div>
+                    <div style="position: relative;">
+                        <button class="header-btn" id="profileDropdownBtn" onclick="toggleProfileMenu()">👤</button>
+                    </div>
+                </div>
+            </header>
+
+            <div class="portal-content">
+                <div class="page-top-bar">
+                    <div class="page-title-group">
+                        <h2>Semester 3 Schedule &bull; CSPIT Computer Engineering (CS-1)</h2>
+                        <p>Charotar University of Science and Technology &bull; CSPIT LT-104 & Computer Laboratories.</p>
+                    </div>
+                    <div class="page-actions">
+                        <button class="btn btn-secondary" onclick="window.print()">🖨️ Print Timetable</button>
+                    </div>
+                </div>
+
+                <!-- Day Selector Tabs -->
+                <div class="tabs-nav" id="dayTabs">
+                    <button class="tab-btn active" onclick="switchDayTab('all')">📅 Full Week View</button>
+                    <button class="tab-btn" onclick="switchDayTab('monday')">Mon</button>
+                    <button class="tab-btn" onclick="switchDayTab('tuesday')">Tue</button>
+                    <button class="tab-btn" onclick="switchDayTab('wednesday')">Wed</button>
+                    <button class="tab-btn" onclick="switchDayTab('thursday')">Thu</button>
+                    <button class="tab-btn" onclick="switchDayTab('friday')">Fri</button>
+                    <button class="tab-btn" onclick="switchDayTab('saturday')">Sat</button>
+                </div>
+
+                <!-- Timetable Cards Container -->
+                <div id="timetableDisplayArea">
+                    <!-- Rendered by JS -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Global Search Modal -->
+    <div class="global-search-modal" id="globalSearchModal">
+        <div class="global-search-box">
+            <div class="global-search-header">
+                <span>🔍</span>
+                <input type="text" id="globalSearchInput" placeholder="Search timetable classes, labs...">
+                <button class="modal-close-btn" onclick="closeGlobalSearch()">&times;</button>
+            </div>
+            <div class="global-search-results" id="globalSearchResults"></div>
+        </div>
+    </div>
+
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="../js/portal-data.js"></script>
+    <script src="../js/portal.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const data = getPortalData();
+            const displayArea = document.getElementById("timetableDisplayArea");
+            const dayNames = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
+            const dayTitles = {
+                monday: "Monday",
+                tuesday: "Tuesday",
+                wednesday: "Wednesday",
+                thursday: "Thursday",
+                friday: "Friday",
+                saturday: "Saturday"
+            };
+
+            // Today's Day of week (0=Sunday, 1=Monday, etc.)
+            const currentDayIndex = new Date().getDay();
+            const todayDayKey = (currentDayIndex >= 1 && currentDayIndex <= 6) ? dayNames[currentDayIndex - 1] : "monday";
+
+            window.switchDayTab = function(selectedDay) {
+                const buttons = document.querySelectorAll("#dayTabs .tab-btn");
+                buttons.forEach(btn => {
+                    const text = btn.textContent.toLowerCase();
+                    if ((selectedDay === "all" && text.includes("full")) || text.startsWith(selectedDay.substring(0, 3))) {
+                        btn.classList.add("active");
+                    } else {
+                        btn.classList.remove("active");
+                    }
+                });
+
+                if (selectedDay === "all") {
+                    renderFullWeek();
+                } else {
+                    renderSingleDay(selectedDay);
+                }
+            };
+
+            function renderFullWeek() {
+                displayArea.innerHTML = dayNames.map(dayKey => {
+                    const isToday = dayKey === todayDayKey;
+                    const slots = (data.weeklyTimetable && data.weeklyTimetable[dayKey]) || [];
+
+                    return `
+                        <div class="card" style="${isToday ? 'border: 2px solid var(--accent-color);' : ''}">
+                            <div class="card-header" style="${isToday ? 'background-color: var(--primary-light);' : ''}">
+                                <div class="card-title">
+                                    <span>🗓️</span> ${dayTitles[dayKey]}
+                                    ${isToday ? '<span class="badge badge-success" style="margin-left: 8px;">★ TODAY</span>' : ''}
+                                </div>
+                                <span style="font-size: 12.5px; color: var(--text-muted);">${slots.length} Classes scheduled</span>
+                            </div>
+                            <div class="card-body" style="padding: 0;">
+                                <div class="table-container">
+                                    <table class="portal-table">
+                                        <thead>
+                                            <tr>
+                                                <th style="width: 22%;">Time Slot</th>
+                                                <th style="width: 38%;">Subject Name</th>
+                                                <th style="width: 25%;">Faculty Instructor</th>
+                                                <th style="width: 15%;">Venue / Room</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            ${slots.map(slot => {
+                                                const isLab = slot.subject.toLowerCase().includes("lab") || slot.subject.toLowerCase().includes("practice") || slot.subject.toLowerCase().includes("studio");
+                                                return `
+                                                    <tr style="${isLab ? 'background-color: rgba(37,99,235,0.03);' : ''}">
+                                                        <td><strong>${slot.time}</strong></td>
+                                                        <td>
+                                                            <strong>${slot.subject}</strong>
+                                                            ${isLab ? '<span class="badge badge-info" style="margin-left:6px;">Laboratory</span>' : '<span class="badge badge-muted" style="margin-left:6px;">Lecture</span>'}
+                                                        </td>
+                                                        <td>${slot.faculty}</td>
+                                                        <td><span class="badge badge-primary">${slot.room}</span></td>
+                                                    </tr>
+                                                `;
+                                            }).join("")}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }).join("");
+            }
+
+            function renderSingleDay(dayKey) {
+                const isToday = dayKey === todayDayKey;
+                const slots = (data.weeklyTimetable && data.weeklyTimetable[dayKey]) || [];
+
+                displayArea.innerHTML = `
+                    <div class="card" style="${isToday ? 'border: 2px solid var(--accent-color);' : ''}">
+                        <div class="card-header">
+                            <div class="card-title">
+                                <span>🗓️</span> ${dayTitles[dayKey]} Schedule
+                                ${isToday ? '<span class="badge badge-success" style="margin-left: 8px;">★ TODAY</span>' : ''}
+                            </div>
+                            <span style="font-size: 12.5px; color: var(--text-muted);">${slots.length} Classes</span>
+                        </div>
+                        <div class="card-body" style="padding: 0;">
+                            <div class="table-container">
+                                <table class="portal-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Time Slot</th>
+                                            <th>Subject</th>
+                                            <th>Faculty Instructor</th>
+                                            <th>Venue / Room</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        ${slots.map(slot => `
+                                            <tr>
+                                                <td><strong>${slot.time}</strong></td>
+                                                <td><strong>${slot.subject}</strong></td>
+                                                <td>${slot.faculty}</td>
+                                                <td><span class="badge badge-primary">${slot.room}</span></td>
+                                            </tr>
+                                        `).join("")}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            renderFullWeek();
+        });
+    </script>
+</body>
+</html>
