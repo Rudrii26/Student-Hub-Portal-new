@@ -377,7 +377,7 @@ try {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Management - CHARUSAT Student Hub Portal</title>
+    <title>Student Management - Student Hub Portal</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/portal.css">
     <link rel="stylesheet" href="style.css">
@@ -1015,10 +1015,10 @@ try {
                     <span>Public Homepage</span>
                 </a>
 
-                <div class="nav-section-title">Practical 2: Student Management</div>
+                <div class="nav-section-title">Student Management</div>
                 <a href="admin_students.php" class="nav-link active">
                     <span class="nav-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
-                    <span>Manage Students (CRUD)</span>
+                    <span>Student Directory</span>
                 </a>
                 <a href="javascript:void(0)" onclick="openAddStudentModal()" class="nav-link">
                     <span class="nav-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg></span>
@@ -1029,10 +1029,10 @@ try {
                     <span>Export Students (CSV)</span>
                 </a>
 
-                <div class="nav-section-title">Practical 3: Event Management</div>
+                <div class="nav-section-title">Event Management</div>
                 <a href="admin_events.php" class="nav-link">
                     <span class="nav-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
-                    <span>Manage Events (CRUD)</span>
+                    <span>Event Console</span>
                 </a>
                 <a href="admin_events.php#add" class="nav-link">
                     <span class="nav-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg></span>
@@ -1077,7 +1077,7 @@ try {
                         <div class="header-breadcrumb">
                             <a href="admin_dashboard.php" style="color: inherit; text-decoration: none;">Admin Console</a>
                             <span>/</span>
-                            <span>Practical 2</span>
+                            <span>Students</span>
                             <span>/</span>
                             <span style="color: var(--accent-amber); font-weight: 600;">Student Records & Directory</span>
                         </div>

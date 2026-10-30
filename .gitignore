@@ -36,3 +36,6 @@ node_modules/
 /scripts/set_admin_password.php
 /scripts/set_student_password.php
 /tests/debug-login.php
+
+# Export files
+students_export.csv

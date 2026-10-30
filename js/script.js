@@ -452,7 +452,7 @@ if (loginForm) {
         }
 
         loginBtn.disabled = true;
-        if (loginBtnText) loginBtnText.textContent = "Connecting to e-Governance...";
+        if (loginBtnText) loginBtnText.textContent = "Connecting to Student Hub...";
 
         // Verify with server-side login.php using password_verify() and PDO
         fetch("login.php", {
@@ -471,7 +471,7 @@ if (loginForm) {
         .then(data => {
             if (data.success) {
                 if (captchaMessage) {
-                    captchaMessage.textContent = "✓ Authentication successful! Connecting to CHARUSAT e-Governance...";
+                    captchaMessage.textContent = "✓ Authentication successful! Connecting to Student Hub Portal...";
                     captchaMessage.style.color = "#10b981";
                 }
                 localStorage.setItem("studentHubLoggedIn", "true");
@@ -495,7 +495,7 @@ if (loginForm) {
         .catch(err => {
             // Graceful fallback for static/offline environments
             if (captchaMessage) {
-                captchaMessage.textContent = "✓ Authentication successful! Connecting to CHARUSAT e-Governance...";
+                captchaMessage.textContent = "✓ Authentication successful! Connecting to Student Hub Portal...";
                 captchaMessage.style.color = "#10b981";
             }
             localStorage.setItem("studentHubLoggedIn", "true");
@@ -1065,7 +1065,7 @@ if (registrationForm) {
                 <div class="registration-success-card" role="status" aria-live="polite">
                     <div class="success-icon-badge">✓</div>
                     <h3>Registration Validated Successfully!</h3>
-                    <p>Your student profile has been verified for CHARUSAT e-Governance enrollment.</p>
+                    <p>Your student profile has been verified for Student Hub Portal enrollment.</p>
                     
                     <div class="registration-summary-box">
                         <div class="registration-summary-row">

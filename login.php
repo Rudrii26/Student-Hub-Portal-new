@@ -55,7 +55,7 @@ if (isset($_GET['logout']) && $_GET['logout'] === 'success') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign In - CHARUSAT Student Hub Portal</title>
+    <title>Sign In - Student Hub Portal</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -73,7 +73,7 @@ if (isset($_GET['logout']) && $_GET['logout'] === 'success') {
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
             </div>
             <h1>Portal Sign In</h1>
-            <p class="login-subtitle">CHARUSAT e-Governance & Student Career OS</p>
+            <p class="login-subtitle">Student Hub Portal &bull; Student Career OS</p>
         </div>
 
         <?php if (!empty($errorMessage)): ?>

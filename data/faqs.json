@@ -1,0 +1,110 @@
+[
+  {
+    "id": "FAQ-001",
+    "category": "Attendance",
+    "question": "How can I track my live attendance and calculate the 75% criteria?",
+    "answer": "You can view your subject-wise lecture and lab attendance in real-time under the Attendance tab. The portal calculates your safe bunk allowance and highlights any subject approaching the mandatory 75% university detention threshold."
+  },
+  {
+    "id": "FAQ-002",
+    "category": "Results",
+    "question": "How do I access and download my official Semester Grade Card & SGPA?",
+    "answer": "Head over to the Exams & Results page. All evaluated semester grades, SGPA (e.g. 8.56) and cumulative CGPA (8.53) are calculated with official CHARUSAT university verification and downloadable transcript formats."
+  },
+  {
+    "id": "FAQ-003",
+    "category": "Fees",
+    "question": "How do I pay semester tuition or hostel fees online?",
+    "answer": "Navigate to the College Fees or Hostel & Mess section to view outstanding balance invoices. You can clear fees through the integrated HDFC payment gateway or UPI apps with immediate digitally signed receipt generation."
+  },
+  {
+    "id": "FAQ-004",
+    "category": "Profile",
+    "question": "What should I do if I forget my portal password or need credentials recovery?",
+    "answer": "Click on the 'Forgot Password?' link on the authentication panel. Enter your CHARUSAT Student ID (e.g. 25CS027) to receive an OTP verification code on your registered university email address or contact the IT Cell Helpdesk."
+  },
+  {
+    "id": "FAQ-005",
+    "category": "Academic",
+    "question": "How do I submit leave requests or apply for bonafide certificates?",
+    "answer": "Go to the Applications & Requests module in the portal sidebar. You can electronically submit medical leaves, duty leave for tech competitions, and bonafide certificate requests directly to your faculty mentor."
+  },
+  {
+    "id": "FAQ-006",
+    "category": "Timetable",
+    "question": "Where can I view my semester timetable and lecture/lab venues?",
+    "answer": "Navigate to the Timetable section in the student dashboard. It provides your weekly day-wise schedule including lectures, tutorial sessions, and laboratory slots (e.g. CSPIT Lab-04 and LT-104) along with faculty allocations."
+  },
+  {
+    "id": "FAQ-007",
+    "category": "Academic",
+    "question": "How do I access course syllabi, lecture notes, and study materials?",
+    "answer": "Access the Courses & Subjects and Study Material tabs on your dashboard. You can download official semester syllabi, faculty lecture slides, reference PDFs, and previous examination question archives."
+  },
+  {
+    "id": "FAQ-008",
+    "category": "Examination",
+    "question": "How are mid-term and end-term exam hall tickets and seating arrangements published?",
+    "answer": "Exam hall tickets with student seat numbers (e.g. 25CS027-01) and assigned examination halls (e.g. CSPIT Block-A) are published 10 days before exams in the Exams & Results section."
+  },
+  {
+    "id": "FAQ-009",
+    "category": "Campus",
+    "question": "How do I register for campus hackathons, SPOURAL fest, and technical clubs?",
+    "answer": "Visit the Campus Life section to browse all upcoming university tech fests, coding tournaments, and workshops. Click 'Register Now' on any event card to generate an instant entry pass."
+  },
+  {
+    "id": "FAQ-010",
+    "category": "Fees",
+    "question": "Where can I find and download past semester fee receipts for income tax or scholarship claims?",
+    "answer": "Go to Payments & Receipts. Every payment completed through the online portal generates a permanent digital receipt featuring transaction reference codes, breakdown of charges, and university seal."
+  },
+  {
+    "id": "FAQ-011",
+    "category": "General",
+    "question": "How do I connect to CHARUSAT high-speed campus Wi-Fi across campus?",
+    "answer": "Connect to the 'CHARUSAT-STUDENT' SSID and log in using your university credentials (e.g. 25CS027). If your MAC address requires registration, submit a request via Settings & Helpdesk."
+  },
+  {
+    "id": "FAQ-012",
+    "category": "Campus",
+    "question": "How does hostel mess telemetry and daily dining menu updates work?",
+    "answer": "Under Hostel & Mess, you can view the 7-day nutritional mess menu, today's breakfast, lunch, and dinner specials, submit digital gatepass requests, and reach out to the hostel warden desk."
+  },
+  {
+    "id": "FAQ-013",
+    "category": "Profile",
+    "question": "How can I update my emergency contact details or permanent address in the portal?",
+    "answer": "Navigate to My Profile > Edit Profile. You can update your alternate phone number, guardian contact details, and residence address. Changes are reviewed and synchronized with administrative records."
+  },
+  {
+    "id": "FAQ-014",
+    "category": "Academic",
+    "question": "What is the procedure for semester grade re-evaluation or paper verification?",
+    "answer": "Within 7 days of semester result declaration, submit a Re-evaluation Request through the Applications section. A nominal fee is payable online, and updated grade sheets are issued upon re-check."
+  },
+  {
+    "id": "FAQ-015",
+    "category": "Examination",
+    "question": "What are the rules regarding minimum passing marks and grade points?",
+    "answer": "Students must achieve a minimum grade of 'CC' (5.0 grade points) in individual theory and laboratory heads, and maintain a cumulative CGPA of 5.0 to be eligible for regular semester promotion."
+  },
+  {
+    "id": "FAQ-016",
+    "category": "General",
+    "question": "Who is my designated faculty mentor and how do I schedule a counseling session?",
+    "answer": "Your assigned faculty mentor is displayed in My Profile and Dashboard (e.g. Prof. Vaibhavi Patel for CS). You can message them through the portal or meet during designated weekly mentoring hours."
+  },
+  {
+    "id": "FAQ-017",
+    "category": "Campus",
+    "question": "How do I access the central university library and IEEE/ScienceDirect digital research portals?",
+    "answer": "Your student RFID card grants access to the Central Library. For digital journals (IEEE Xplore, ScienceDirect, ACM Digital Library), access them directly via the Study Material tab on campus intranet."
+  },
+  {
+    "id": "FAQ-018",
+    "category": "General",
+    "question": "How do employers or third parties verify my academic degree and transcript?",
+    "answer": "Direct third parties or employers to the Academic Verification page (or provide your unique verification token CHARUSAT-VRF-25CS027-2026) for instant, tamper-proof credential authentication."
+  }
+]

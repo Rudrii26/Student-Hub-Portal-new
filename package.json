@@ -1,7 +1,7 @@
 {
   "name": "charusat-student-hub-portal",
   "version": "1.0.0",
-  "description": "CHARUSAT Student Hub e-Governance Portal",
+  "description": "Student Hub Portal - Academic & Student Platform",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

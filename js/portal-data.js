@@ -1,7 +1,7 @@
 /* ==========================================================================
-   CHARUSAT UNIVERSITY - E-GOVERNANCE CENTRALIZED DATA ENGINE
+   CHARUSAT UNIVERSITY - STUDENT HUB PORTAL DATA ENGINE
    Charotar University of Science and Technology (CHARUSAT), Changa, Gujarat
-   Official e-Governance Integration Model & Curriculum Data
+   Official Student Hub Portal Integration Model & Curriculum Data
    Student Record: Kakadiya Rudri Alpeshbhai (25CS027) • CSPIT Computer Engineering
    ========================================================================== */
 
@@ -439,7 +439,7 @@ const DEFAULT_PORTAL_DATA = {
     ],
 
     recentActivity: [
-        { title: "Logged into CHARUSAT e-Governance Portal", time: "Just now", icon: "🔑" },
+        { title: "Logged into Student Hub Portal", time: "Just now", icon: "🔑" },
         { title: "Viewed Attendance Telemetry (89.0% Safe)", time: "15 minutes ago", icon: "📋" },
         { title: "Submitted CS204 Digital Logic ALU Design", time: "Yesterday, 04:30 PM", icon: "📝" },
         { title: "Paid ₹40,000 Tuition Fee via CHARUSAT Gateway", time: "20 Jul 2026", icon: "💳" }

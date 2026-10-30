@@ -382,7 +382,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Registration - CHARUSAT Student Portal</title>
+    <title>Student Registration - Student Hub Portal</title>
     <link rel="stylesheet" href="<?= htmlspecialchars($assetPrefix) ?>css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -400,7 +400,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" x2="19" y1="8" y2="14"/><line x1="22" x2="16" y1="11" y2="11"/></svg>
             </div>
             <h1>New Student Registration</h1>
-            <p class="login-subtitle">Enroll your profile on CHARUSAT e-Governance Portal</p>
+            <p class="login-subtitle">Enroll your profile on Student Hub Portal</p>
         </div>
 
         <?php if ($isSuccessView && $successData): ?>
@@ -410,7 +410,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="registration-success-card" role="status" aria-live="polite">
                 <div class="success-icon-badge">✓</div>
                 <h3>Registration Submitted Successfully!</h3>
-                <p>Your student profile has been verified and permanently registered in the CHARUSAT MySQL Database.</p>
+                <p>Your student profile has been verified and permanently registered in the Student Hub Portal Database.</p>
                 
                 <div class="registration-summary-box">
                     <div class="registration-summary-row">

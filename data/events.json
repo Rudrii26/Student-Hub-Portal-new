@@ -1,0 +1,200 @@
+[
+    {
+        "id": "EVT-2026-012",
+        "title": "Annual Blood Donation & Community Health Camp",
+        "category": "Campus",
+        "date": "2026-10-12",
+        "time": "09:00 AM - 04:00 PM",
+        "location": "CHARUSAT Healthcare Centre & Pharmacy Quad",
+        "organizer": "NSS & Red Cross Student Chapter",
+        "status": "Completed",
+        "description": "University-wide voluntary blood donation drive and complimentary preventive health screenings."
+    },
+    {
+        "id": "EVT-2026-008",
+        "title": "Competitive Programming Bootcamp (ICPC Qualifier)",
+        "category": "Technical",
+        "date": "2026-10-14",
+        "time": "02:00 PM - 06:00 PM",
+        "location": "CSPIT Lab-04 & Online Portal",
+        "organizer": "ACM CHARUSAT Student Chapter",
+        "status": "Open for Registration",
+        "description": "Intensive training on dynamic programming, segment trees, graph flows, and competitive algorithmic problem-solving."
+    },
+    {
+        "id": "EVT-2026-018",
+        "title": "Quantitative Aptitude & Soft Skills Prep Series",
+        "category": "Placement",
+        "date": "2026-10-15",
+        "time": "03:30 PM - 05:30 PM",
+        "location": "CSPIT LT-102",
+        "organizer": "Training & Placement Cell (CSPIT)",
+        "status": "Ongoing",
+        "description": "Weekly fast-track sessions on mathematical reasoning, verbal ability, group discussion, and technical interview mastery."
+    },
+    {
+        "id": "EVT-2026-003",
+        "title": "Mastering Cloud-Native Microservices with Kubernetes",
+        "category": "Workshop",
+        "date": "2026-10-18",
+        "time": "10:00 AM - 04:00 PM",
+        "location": "CMPICA Seminar Hall (Lab 4)",
+        "organizer": "AWS & CNCF Student Chapter",
+        "status": "Open for Registration",
+        "description": "Hands-on containerization, Docker multi-stage builds, and Kubernetes cluster orchestration workshop."
+    },
+    {
+        "id": "EVT-2026-005",
+        "title": "Inter-Institute Football Championship 2026",
+        "category": "Sports",
+        "date": "2026-10-22",
+        "time": "04:00 PM - 07:30 PM",
+        "location": "CHARUSAT Sports Complex & Football Arena",
+        "organizer": "Department of Physical Education",
+        "status": "Ongoing",
+        "description": "Knockout football league tournament between CSPIT, DEPSTAR, CMPICA, RPCP, and I2IM institute squads."
+    },
+    {
+        "id": "EVT-2026-001",
+        "title": "SPOURAL 2026 - CHARUSAT Mega University Fest",
+        "category": "Cultural",
+        "date": "2026-10-25",
+        "time": "09:00 AM - 09:00 PM",
+        "location": "CHARUSAT Central Grounds & CSPIT Auditorium",
+        "organizer": "Student Activities Council (SAC)",
+        "status": "Upcoming",
+        "description": "Flagship annual festival featuring hackathons, battle of bands, robotics arena, drama, fine arts, and celebrity music night."
+    },
+    {
+        "id": "EVT-2026-011",
+        "title": "RoboWar & Autonomous Drone Challenge",
+        "category": "Technical",
+        "date": "2026-10-26",
+        "time": "11:00 AM - 05:00 PM",
+        "location": "CSPIT Open Air Theatre & Arena",
+        "organizer": "Robotics & IoT Club (CSPIT)",
+        "status": "Upcoming",
+        "description": "High-octane combat robotics in 15kg/30kg weight categories and autonomous obstacle-course drone racing."
+    },
+    {
+        "id": "EVT-2026-015",
+        "title": "Classical Music & Gujarati Folk Dance Evening",
+        "category": "Cultural",
+        "date": "2026-10-27",
+        "time": "06:30 PM - 10:00 PM",
+        "location": "CHARUSAT Main Amphitheatre",
+        "organizer": "Sanskriti Cultural Forum",
+        "status": "Completed",
+        "description": "An evening celebrating traditional folk heritage, Garba symphony, classical jugalbandi, and vocal performances."
+    },
+    {
+        "id": "EVT-2026-014",
+        "title": "Cyber Security CTF (Capture The Flag) Tournament",
+        "category": "Technical",
+        "date": "2026-10-28",
+        "time": "08:00 PM - 02:00 AM",
+        "location": "Cyber Defense Lab (CSPIT 3rd Floor)",
+        "organizer": "CHARUSAT Cyber Security Guild",
+        "status": "Upcoming",
+        "description": "Overnight cybersecurity competition testing cryptography, reverse engineering, web security, and digital forensics."
+    },
+    {
+        "id": "EVT-2026-007",
+        "title": "Clean Energy Innovation & Green Campus Summit",
+        "category": "Campus",
+        "date": "2026-10-30",
+        "time": "09:30 AM - 03:30 PM",
+        "location": "CSPIT Civil & Mechanical Atrium",
+        "organizer": "CHARUSAT Eco-Club & Solar Tech Cell",
+        "status": "Upcoming",
+        "description": "Exhibition of solar energy projects, smart rainwater harvesting prototypes, and zero-carbon campus initiatives."
+    },
+    {
+        "id": "EVT-2026-009",
+        "title": "Semester Research Paper Writing & Publishing Workshop",
+        "category": "Academic",
+        "date": "2026-11-02",
+        "time": "10:30 AM - 01:30 PM",
+        "location": "Central Research Facility (CRF) Auditorium",
+        "organizer": "Dean of Research & Development",
+        "status": "Upcoming",
+        "description": "Guidance on IEEE/Springer manuscript preparation, LaTeX formatting, peer-review handling, and citation indexation."
+    },
+    {
+        "id": "EVT-2026-004",
+        "title": "Annual Placement Leadership & Industry Conclave",
+        "category": "Placement",
+        "date": "2026-11-05",
+        "time": "10:00 AM - 05:00 PM",
+        "location": "CHARUSAT University Convention Center",
+        "organizer": "Career Development & Placement Cell (CDPC)",
+        "status": "Upcoming",
+        "description": "Keynote talks, mock interviews, resume critiques, and networking sessions with Fortune 500 tech leaders."
+    },
+    {
+        "id": "EVT-2026-016",
+        "title": "Inter-College Table Tennis & Badminton Tournament",
+        "category": "Sports",
+        "date": "2026-11-08",
+        "time": "09:00 AM - 06:00 PM",
+        "location": "Indoor Sports Complex (Court 1 & 2)",
+        "organizer": "Sports Board CHARUSAT",
+        "status": "Upcoming",
+        "description": "Men's and Women's singles and doubles knockout tournament for university students and staff."
+    },
+    {
+        "id": "EVT-2026-002",
+        "title": "National 36-Hour Hackathon: CodeForge",
+        "category": "Technical",
+        "date": "2026-11-10",
+        "time": "08:00 AM - 08:00 PM",
+        "location": "CSPIT Advanced Computing Labs",
+        "organizer": "CSPIT Computer Engineering Department",
+        "status": "Open for Registration",
+        "description": "36-hour non-stop hackathon on AI, Blockchain, CleanTech, and Cloud solutions with a total prize pool of ₹2,50,000."
+    },
+    {
+        "id": "EVT-2026-017",
+        "title": "UI/UX Design Sprint & Figma Masterclass",
+        "category": "Workshop",
+        "date": "2026-11-12",
+        "time": "01:30 PM - 05:30 PM",
+        "location": "CSPIT Design Studio Lab",
+        "organizer": "CHARUSAT Developer Student Club (GDSC)",
+        "status": "Open for Registration",
+        "description": "Wireframing, design token systems, user testing heuristics, and prototyping responsive modern web applications."
+    },
+    {
+        "id": "EVT-2026-006",
+        "title": "AI Ethics & Generative Intelligence Symposium",
+        "category": "Seminar",
+        "date": "2026-11-15",
+        "time": "11:00 AM - 02:00 PM",
+        "location": "DEPSTAR Auditorium Hall B",
+        "organizer": "DEPSTAR AI & Data Science Forum",
+        "status": "Upcoming",
+        "description": "Distinguished research lecture series exploring LLMs, agentic workflows, ethical alignment, and safety in computing."
+    },
+    {
+        "id": "EVT-2026-013",
+        "title": "Startup Pitch Arena & Seed Grant Expo",
+        "category": "Club",
+        "date": "2026-11-18",
+        "time": "10:00 AM - 04:30 PM",
+        "location": "CHARUSAT Incubation & Innovation Hub (EDIC)",
+        "organizer": "Entrepreneurship Development Cell",
+        "status": "Open for Registration",
+        "description": "Student-founded startups pitch to venture capitalists and angel investors for initial prototyping seed funding."
+    },
+    {
+        "id": "EVT-2026-010",
+        "title": "Global Alumni Tech Talk: Scaling to Millions of Users",
+        "category": "Seminar",
+        "date": "2026-11-20",
+        "time": "06:00 PM - 07:30 PM",
+        "location": "Virtual Live Stream & CMPICA LT-1",
+        "organizer": "CHARUSAT Alumni Association",
+        "status": "Upcoming",
+        "description": "Interactive session with CHARUSAT alumni working at global tech companies on distributed system architecture."
+    }
+]

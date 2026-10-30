@@ -1,0 +1,10 @@
+# Prevent direct browser access to sensitive backend storage files
+<FilesMatch "\.(csv|log|sql)$">
+    Require all denied
+</FilesMatch>
+
+# Protect sensitive user and registration datasets
+<FilesMatch "^(registrations|students|faqs)\.json$">
+    Require all denied
+</FilesMatch>
+

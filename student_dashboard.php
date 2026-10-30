@@ -2,7 +2,7 @@
 /**
  * CHARUSAT Student Hub - Student Portal Dashboard (student_dashboard.php)
  * Protected portal page accessible exclusively to users with role = 'student'.
- * Restores the complete original CHARUSAT e-Governance UI/UX design,
+ * Restores the complete unified Student Hub Portal UI/UX design,
  * sidebar navigation, hero aura banner, bento grid telemetry, and dynamic profile data.
  */
 
@@ -94,7 +94,7 @@ $greeting = ($currentHour >= 5 && $currentHour < 12) ? 'Good Morning' : (($curre
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CHARUSAT e-Governance - Student Dashboard</title>
+    <title>Student Dashboard - Student Hub Portal</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/portal.css">
     <link rel="stylesheet" href="style.css">
@@ -115,7 +115,7 @@ $greeting = ($currentHour >= 5 && $currentHour < 12) ? 'Good Morning' : (($curre
                 </div>
                 <div class="sidebar-brand-text">
                     <span class="sidebar-brand-title">CHARUSAT</span>
-                    <span class="sidebar-brand-sub">e-Governance Portal</span>
+                    <span class="sidebar-brand-sub">Student Hub Portal</span>
                 </div>
             </div>
 
@@ -220,7 +220,7 @@ $greeting = ($currentHour >= 5 && $currentHour < 12) ? 'Good Morning' : (($curre
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
                     </button>
                     <div class="header-title-box">
-                        <h1>CHARUSAT e-Governance Dashboard</h1>
+                        <h1>Student Dashboard</h1>
                         <div class="header-breadcrumb">
                             <a href="index.html" style="color: inherit; text-decoration: none;">CHARUSAT</a>
                             <span>/</span>
@@ -238,7 +238,7 @@ $greeting = ($currentHour >= 5 && $currentHour < 12) ? 'Good Morning' : (($curre
                     <!-- Global Command Search Trigger -->
                     <button class="search-trigger-btn" onclick="openGlobalSearch()">
                         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-                        <span>Search e-Governance...</span>
+                        <span>Search Student Hub...</span>
                         <span class="search-shortcut">⌘K</span>
                     </button>
 

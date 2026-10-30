@@ -1,5 +1,5 @@
 /* ==========================================================================
-   CHARUSAT UNIVERSITY - E-GOVERNANCE INTERACTION & PORTAL ENGINE
+   CHARUSAT UNIVERSITY - STUDENT HUB PORTAL INTERACTION ENGINE
    Charotar University of Science and Technology (CHARUSAT), Changa
    Student Profile: Kakadiya Rudri Alpeshbhai (25CS027) • CSPIT CE
    ========================================================================== */
@@ -226,7 +226,7 @@ function closeSidebar() {
 function logoutUser() {
     localStorage.removeItem("studentHubLoggedIn");
     localStorage.removeItem("studentHubUser");
-    showToast("Logging out from CHARUSAT e-Governance...", "info");
+    showToast("Logging out from Student Hub Portal...", "info");
     try {
         const isPagesDir = window.location.pathname.includes('/pages/');
         const logoutUrl = isPagesDir ? '../logout.php' : 'logout.php';
@@ -237,6 +237,42 @@ function logoutUser() {
         window.location.href = isPagesDir ? "../index.html" : "index.html";
     }, 600);
 }
+
+// 6.1 Header Dropdowns & Print Actions
+function toggleNotifications() {
+    const dropdown = document.getElementById("notificationDropdown");
+    const profileDropdown = document.getElementById("profileDropdown");
+    if (profileDropdown) profileDropdown.classList.remove("show");
+    if (dropdown) {
+        dropdown.classList.toggle("show");
+    }
+}
+
+function toggleProfileMenu() {
+    const dropdown = document.getElementById("profileDropdown");
+    const notifDropdown = document.getElementById("notificationDropdown");
+    if (notifDropdown) notifDropdown.classList.remove("show");
+    if (dropdown) {
+        dropdown.classList.toggle("show");
+    }
+}
+
+function markAllNotificationsRead() {
+    const list = document.querySelectorAll("#notificationList .notification-item");
+    list.forEach(item => item.classList.remove("unread"));
+    const badge = document.querySelector(".notification-badge-count");
+    if (badge) badge.style.display = "none";
+    showToast("All announcements marked as read.", "success");
+}
+
+function printReceipt() {
+    window.print();
+}
+
+window.toggleNotifications = toggleNotifications;
+window.toggleProfileMenu = toggleProfileMenu;
+window.markAllNotificationsRead = markAllNotificationsRead;
+window.printReceipt = printReceipt;
 
 // 7. Dynamic DOM Upgrades (Header, Sidebar Icons, Avatar)
 function upgradePortalDOM() {
